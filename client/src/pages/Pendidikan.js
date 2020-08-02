@@ -1,0 +1,38 @@
+import React from "react";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import { Container } from "react-bootstrap";
+
+export default () => {
+  return (
+    <>
+      <Navigation />
+      <Container>
+        <div style={{ marginTop: 50 }}>
+          <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Pendidikan</p>
+        </div>
+        <div>
+          <p style={{ fontWeight: "bold", marginBottom: 0 }}>
+            Beberapa kegiatan dibidang pendidikan yang diselenggarakan oleh Yayasan di antaranya:
+          </p>
+
+          <ol style={{ marginLeft: -20 }}>
+            <li>
+              Memberikan bantuan biaya pendidikan kepada putra/putri karyawan dan pensiunan peruma
+              perhutani yang berprestasi.
+            </li>
+            <li>
+              mengelola Wisma Putra Rimba untuk membantu menyediakan tempat tinggal bagi putra/putri
+              karyawan/pensiunan Perum Perhutani yang melanjutkan pendidikan di Surabaya.
+            </li>
+            <li>
+              Membantu pengembangan dan pembinaan lembaga Pendidikan dilingkup Perum Perhutani.
+            </li>
+            <li>Menyelenggarakan Pendidikan Non-formal (TK/TPA/PAUD)</li>
+          </ol>
+        </div>
+      </Container>
+      <Footer />
+    </>
+  );
+};

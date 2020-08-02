@@ -1,0 +1,12 @@
+export { default as Home } from "./Home";
+export { default as Galery } from "./Galery";
+export { default as Berita } from "./Berita";
+export { default as Contact } from "./Contact";
+export { default as About } from "./About";
+export { default as Visi } from "./Visi";
+export { default as Cabang } from "./Cabang";
+export { default as Sejarah } from "./Sejarah";
+export { default as Pendidikan } from "./Pendidikan";
+export { default as Sosial } from "./Sosial";
+export { default as Perumahan } from "./Perumahan";
+export { default as Kesehatan } from "./Kesehatan";
