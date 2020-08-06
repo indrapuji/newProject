@@ -5,57 +5,65 @@ import {
   Galery,
   Home,
   About,
-  Visi,
+  Kepengurusan,
   Cabang,
   Sejarah,
   Pendidikan,
   Sosial,
   Perumahan,
-  Kesehatan
+  Kesehatan,
+  Update,
 } from "./pages";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   return (
     <>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/profile/about">
-          <About />
-        </Route>
-        <Route exact path="/profile/visi">
-          <Visi />
-        </Route>
-        <Route exact path="/profile/cabang">
-          <Cabang />
-        </Route>
-        <Route exact path="/profile/sejarah">
-          <Sejarah />
-        </Route>
-        <Route exact path="/program/pendidikan">
-          <Pendidikan />
-        </Route>
-        <Route exact path="/program/sosial">
-          <Sosial />
-        </Route>
-        <Route exact path="/program/perumahan">
-          <Perumahan />
-        </Route>
-        <Route exact path="/program/kesehatan">
-          <Kesehatan />
-        </Route>
-        <Route path="/berita">
-          <Berita />
-        </Route>
-        <Route path="/galery">
-          <Galery />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/profile/about">
+            <About />
+          </Route>
+          <Route exact path="/profile/kepengurusan">
+            <Kepengurusan />
+          </Route>
+          <Route exact path="/profile/cabang">
+            <Cabang />
+          </Route>
+          <Route exact path="/profile/sejarah">
+            <Sejarah />
+          </Route>
+          <Route exact path="/program/pendidikan">
+            <Pendidikan />
+          </Route>
+          <Route exact path="/program/sosial">
+            <Sosial />
+          </Route>
+          <Route exact path="/program/perumahan">
+            <Perumahan />
+          </Route>
+          <Route exact path="/program/kesehatan">
+            <Kesehatan />
+          </Route>
+          <Route exact path="/data/update">
+            <Update />
+          </Route>
+          <Route path="/berita">
+            <Berita />
+          </Route>
+          <Route path="/galery">
+            <Galery />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </>
   );
 }

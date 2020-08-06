@@ -15,79 +15,113 @@ import BangunKemandirian from "../assets/image/bangunkemandirian.jpeg";
 import BriDukung from "../assets/image/bridukungjati.jpeg";
 import Santunan from "../assets/image/santunan.jpeg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "../App.css";
 
 export default () => {
+  const pageTransition = {
+    init: {
+      x: -300,
+    },
+    in: {
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+    },
+  };
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: 1,
+        when: "beforeChildren",
+        staggerChildren: 0.5,
+      },
+    },
+  };
+  const item = {
+    hidden: { x: -100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+  };
   return (
-    <>
+    <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
       <CarauselCard />
       <Container>
-        <hr style={{ marginTop: 50 }} />
-        <p
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-            marginTop: -10,
-            marginBottom: -10,
-            fontSize: 20,
-          }}
-        >
-          Program kami
-        </p>
-        <hr />
-      </Container>
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <hr style={{ marginTop: 50 }} />
+          <p
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              marginTop: -10,
+              marginBottom: -10,
+              fontSize: 20,
+            }}
+          >
+            Program kami
+          </p>
+          <hr />
 
-      <Container>
-        <CardDeck>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Pendidikan} style={{ height: "10rem" }} />
-            <Card.Body>
-              <Card.Title>Pendidikan</Card.Title>
-              <Card.Text>
-                Education Is The Most Powerful Weapon Which You Can Use To Change The World <br />
-                <span style={{ fontWeight: "bold" }}>- Nelson Mandel</span>
-              </Card.Text>
-              <Link to="/program/pendidikan">Selengkapnya</Link>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Sosial} style={{ height: "10rem" }} />
-            <Card.Body>
-              <Card.Title>Sosial</Card.Title>
-              <Card.Text>
-                People don't care how much you know until they know how much you care
-                <br />
-                <span style={{ fontWeight: "bold" }}>- John C mAxwell</span>
-              </Card.Text>
-              <Link to="/program/sosial">Selengkapnya</Link>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Perumahan} style={{ height: "10rem" }} />
-            <Card.Body>
-              <Card.Title>Perumahan</Card.Title>
-              <Card.Text>
-                A House Is a Machine For Living in
-                <br />
-                <span style={{ fontWeight: "bold" }}>- LE CORBUSIER</span>
-              </Card.Text>
-              <Link to="/program/perumahan">Selengkapnya</Link>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
-            <Card.Body>
-              <Card.Title>Kesehatan</Card.Title>
-              <Card.Text>
-                He who has health , has hope ; and he who has hope, has everything
-                <br />
-                <span style={{ fontWeight: "bold" }}>- Arabian Proverb</span>
-              </Card.Text>
-              <Link to="/program/kesehatan">Selengkapnya</Link>
-            </Card.Body>
-          </Card>
-        </CardDeck>
+          <motion.div variants={item}>
+            <CardDeck>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={Pendidikan} style={{ height: "10rem" }} />
+                <Card.Body>
+                  <Card.Title>Pendidikan</Card.Title>
+                  <Card.Text>
+                    Education Is The Most Powerful Weapon Which You Can Use To Change The World{" "}
+                    <br />
+                    <span style={{ fontWeight: "bold" }}>- Nelson Mandel</span>
+                  </Card.Text>
+                  <Link to="/program/pendidikan">Selengkapnya</Link>
+                </Card.Body>
+              </Card>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={Sosial} style={{ height: "10rem" }} />
+                <Card.Body>
+                  <Card.Title>Sosial</Card.Title>
+                  <Card.Text>
+                    People don't care how much you know until they know how much you care
+                    <br />
+                    <span style={{ fontWeight: "bold" }}>- John C mAxwell</span>
+                  </Card.Text>
+                  <Link to="/program/sosial">Selengkapnya</Link>
+                </Card.Body>
+              </Card>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={Perumahan} style={{ height: "10rem" }} />
+                <Card.Body>
+                  <Card.Title>Perumahan</Card.Title>
+                  <Card.Text>
+                    A House Is a Machine For Living in
+                    <br />
+                    <span style={{ fontWeight: "bold" }}>- LE CORBUSIER</span>
+                  </Card.Text>
+                  <Link to="/program/perumahan">Selengkapnya</Link>
+                </Card.Body>
+              </Card>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
+                <Card.Body>
+                  <Card.Title>Kesehatan</Card.Title>
+                  <Card.Text>
+                    He who has health , has hope ; and he who has hope, has everything
+                    <br />
+                    <span style={{ fontWeight: "bold" }}>- Arabian Proverb</span>
+                  </Card.Text>
+                  <Link to="/program/kesehatan">Selengkapnya</Link>
+                </Card.Body>
+              </Card>
+            </CardDeck>
+          </motion.div>
+        </motion.div>
       </Container>
       <div style={{ backgroundColor: "#d7dbd8", padding: 10, marginTop: 50 }}>
         <Container>
@@ -95,7 +129,10 @@ export default () => {
           <div className="row w-150" style={{ paddingBottom: 30 }}>
             <div className="col-md-3">
               <Link to="/profile/about">
-                <div className="card mx-sm-1 p-3">
+                <motion.div
+                  className="card mx-sm-1 p-3"
+                  whileHover={{ color: "#45fc03", scale: 1.2 }}
+                >
                   <div style={{ textAlign: "center" }}>
                     <span style={{ textAlign: "center" }}>
                       <FcAbout color="blue" size="25" />
@@ -104,12 +141,15 @@ export default () => {
                   <div className="text-info text-center mt-3">
                     <h4>Tentang Kami</h4>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             </div>
             <div className="col-md-3">
               <Link to="profile/visi">
-                <div className="card border-success mx-sm-1 p-3">
+                <motion.div
+                  className="card border-success mx-sm-1 p-3"
+                  whileHover={{ color: "#45fc03", scale: 1.2 }}
+                >
                   <div style={{ textAlign: "center" }}>
                     <span style={{ textAlign: "center" }}>
                       <FaEye color="green" size="25" />
@@ -118,12 +158,15 @@ export default () => {
                   <div className="text-success text-center mt-3">
                     <h4>Visi & Misi</h4>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             </div>
             <div className="col-md-3">
               <Link to="profile/cabang">
-                <div className="card border-danger mx-sm-1 p-3">
+                <motion.div
+                  className="card border-danger mx-sm-1 p-3"
+                  whileHover={{ color: "#45fc03", scale: 1.2 }}
+                >
                   <div style={{ textAlign: "center" }}>
                     <span style={{ textAlign: "center" }}>
                       <FaBuilding color="red" size="25" />
@@ -132,12 +175,15 @@ export default () => {
                   <div className="text-danger text-center mt-3">
                     <h4>Kantor Cabang</h4>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             </div>
             <div className="col-md-3">
               <Link to="profile/sejarah">
-                <div className="card border-warning mx-sm-1 p-3">
+                <motion.div
+                  className="card border-warning mx-sm-1 p-3"
+                  whileHover={{ color: "#45fc03", scale: 1.2 }}
+                >
                   <div style={{ textAlign: "center" }}>
                     <span style={{ textAlign: "center" }}>
                       <BsClockHistory color="yellow" size="25" />
@@ -146,7 +192,7 @@ export default () => {
                   <div className="text-warning text-center mt-3">
                     <h4>Sejarah</h4>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             </div>
           </div>
@@ -251,6 +297,6 @@ export default () => {
       </div>
 
       <Footer />
-    </>
+    </motion.div>
   );
 };

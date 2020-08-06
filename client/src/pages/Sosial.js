@@ -2,10 +2,22 @@ import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { Container } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 export default () => {
+  const pageTransition = {
+    init: {
+      x: -300,
+    },
+    in: {
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+    },
+  };
   return (
-    <>
+    <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
       <Container>
         <div style={{ marginTop: 50 }}>
@@ -39,6 +51,6 @@ export default () => {
         </div>
       </Container>
       <Footer />
-    </>
+    </motion.div>
   );
 };
