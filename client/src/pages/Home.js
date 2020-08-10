@@ -16,6 +16,7 @@ import BriDukung from "../assets/image/bridukungjati.jpeg";
 import Santunan from "../assets/image/santunan.jpeg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Visimisi from "../components/Visimisi";
 import "../App.css";
 
 export default () => {
@@ -209,7 +210,7 @@ export default () => {
               <div className="carousel vert slide" data-ride="carousel" data-interval="2000">
                 <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <ul className="timeline">
+                    <ul className="linetime">
                       <li>
                         <Link to="/berita">
                           Yayasan Jati Sejahtera (YKP3JS) Silaturahmi Di Jawa Barat
@@ -246,6 +247,7 @@ export default () => {
           </div>
         </div>
       </div>
+      <Visimisi />
       <div style={{ marginTop: 50 }}>
         <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }}>GALERY</p>
       </div>

@@ -1,8 +1,9 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { Container } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
+import Bansos from "../assets/image/bansos.jpg";
 
 export default () => {
   const pageTransition = {
@@ -20,10 +21,13 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
       <Container>
-        <div style={{ marginTop: 50 }}>
+        <div style={{ marginTop: 20 }}>
           <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Sosial</p>
         </div>
-        <div>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
+          <Image src={Bansos} rounded style={{ height: 400, width: 600 }} />
+        </div>
+        <div style={{ marginTop: 20 }}>
           <p style={{ fontWeight: "bold", marginBottom: 0 }}>
             Beberapa kegiatan dibidang Sosial dan Kemanusiaan yang diselenggarakan oleh Yayasan
             diantaranya:

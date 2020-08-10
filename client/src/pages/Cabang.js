@@ -1,8 +1,9 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
+import Map from "../assets/image/map.png";
 
 export default () => {
   const pageTransition = {
@@ -20,7 +21,15 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
       <Container>
-        <div style={{ marginTop: 50, marginBottom: 20 }}>
+        <div style={{ marginTop: 20 }}>
+          <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>
+            Kantor Cabang YKP3JS
+          </p>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 40, marginBottom: 20 }}>
+          <Image src={Map} rounded style={{ height: 400, width: 1000 }} />
+        </div>
+        <div>
           <Row>
             <Col>
               <p style={{ fontWeight: "bold", fontSize: 20, marginBottom: 5 }}>KANTOR PUSAT</p>

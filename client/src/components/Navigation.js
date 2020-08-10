@@ -51,10 +51,16 @@ export default () => {
               <Link to="/data/realisasi">Data Realisasi</Link>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <Link to="/data/peserta">Data Peserta</Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
               <Link to="/data/update">Pengkinian Data</Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item
+              href="https://jatisejahtera-93bab.firebaseapp.com/"
+              style={{ color: "blue" }}
+            >
+              Pengajuan
+            </NavDropdown.Item>
+            <NavDropdown.Item href="https://jaticms.firebaseapp.com/" style={{ color: "blue" }}>
+              Admin
             </NavDropdown.Item>
           </NavDropdown>
           <Nav.Link>

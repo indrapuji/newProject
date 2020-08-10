@@ -11,3 +11,4 @@ export { default as Perumahan } from "./Perumahan";
 export { default as Kesehatan } from "./Kesehatan";
 export { default as Kepengurusan } from "./Kepengurusan";
 export { default as Update } from "./Update";
+export { default as Realisasi } from "./Realisasi";

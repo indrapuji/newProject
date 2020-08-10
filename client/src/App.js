@@ -13,6 +13,7 @@ import {
   Perumahan,
   Kesehatan,
   Update,
+  Realisasi
 } from "./pages";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route exact path="/data/update">
             <Update />
+          </Route>
+          <Route exact path="/data/realisasi">
+            <Realisasi/>
           </Route>
           <Route path="/berita">
             <Berita />
