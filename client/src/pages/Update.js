@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
 export default () => {
   const pageTransition = {
     init: {
-      x: -300,
+      opacity: 0,
     },
     in: {
-      x: 0,
+      opacity: 1,
     },
     out: {
       opacity: 0,
@@ -133,9 +133,7 @@ export default () => {
                 <Form.Control placeholder="Provinsi" />
               </Col>
             </Form.Group>
-            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>
-              Data Pendukung 1
-            </h3>
+            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 1</h3>
             <Form.Group as={Row}>
               <Form.Label column sm="2">
                 Nama Istri / Suami
@@ -187,9 +185,7 @@ export default () => {
                 <Form.Control placeholder="No Rekening" />
               </Col>
             </Form.Group>
-            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>
-              Data Pendukung 2
-            </h3>
+            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 2</h3>
             <Form.Group as={Row}>
               <Form.Label column sm="2">
                 Nama Anak

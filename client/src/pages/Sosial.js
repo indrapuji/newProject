@@ -8,10 +8,10 @@ import Bansos from "../assets/image/bansos.jpg";
 export default () => {
   const pageTransition = {
     init: {
-      x: -300,
+      opacity: 0,
     },
     in: {
-      x: 0,
+      opacity: 1,
     },
     out: {
       opacity: 0,

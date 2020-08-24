@@ -1,18 +1,11 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Logo from "../assets/image/logo.png";
 
 export default () => {
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-        <img alt="" src={Logo} width="80" height="80" />
-      </div>
-      <p style={{ textAlign: "center", marginTop: 10, fontWeight: "bold", fontSize: 20 }}>
-        Jati Sejahtera
-      </p>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
+      <Navbar collapseOnSelect expand="lg" sticky="top" className="navbarText">
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-around">
           <Nav.Link>
@@ -53,10 +46,7 @@ export default () => {
             <NavDropdown.Item>
               <Link to="/data/update">Pengkinian Data</Link>
             </NavDropdown.Item>
-            <NavDropdown.Item
-              href="https://jatisejahtera-93bab.firebaseapp.com/"
-              style={{ color: "blue" }}
-            >
+            <NavDropdown.Item href="https://jatisejahtera-93bab.firebaseapp.com/" style={{ color: "blue" }}>
               Pengajuan
             </NavDropdown.Item>
             <NavDropdown.Item href="https://jaticms.firebaseapp.com/" style={{ color: "blue" }}>

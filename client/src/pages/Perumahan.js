@@ -8,10 +8,10 @@ import Perumahan from "../assets/image/perumahan2.jpg";
 export default () => {
   const pageTransition = {
     init: {
-      x: -300,
+      opacity: 0,
     },
     in: {
-      x: 0,
+      opacity: 1,
     },
     out: {
       opacity: 0,
