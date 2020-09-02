@@ -23,13 +23,13 @@ export default () => {
   return (
     <>
       <div data-aos="fade-up">
-        <Image src={require("../assets/landingpage/profile.jpg")} fluid style={{ marginTop: 100 }} />
-      </div>
-      <div data-aos="fade-up" style={{ display: "flex", flexFlow: "row wrap", justifyContent: "space-between", marginTop: 20, marginBottom: 20 }}>
-        <Image src={require("../assets/landingpage/profile_1.jpg")} onClick={handdleAbout} />
-        <Image src={require("../assets/landingpage/profile_2.jpg")} onClick={handdleAbout} />
-        <Image src={require("../assets/landingpage/profile_3.jpg")} onClick={handdleCabang} />
-        <Image src={require("../assets/landingpage/profile_4.jpg")} onClick={handdleSejarah} />
+        <Image src={require("../assets/landingpage/profile.jpg")} className="profile"/>
+        <div data-aos="fade-up" className="profileCard">
+          <Image src={require("../assets/landingpage/profile_1.jpg")} onClick={handdleAbout} />
+          <Image src={require("../assets/landingpage/profile_2.jpg")} onClick={handdleAbout} />
+          <Image src={require("../assets/landingpage/profile_3.jpg")} onClick={handdleCabang} />
+          <Image src={require("../assets/landingpage/profile_4.jpg")} onClick={handdleSejarah} />
+        </div>
       </div>
     </>
   );
