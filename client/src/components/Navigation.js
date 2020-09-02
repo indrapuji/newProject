@@ -8,8 +8,8 @@ export default () => {
       <Navbar collapseOnSelect expand="lg" sticky="top" className="navbarText">
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-around">
-          <Nav.Link>
-            <Link to="/">Home</Link>
+          <Nav.Link to="/">
+            Home
           </Nav.Link>
           <NavDropdown title="Profile">
             <NavDropdown.Item>
@@ -53,14 +53,14 @@ export default () => {
               Admin
             </NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link>
-            <Link to="/berita">Berita</Link>
+          <Nav.Link to="/berita">
+            Berita
           </Nav.Link>
-          <Nav.Link>
-            <Link to="/galery">Galery</Link>
+          <Nav.Link to="/galery">
+            Galery
           </Nav.Link>
-          <Nav.Link>
-            <Link to="/contact">Kontak</Link>
+          <Nav.Link to="/contact">
+            Kontak
           </Nav.Link>
         </Navbar.Collapse>
       </Navbar>
