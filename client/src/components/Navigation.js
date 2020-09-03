@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default () => {
+  const [navbar, setNavbar] = useState(false);
+
+  function changeBackground() {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  }
+
+  window.addEventListener("scroll", changeBackground);
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" sticky="top" className="navbarText">
+      <Navbar collapseOnSelect expand="lg" sticky="top" className={navbar ? "navbar active" : "navbar"}>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-around">
           <Link to="/">Home</Link>
