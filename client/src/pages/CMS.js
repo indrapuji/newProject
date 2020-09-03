@@ -12,7 +12,8 @@ export default () => {
     Aos.init({ duration: 2500 });
   }, []);
 
-  const apiUrl = `http://localhost:3001/data`;
+  //   const apiUrl = `http://localhost:3001/data`;
+  const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
   const [data, loading] = useFetch(apiUrl);
 
   const pageTransition = {

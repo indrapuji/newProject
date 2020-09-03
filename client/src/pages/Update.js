@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default () => {
   const pageTransition = {
@@ -21,60 +21,61 @@ export default () => {
   };
   const history = useHistory();
   const [dataForm, setDataForm] = useState({
-    nama: '',
-    no_induk: '',
-    email: '',
-    tgl_lahir: '',
-    no_ktp: '',
-    no_bpjs: '',
-    nama_bank: '',
-    no_rekening: '',
-    satuan_kerja: '',
-    golongan_pangkat: '',
-    no_telp: '',
-    alamat: '',
-    kelurahan: '',
-    kecamatan: '',
-    kota: '',
-    kodepos: '',
-    provinsi: '',
-    nama_pasangan: '',
-    tgl_lahir_pasangan: '',
-    no_telp_pasangan: '',
-    no_ktp_pasangan: '',
-    no_bpjs_pasangan: '',
-    nama_bank_pasangan: '',
-    no_rekening_pasangan: '',
-    nama_anak: '',
-    tgl_lahir_anak: '',
-    no_tlp_anak: '',
-    no_ktp_anak: '',
-    no_bpjs_anak: '',
-    nama_bank_anak: '',
-    no_rekening_anak: '',
+    nama: "",
+    no_induk: "",
+    email: "",
+    tgl_lahir: "",
+    no_ktp: "",
+    no_bpjs: "",
+    nama_bank: "",
+    no_rekening: "",
+    satuan_kerja: "",
+    golongan_pangkat: "",
+    no_telp: "",
+    alamat: "",
+    kelurahan: "",
+    kecamatan: "",
+    kota: "",
+    kodepos: "",
+    provinsi: "",
+    nama_pasangan: "",
+    tgl_lahir_pasangan: "",
+    no_telp_pasangan: "",
+    no_ktp_pasangan: "",
+    no_bpjs_pasangan: "",
+    nama_bank_pasangan: "",
+    no_rekening_pasangan: "",
+    nama_anak: "",
+    tgl_lahir_anak: "",
+    no_tlp_anak: "",
+    no_ktp_anak: "",
+    no_bpjs_anak: "",
+    nama_bank_anak: "",
+    no_rekening_anak: "",
   });
   const onFormChange = (e) => {
     e.preventDefault();
     const { value, name } = e.target;
     setDataForm({
       ...dataForm,
-      [name]: value
+      [name]: value,
     });
-  }
-  const onFormSubmit = async(e) => {
+  };
+  const onFormSubmit = async (e) => {
     try {
       e.preventDefault();
       await axios({
-        method: 'POST',
-        url: 'http://localhost:3001/data',
-        data: dataForm
+        method: "POST",
+        // url: 'http://localhost:3001/data',
+        url: "https://jatisejahtera.herokuapp.com/data",
+        data: dataForm,
       });
-      history.push('/');
+      history.push("/");
     } catch (err) {
-      let msg = '';
+      let msg = "";
       if (err.response) {
         if (Array.isArray(err.response.data.msg)) {
-          msg = err.response.data.msg.join('<br>');
+          msg = err.response.data.msg.join("<br>");
         } else {
           msg = err.response.data.msg;
         }
@@ -82,14 +83,14 @@ export default () => {
         msg = err.request;
       } else {
         msg = err.message;
-      };
+      }
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         html: `${msg}`,
-      })
+      });
     }
-  }
+  };
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
@@ -99,13 +100,13 @@ export default () => {
         </div>
         <div style={{ marginBottom: 50 }}>
           <h3 style={{ fontWeight: "bold", marginBottom: 20 }}>Data Diri</h3>
-          <Form onSubmit={ onFormSubmit }>
+          <Form onSubmit={onFormSubmit}>
             <Form.Group as={Row}>
               <Form.Label column sm="2">
                 Nama
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="Nama" name="nama" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="Nama" name="nama" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -113,7 +114,7 @@ export default () => {
                 Nomor Induk
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="NIP / NPP / NIK" name="no_induk" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="NIP / NPP / NIK" name="no_induk" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -121,7 +122,7 @@ export default () => {
                 Alamat Email
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="email" placeholder="Alamat Email" name="email" onChange={ onFormChange } />
+                <Form.Control type="email" placeholder="Alamat Email" name="email" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -129,7 +130,7 @@ export default () => {
                 Tanggal Lahir
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="date" name="tgl_lahir" onChange={ onFormChange } />
+                <Form.Control type="date" name="tgl_lahir" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -137,7 +138,7 @@ export default () => {
                 No KTP
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No KTP" name="no_ktp" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No KTP" name="no_ktp" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -145,7 +146,7 @@ export default () => {
                 No BPJS
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No BPJS" name="no_bpjs" onChange={ onFormChange }  />
+                <Form.Control type="text" placeholder="No BPJS" name="no_bpjs" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -153,10 +154,10 @@ export default () => {
                 Data Bank
               </Form.Label>
               <Col xs={3}>
-                <Form.Control placeholder="Nama Bank" name="nama_bank" onChange={ onFormChange } />
+                <Form.Control placeholder="Nama Bank" name="nama_bank" onChange={onFormChange} />
               </Col>
               <Col>
-                <Form.Control placeholder="No Rekening" name="no_rekening" onChange={ onFormChange } />
+                <Form.Control placeholder="No Rekening" name="no_rekening" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -164,10 +165,10 @@ export default () => {
                 Satuan Kerja
               </Form.Label>
               <Col xs={5}>
-                <Form.Control placeholder="Satuan Kerja Saat Pensiun" name="satuan_kerja" onChange={ onFormChange } />
+                <Form.Control placeholder="Satuan Kerja Saat Pensiun" name="satuan_kerja" onChange={onFormChange} />
               </Col>
               <Col>
-                <Form.Control placeholder="Golongan Pangkat Saat Pensiun" name="golongan_pangkat" onChange={ onFormChange } />
+                <Form.Control placeholder="Golongan Pangkat Saat Pensiun" name="golongan_pangkat" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -175,7 +176,7 @@ export default () => {
                 No Telp Rumah
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No Telp Rumah" name="no_telp" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No Telp Rumah" name="no_telp" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -183,28 +184,28 @@ export default () => {
                 Alamat
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="Alamat" name="alamat" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="Alamat" name="alamat" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm="2"></Form.Label>
               <Col xs={5}>
-                <Form.Control placeholder="Kelurahan / Desa" name="kelurahan" onChange={ onFormChange } />
+                <Form.Control placeholder="Kelurahan / Desa" name="kelurahan" onChange={onFormChange} />
               </Col>
               <Col>
-                <Form.Control placeholder="Kecamatan" name="kecamatan" onChange={ onFormChange } />
+                <Form.Control placeholder="Kecamatan" name="kecamatan" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm="2"></Form.Label>
               <Col xs={4}>
-                <Form.Control placeholder="Kota / Kabupaten" name="kota" onChange={ onFormChange } />
+                <Form.Control placeholder="Kota / Kabupaten" name="kota" onChange={onFormChange} />
               </Col>
               <Col>
-                <Form.Control placeholder="Kodepos" name="kodepos" onChange={ onFormChange } />
+                <Form.Control placeholder="Kodepos" name="kodepos" onChange={onFormChange} />
               </Col>
               <Col>
-                <Form.Control placeholder="Provinsi" name="provinsi" onChange={ onFormChange } />
+                <Form.Control placeholder="Provinsi" name="provinsi" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 1</h3>
@@ -213,7 +214,7 @@ export default () => {
                 Nama Istri / Suami
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="Nama" name="nama_pasangan" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="Nama" name="nama_pasangan" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -221,7 +222,7 @@ export default () => {
                 Tanggal Lahir Istri / Suami
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="date" name="tgl_lahir_pasangan" onChange={ onFormChange } />
+                <Form.Control type="date" name="tgl_lahir_pasangan" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -229,7 +230,7 @@ export default () => {
                 No Telp Istri / Suami
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No Telp Rumah" name="no_telp_pasangan" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No Telp Rumah" name="no_telp_pasangan" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -237,7 +238,7 @@ export default () => {
                 No KTP Istri / Suami
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No KTP" name="no_ktp_pasangan" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No KTP" name="no_ktp_pasangan" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -245,7 +246,7 @@ export default () => {
                 No BPJS Istri / Suami
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No BPJS" name="no_bpjs_pasangan" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No BPJS" name="no_bpjs_pasangan" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -253,10 +254,10 @@ export default () => {
                 Data Bank Istri / Suami
               </Form.Label>
               <Col xs={3}>
-                <Form.Control placeholder="Nama Bank" name="nama_bank_pasangan" onChange={ onFormChange } />
+                <Form.Control placeholder="Nama Bank" name="nama_bank_pasangan" onChange={onFormChange} />
               </Col>
               <Col>
-                <Form.Control placeholder="No Rekening" name="no_rekening_pasangan" onChange={ onFormChange } />
+                <Form.Control placeholder="No Rekening" name="no_rekening_pasangan" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 2</h3>
@@ -265,7 +266,7 @@ export default () => {
                 Nama Anak
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="Nama" name="nama_anak" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="Nama" name="nama_anak" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -273,7 +274,7 @@ export default () => {
                 Tanggal Lahir Anak
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="date" name="tgl_lahir_anak" onChange={ onFormChange } />
+                <Form.Control type="date" name="tgl_lahir_anak" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -281,7 +282,7 @@ export default () => {
                 No Telp Anak
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No Telp Rumah" name="no_tlp_anak" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No Telp Rumah" name="no_tlp_anak" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -289,7 +290,7 @@ export default () => {
                 No KTP Anak
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No KTP" name="no_ktp_anak" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No KTP" name="no_ktp_anak" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -297,7 +298,7 @@ export default () => {
                 No BPJS Anak
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" placeholder="No BPJS" name="no_bpjs_anak" onChange={ onFormChange } />
+                <Form.Control type="text" placeholder="No BPJS" name="no_bpjs_anak" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -305,10 +306,10 @@ export default () => {
                 Data Bank Anak
               </Form.Label>
               <Col xs={3}>
-                <Form.Control placeholder="Nama Bank" name="nama_bank_anak" onChange={ onFormChange } />
+                <Form.Control placeholder="Nama Bank" name="nama_bank_anak" onChange={onFormChange} />
               </Col>
               <Col>
-                <Form.Control placeholder="No Rekening" name="no_rekening_anak" onChange={ onFormChange } />
+                <Form.Control placeholder="No Rekening" name="no_rekening_anak" onChange={onFormChange} />
               </Col>
             </Form.Group>
             <Button variant="primary" size="lg" type="submit" block>
