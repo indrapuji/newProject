@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default () => {
@@ -8,9 +8,7 @@ export default () => {
       <Navbar collapseOnSelect expand="lg" sticky="top" className="navbarText">
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-around">
-          <Nav.Link to="/">
-            Home
-          </Nav.Link>
+          <Link to="/">Home</Link>
           <NavDropdown title="Profile">
             <NavDropdown.Item>
               <Link to="/profile/about">Tentang Kami</Link>
@@ -53,15 +51,9 @@ export default () => {
               Admin
             </NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link to="/berita">
-            Berita
-          </Nav.Link>
-          <Nav.Link to="/galery">
-            Galery
-          </Nav.Link>
-          <Nav.Link to="/contact">
-            Kontak
-          </Nav.Link>
+          <Link to="/berita">Berita</Link>
+          <Link to="/galery">Galery</Link>
+          <Link to="/contact">Kontak</Link>
         </Navbar.Collapse>
       </Navbar>
     </>

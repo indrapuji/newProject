@@ -1,23 +1,7 @@
 import React from "react";
-import {
-  Berita,
-  Contact,
-  Galery,
-  Home,
-  About,
-  Kepengurusan,
-  Cabang,
-  Sejarah,
-  Pendidikan,
-  Sosial,
-  Perumahan,
-  Kesehatan,
-  Update,
-  Realisasi
-} from "./pages";
+import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pendidikan, Sosial, Perumahan, Kesehatan, Update, Realisasi, CMS } from "./pages";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
 
 function App() {
   const location = useLocation();
@@ -55,8 +39,11 @@ function App() {
           <Route exact path="/data/update">
             <Update />
           </Route>
+          <Route exact path="/data/cms">
+            <CMS />
+          </Route>
           <Route exact path="/data/realisasi">
-            <Realisasi/>
+            <Realisasi />
           </Route>
           <Route path="/berita">
             <Berita />
