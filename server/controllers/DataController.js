@@ -1,7 +1,7 @@
-const { Data } = require('../models');
+const { Data } = require("../models");
 
 class DataController {
-  static addData = async(req, res) => {
+  static addData = async (req, res) => {
     try {
       const {
         nama,
@@ -72,29 +72,41 @@ class DataController {
       const result = await Data.create(query);
       res.status(201).json(result);
     } catch (err) {
-      if (err.name === 'SequelizeValidationError') {
+      if (err.name === "SequelizeValidationError") {
         let msg = [];
-        err.errors.forEach(x => {
+        err.errors.forEach((x) => {
           msg.push(x.message);
         });
         res.status(400).json({
           status: 400,
-          msg
-        })
+          msg,
+        });
       } else {
         console.log(err);
-        res.status(500).json({ msg: 'Internal Server Error' });
+        res.status(500).json({ msg: "Internal Server Error" });
       }
     }
-  }
-  static getData = async(req, res) => {
+  };
+
+  static getData = async (req, res) => {
     try {
       const result = await Data.findAll();
       res.status(200).json(result);
     } catch (err) {
-      res.status(500).json({ msg: 'Internal Server Error' });
+      res.status(500).json({ msg: "Internal Server Error" });
     }
+  };
+
+  static getOne(req, res) {
+    let option = { where: { id: req.params.id } };
+    Data.findOne(option)
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch((err) => {
+        res.status(500).json({ message: "Internal service error" });
+      });
   }
-};
+}
 
 module.exports = DataController;

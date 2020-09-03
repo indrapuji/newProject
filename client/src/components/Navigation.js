@@ -50,6 +50,9 @@ export default () => {
             <NavDropdown.Item href="https://jaticms.firebaseapp.com/" style={{ color: "blue" }}>
               Admin
             </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link to="/data/cms">All Data</Link>
+            </NavDropdown.Item>
           </NavDropdown>
           <Link to="/berita">Berita</Link>
           <Link to="/galery">Galery</Link>

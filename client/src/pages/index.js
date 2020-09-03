@@ -13,3 +13,4 @@ export { default as Kepengurusan } from "./Kepengurusan";
 export { default as Update } from "./Update";
 export { default as Realisasi } from "./Realisasi";
 export { default as CMS } from "./CMS";
+export { default as Detail } from "./Detail";

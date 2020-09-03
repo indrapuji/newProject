@@ -1,21 +1,32 @@
 import React, { useEffect } from "react";
 import Navigation from "../components/Navigation";
+import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
-import { Container, Image, Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Aos from "aos";
 import useFetch from "../hooks/useFetch";
+import formatDate from "../hooks/FormatDate";
 import "aos/dist/aos.css";
+import ReactExport from "react-export-excel";
 
 export default () => {
   useEffect(() => {
     Aos.init({ duration: 2500 });
   }, []);
+  const history = useHistory();
 
   //   const apiUrl = `http://localhost:3001/data`;
   const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
   const [data, loading] = useFetch(apiUrl);
 
+  const ExcelFile = ReactExport.ExcelFile;
+  const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+  const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
+
+  function handdleDetail(dataId) {
+    history.push(`/data/detail/${dataId}`);
+  }
   const pageTransition = {
     init: {
       opacity: 0,
@@ -34,48 +45,89 @@ export default () => {
       <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
         <Navigation />
         {/* {JSON.stringify(data)} */}
-        <div>
+        <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Update</h1>
+        <div style={{ marginLeft: 10, marginRight: 10 }}>
+          <div style={{ marginBottom: 10 }}>
+            <ExcelFile element={<Button variant="success">Download</Button>} filename="Pengkinian Data">
+              <ExcelSheet data={data} name="Data Peserta">
+                <ExcelColumn label="Nama" value="nama" />
+                <ExcelColumn label="No Induk" value="no_induk" />
+                <ExcelColumn label="Alamat Email" value="email" />
+                <ExcelColumn label="Tanggal Lahir" value="tgl_lahir" />
+                <ExcelColumn label="No KTP" value="no_ktp" />
+                <ExcelColumn label="No BPJS" value="no_bpjs" />
+                <ExcelColumn label="Nama Bank" value="nama_bank" />
+                <ExcelColumn label="No Rekening" value="no_rekening" />
+                <ExcelColumn label="Satuan Kerja" value="satuan_kerja" />
+                <ExcelColumn label="Golongan" value="golongan_pangkat" />
+                <ExcelColumn label="No Telp" value="no_telp" />
+                <ExcelColumn label="Alamat" value="alamat" />
+                <ExcelColumn label="Kelurahan" value="kelurahan" />
+                <ExcelColumn label="Kecamatan" value="kecamatan" />
+                <ExcelColumn label="Kota" value="kota" />
+                <ExcelColumn label="Kodepos" value="kodepos" />
+                <ExcelColumn label="Provinsi" value="provinsi" />
+                <ExcelColumn label="Nama Istri / Suami" value="nama_pasangan" />
+                <ExcelColumn label="Tanggal Lahir Istri / Suami" value="tgl_lahir_pasangan" />
+                <ExcelColumn label="No Telp Istri / Suami" value="no_telp_pasangan" />
+                <ExcelColumn label="No KTP Istri / Suami" value="no_ktp_pasangan" />
+                <ExcelColumn label="No BPJS Istri / Suami" value="no_bpjs_pasangan" />
+                <ExcelColumn label="Nama Bank Istri / Suami" value="nama_bank_pasangan" />
+                <ExcelColumn label="No Rekening Istri / Suami" value="no_rekening_pasangan" />
+                <ExcelColumn label="Nama Anak" value="nama_anak" />
+                <ExcelColumn label="Tanggal Lahir Anak" value="tgl_lahir_anak" />
+                <ExcelColumn label="No Telp Anak" value="no_tlp_anak" />
+                <ExcelColumn label="No KTP Anak" value="no_ktp_anak" />
+                <ExcelColumn label="No BPJS Anak" value="no_bpjs_anak" />
+                <ExcelColumn label="Nama Bank Anak" value="nama_bank_anak" />
+                <ExcelColumn label="No Rekening Anak" value="no_rekening_anak" />
+              </ExcelSheet>
+            </ExcelFile>
+          </div>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>No Induk</th>
-                <th>Email</th>
-                <th>tanggal Lahir</th>
-                <th>No KTP</th>
-                <th>No BPJS</th>
-                <th>Nama Bank</th>
-                <th>No Rekening</th>
-                <th>Satuan Kerja</th>
-                <th>Golongan</th>
-                <th>No Telp</th>
-                <th>Alamat</th>
+                <th className="small">No</th>
+                <th className="small">Nama</th>
+                <th className="small">No Induk</th>
+                <th className="small">Email</th>
+                <th className="small">tanggal Lahir</th>
+                <th className="small">No KTP</th>
+                <th className="small">No BPJS</th>
+                <th className="small">Nama Bank</th>
+                <th className="small">No Rekening</th>
+                <th className="small">Satuan Kerja</th>
+                <th className="small">Golongan</th>
+                <th className="small">No Telp</th>
+                <th className="small">Alamat</th>
               </tr>
             </thead>
             <tbody>
               {data.map((file, idx) => {
                 return (
-                  <tr key={file.id}>
-                    <td>{idx + 1}</td>
-                    <td>{file.nama}</td>
-                    <td>{file.no_induk}</td>
-                    <td>{file.email}</td>
-                    <td>{file.tgl_lahir}</td>
-                    <td>{file.no_ktp}</td>
-                    <td>{file.no_bpjs}</td>
-                    <td>{file.nama_bank}</td>
-                    <td>{file.no_rekening}</td>
-                    <td>{file.satuan_kerja}</td>
-                    <td>{file.golongan_pangkat}</td>
-                    <td>{file.no_telp}</td>
-                    <td>{file.alamat}</td>
+                  <tr key={file.id} onClick={() => handdleDetail(file.id)} style={{ cursor: "pointer" }}>
+                    <td className="small">{idx + 1}</td>
+                    <td className="small">{file.nama}</td>
+                    <td className="small">{file.no_induk}</td>
+                    <td className="small">{file.email}</td>
+                    <td className="small">{formatDate(file.tgl_lahir)}</td>
+                    <td className="small">{file.no_ktp}</td>
+                    <td className="small">{file.no_bpjs}</td>
+                    <td className="small">{file.nama_bank}</td>
+                    <td className="small">{file.no_rekening}</td>
+                    <td className="small">{file.satuan_kerja}</td>
+                    <td className="small">{file.golongan_pangkat}</td>
+                    <td className="small">{file.no_telp}</td>
+                    <td className="small">{file.alamat}</td>
                   </tr>
                 );
               })}
             </tbody>
           </Table>
         </div>
+        {/* <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
+        <Footer />
+        </div> */}
       </motion.div>
     );
   }

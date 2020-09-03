@@ -74,7 +74,9 @@ export default () => {
           </div>
         </div>
       </Container>
-      <Footer />
+      <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
+        <Footer />
+      </div>
     </motion.div>
   );
 };

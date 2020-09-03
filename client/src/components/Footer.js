@@ -9,14 +9,13 @@ export default () => {
           <div className="row">
             <div className="col-md-12 text-center">
               <p style={{ color: "white" }}>
-                WISMA PERHUTANI, JL. VILLA No. 1 GATOT SUBROTO Kav. 17-18 JAKARTA SELATAN 12930
-                TELP./FAX : (021) 5252983 <br />
+                WISMA PERHUTANI, JL. VILLA No. 1 GATOT SUBROTO Kav. 17-18 JAKARTA SELATAN 12930 TELP./FAX : (021) 5252983 <br />
                 E-mail : yayasanjatisejahtera@yahoo.co.id{" "}
               </p>
               <div className="copyright">
                 <p>
                   © <span>2020</span>{" "}
-                  <a href="/" className="transition">
+                  <a href="/data/cms" className="transition">
                     Jati Sejahtera
                   </a>{" "}
                   All rights reserved.

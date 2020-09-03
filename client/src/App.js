@@ -1,5 +1,5 @@
 import React from "react";
-import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pendidikan, Sosial, Perumahan, Kesehatan, Update, Realisasi, CMS } from "./pages";
+import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pendidikan, Sosial, Perumahan, Kesehatan, Update, Realisasi, CMS, Detail } from "./pages";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -41,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/data/cms">
             <CMS />
+          </Route>
+          <Route exact path="/data/detail/:dataId">
+            <Detail />
           </Route>
           <Route exact path="/data/realisasi">
             <Realisasi />
