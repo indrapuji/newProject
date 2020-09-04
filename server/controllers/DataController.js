@@ -41,6 +41,7 @@ class DataController {
         no_induk,
         email,
         tgl_lahir,
+        password: "123456",
         no_ktp,
         no_bpjs,
         nama_bank,

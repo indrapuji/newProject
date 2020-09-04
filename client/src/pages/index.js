@@ -12,5 +12,5 @@ export { default as Kesehatan } from "./Kesehatan";
 export { default as Kepengurusan } from "./Kepengurusan";
 export { default as Update } from "./Update";
 export { default as Realisasi } from "./Realisasi";
-export { default as CMS } from "./CMS";
-export { default as Detail } from "./Detail";
+export { default as Profile } from "./Profile";
+export { default as Claim } from "./Claim";

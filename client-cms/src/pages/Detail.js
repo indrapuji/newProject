@@ -1,8 +1,6 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
-import { Container, Form, Row, Col, Button } from "react-bootstrap";
+import { Container, Form, Row, Col, Button, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
 import useFetch from "../hooks/useFetch";
 
@@ -20,24 +18,22 @@ export default () => {
     },
   };
   const history = useHistory();
-
-  //   console.log(dataId);
-
   //   const apiUrl = `http://localhost:3001/data/${dataId}`;
   const apiUrl = `https://jatisejahtera.herokuapp.com/data/${dataId}`;
   const [data, loading] = useFetch(apiUrl);
 
   function handdleCancel() {
-    history.push("/data/cms");
+    history.push("/");
   }
 
-  if (loading) {
-    return <h1>Loading</h1>;
-  } else {
-    return (
-      <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-        <Navigation />
-        {/* {JSON.stringify(data)} */}
+  return (
+    <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
+      {/* {JSON.stringify(data)} */}
+      {loading ? (
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 100 }}>
+          <Spinner animation="border" variant="success" />
+        </div>
+      ) : (
         <Container>
           <div style={{ marginTop: 50 }}>
             <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Detail</p>
@@ -262,8 +258,7 @@ export default () => {
             </Form>
           </div>
         </Container>
-        <Footer />
-      </motion.div>
-    );
-  }
+      )}
+    </motion.div>
+  );
 };
