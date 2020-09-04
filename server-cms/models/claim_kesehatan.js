@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   claim_kesehatan.init({
+    user_id: DataTypes.INTEGER,
     surat_permohonan_bantuan_biaya: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    status: DataTypes.STRING,
     kuitansi_asli_rs: {
       type: DataTypes.STRING,
       allowNull: false,

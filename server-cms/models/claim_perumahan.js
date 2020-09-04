@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   claim_perumahan.init({
+    user_id: DataTypes.INTEGER,
     blanko_permohonan: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    status: DataTypes.STRING,
     surat_keputusan_phk: {
       type: DataTypes.STRING,
       allowNull: false,

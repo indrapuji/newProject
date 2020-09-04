@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   claim_kematian.init({
+    user_id: DataTypes.INTEGER,
     permohonan_ahli_waris: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    status: DataTypes.STRING,
     keterangan_menginggal_dunia_lurah: {
       type: DataTypes.STRING
     },

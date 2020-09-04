@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   claim_nilai_hidup.init({
+    user_id: DataTypes.INTEGER,
     permohonan_pensiunan: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    status: DataTypes.STRING,
     pernyataan_dari_pensiunan: {
       type: DataTypes.STRING,
       allowNull: false,

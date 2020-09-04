@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('claim_nilai_hidups', {
+    await queryInterface.createTable('claim_pendidikans', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,19 +14,19 @@ module.exports = {
       status: {
         type: Sequelize.STRING
       },
-      permohonan_pensiunan: {
+      data1: {
         type: Sequelize.STRING
       },
-      pernyataan_dari_pensiunan: {
+      data2: {
         type: Sequelize.STRING
       },
-      fotokopi_kp: {
+      data3: {
         type: Sequelize.STRING
       },
-      fotokopi_sk_pensiun: {
+      data4: {
         type: Sequelize.STRING
       },
-      no_rekening_bank: {
+      data5: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -40,6 +40,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('claim_nilai_hidups');
+    await queryInterface.dropTable('claim_pendidikans');
   }
 };
