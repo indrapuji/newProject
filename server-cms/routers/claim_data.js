@@ -115,4 +115,102 @@ router.post('/uploads/pendidikan', authentication, addClaimAuth,
   }]),
   ClaimDataController.addClaimPendidikan);
 
+router.put('/edit/kematian', authentication, addClaimAuth,
+  upload.fields([{
+    name: 'permohonan_ahli_waris',
+    maxCount: 1
+  }, {
+    name: 'keterangan_menginggal_dunia_lurah',
+    maxCount: 1
+  }, {
+    name: 'keterangan_meninggal_dunia_rumah_sakit',
+    maxCount: 1
+  }, {
+    name: 'keterangan_kepolisian',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_kp',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_kk',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_sk_pengangkatan',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_sk_pensiun',
+    maxCount: 1
+  }]),
+  ClaimDataController.editClaimKematian);
+
+router.put('/edit/kesehatan', authentication, addClaimAuth,
+  upload.fields([{
+    name: 'surat_permohonan_bantuan_biaya',
+    maxCount: 1
+  }, {
+    name: 'kuitansi_asli_rs',
+    maxCount: 1
+  }, {
+    name: 'surat_keterangan_rs',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_sk_pensiun',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_kp',
+    maxCount: 1
+  }]),
+  ClaimDataController.editClaimKesehatan);
+
+router.put('/edit/nilai-hidup', authentication, addClaimAuth,
+  upload.fields([{
+    name: 'permohonan_pensiunan',
+    maxCount: 1
+  }, {
+    name: 'pernyataan_dari_pensiunan',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_kp',
+    maxCount: 1
+  }, {
+    name: 'fotokopi_sk_pensiun',
+    maxCount: 1
+  }]),
+  ClaimDataController.editClaimNilaiHidup);
+
+router.put('/edit/perumahan', authentication, addClaimAuth,
+  upload.fields([{
+    name: 'blanko_permohonan',
+    maxCount: 1
+  }, {
+    name: 'surat_keputusan_phk',
+    maxCount: 1
+  }, {
+    name: 'data_keluarga',
+    maxCount: 1
+  }, {
+    name: 'akumulasi_saldo',
+    maxCount: 1
+  }]),
+  ClaimDataController.editClaimPerumahan);
+
+router.put('/edit/pendidikan', authentication, addClaimAuth,
+  upload.fields([{
+    name: 'data1',
+    maxCount: 1
+  }, {
+    name: 'data2',
+    maxCount: 1
+  }, {
+    name: 'data3',
+    maxCount: 1
+  }, {
+    name: 'data4',
+    maxCount: 1
+  }, {
+    name: 'data5',
+    maxCount: 1
+  }]),
+  ClaimDataController.editClaimPendidikan);
+
 module.exports = router;
