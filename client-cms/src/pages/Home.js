@@ -9,6 +9,7 @@ import Navigation from "../components/Navigation";
 
 export default () => {
   const history = useHistory();
+  const onActive = "/";
 
   //   const apiUrl = `http://localhost:3001/data`;
   const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
@@ -34,7 +35,7 @@ export default () => {
   };
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      <Navigation />
+      <Navigation onActive={onActive} />
       {/* {JSON.stringify(data)} */}
       <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Update</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
