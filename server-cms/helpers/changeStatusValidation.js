@@ -1,12 +1,3 @@
-const {
-  user_admin,
-  claim_kematian,
-  claim_kesehatan,
-  claim_nilai_hidup,
-  claim_pendidikan,
-  claim_perumahan
-} = require('../models');
-
 module.exports = async({ claim_status, user_status, status }) => {
   try {
     if (claim_status != user_status) return false;

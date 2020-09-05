@@ -29,6 +29,9 @@ module.exports = {
       data5: {
         type: Sequelize.STRING
       },
+      no_rekening_bank: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -26,6 +26,9 @@ module.exports = {
       akumulasi_saldo: {
         type: Sequelize.STRING
       },
+      no_rekening_bank: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

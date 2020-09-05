@@ -55,6 +55,16 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Akumulasi Saldo Iuran Harus Diisi",
         },
       },
+    },
+    no_rekening_bank: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "No Rekening Bank Tujuan Harus Diisi",
+        },
+      },
     }
   }, {
     sequelize,
