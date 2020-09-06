@@ -16,7 +16,6 @@ const serverUrl = 'http://localhost:3001/uploads/'
 class ClaimDataController {
   static showClaimKematian = async(req, res, next) => {
     try {
-      console.log('masuk');
       const { id } = req.UserData;
       const userData = await user_admin.findOne({ where: { id } });
       // let statusValidation = '0';
@@ -24,7 +23,11 @@ class ClaimDataController {
       const result = await claim_kematian.findAll({
         where: {
           status: userData.status
-        }
+        },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
       });
       res.status(200).json(result);
     } catch (err) {
@@ -40,7 +43,11 @@ class ClaimDataController {
       const result = await claim_kesehatan.findAll({
         where: {
           status: userData.status
-        }
+        },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
       });
       res.status(200).json(result);
     } catch (err) {
@@ -56,7 +63,11 @@ class ClaimDataController {
       const result = await claim_nilai_hidup.findAll({
         where: {
           status: userData.status
-        }
+        },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
       });
       res.status(200).json(result);
     } catch (err) {
@@ -72,7 +83,11 @@ class ClaimDataController {
       const result = await claim_perumahan.findAll({
         where: {
           status: userData.status
-        }
+        },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
       });
       res.status(200).json(result);
     } catch (err) {
@@ -88,7 +103,11 @@ class ClaimDataController {
       const result = await claim_pendidikan.findAll({
         where: {
           status: userData.status
-        }
+        },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
       });
       res.status(200).json(result);
     } catch (err) {
@@ -98,7 +117,13 @@ class ClaimDataController {
   static showClaimKematianId = async(req, res, next) => {
     try {
       const { id } = req.params;
-      const result = await claim_kematian.findOne({ where: { id } });
+      const result = await claim_kematian.findOne({
+        where: { id },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
+      });
       if (!result) throw createError(404, 'Klaim Tidak Ditemukan');
       res.status(200).json(result);
     } catch (err) {
@@ -108,7 +133,13 @@ class ClaimDataController {
   static showClaimKesehatanId = async(req, res, next) => {
     try {
       const { id } = req.params;
-      const result = await claim_kesehatan.findOne({ where: { id } });
+      const result = await claim_kesehatan.findOne({
+        where: { id },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
+      });
       if (!result) throw createError(404, 'Klaim Tidak Ditemukan');
       res.status(200).json(result);
     } catch (err) {
@@ -118,7 +149,13 @@ class ClaimDataController {
   static showClaimNilaiHidupId = async(req, res, next) => {
     try {
       const { id } = req.params;
-      const result = await claim_nilai_hidup.findOne({ where: { id } });
+      const result = await claim_nilai_hidup.findOne({
+        where: { id },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
+      });
       if (!result) throw createError(404, 'Klaim Tidak Ditemukan');
       res.status(200).json(result);
     } catch (err) {
@@ -128,7 +165,13 @@ class ClaimDataController {
   static showClaimPerumahanId = async(req, res, next) => {
     try {
       const { id } = req.params;
-      const result = await claim_perumahan.findOne({ where: { id } });
+      const result = await claim_perumahan.findOne({
+        where: { id },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
+      });
       if (!result) throw createError(404, 'Klaim Tidak Ditemukan');
       res.status(200).json(result);
     } catch (err) {
@@ -138,7 +181,13 @@ class ClaimDataController {
   static showClaimPendidikanId = async(req, res, next) => {
     try {
       const { id } = req.params;
-      const result = await claim_pendidikan.findOne({ where: { id } });
+      const result = await claim_pendidikan.findOne({
+        where: { id },
+        include: [{
+          model: user_anggota,
+          required: false
+        }]
+      });
       if (!result) throw createError(404, 'Klaim Tidak Ditemukan');
       res.status(200).json(result);
     } catch (err) {

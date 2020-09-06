@@ -6,10 +6,10 @@ import Navigation from "../components/Navigation";
 import axios from 'axios';
 
 export default () => {
-  // const history = useHistory();
+  const history = useHistory();
   const onActive = "/claimpendidikan";
 
-  useEffect(async() => {
+  useEffect(() => {
     fetchApi();
   }, []);
   const [data, setData] = useState([]);
@@ -46,12 +46,10 @@ export default () => {
           <thead>
             <tr>
               <th className="small">No</th>
-              <th className="small">Data 1</th>
-              <th className="small">Data 2</th>
-              <th className="small">Data 3</th>
-              <th className="small">Data 4</th>
-              <th className="small">Data 5</th>
-              <th className="small">No Rekening Bank</th>
+              <th className="small">Nama</th>
+              <th className="small">No Induk</th>
+              <th className="small">Satuan Kerja</th>
+              <th className="small">Golongan</th>
               <th className="small">Action</th>
             </tr>
           </thead>
@@ -69,14 +67,12 @@ export default () => {
                 return (
                   <tr key={file.id} style={{ cursor: "pointer" }}>
                     <td className="small">{idx + 1}</td>
-                    <td className="small">{file.data1}</td>
-                    <td className="small">{file.data2}</td>
-                    <td className="small">{file.data3}</td>
-                    <td className="small">{file.data4}</td>
-                    <td className="small">{file.data5}</td>
-                    <td className="small">{file.no_rekening_bank}</td>
+                    <td className="small">{file.user_anggotum.nama}</td>
+                    <td className="small">{file.user_anggotum.no_induk}</td>
+                    <td className="small">{file.user_anggotum.satuan_kerja}</td>
+                    <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button variant="primary" size="sm">
+                      <Button variant="primary" size="sm" onClick={ () => history.push(`detail/kematian/${file.id}`) }>
                         Check
                       </Button>
                     </td>

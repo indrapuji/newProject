@@ -6,10 +6,10 @@ import Navigation from "../components/Navigation";
 import axios from 'axios';
 
 export default () => {
-  // const history = useHistory();
+  const history = useHistory();
   const onActive = "/claimperumahan";
 
-  useEffect(async() => {
+  useEffect(() => {
     fetchApi();
   }, []);
   const [data, setData] = useState([]);
@@ -46,11 +46,10 @@ export default () => {
           <thead>
             <tr>
               <th className="small">No</th>
-              <th className="small">Blanko Permohonan dari peserta</th>
-              <th className="small">Surat Keputusan pemberhentian hubungan kerja (PHK)</th>
-              <th className="small">Data keluarga dari surat keterangan pemberhentian penghasilan (SKPP) atau dari blanko data keluarga (P10)</th>
-              <th className="small">Akumulasi saldo iuran dari program gaji atau perhitungan manual</th>
-              <th className="small">No Rekening Bank</th>
+              <th className="small">Nama</th>
+              <th className="small">No Induk</th>
+              <th className="small">Satuan Kerja</th>
+              <th className="small">Golongan</th>
               <th className="small">Action</th>
             </tr>
           </thead>
@@ -68,13 +67,12 @@ export default () => {
                 return (
                   <tr key={file.id} style={{ cursor: "pointer" }}>
                     <td className="small">{idx + 1}</td>
-                    <td className="small">{file.blanko_permohonan}</td>
-                    <td className="small">{file.surat_keputusan_phk}</td>
-                    <td className="small">{file.data_keluarga}</td>
-                    <td className="small">{file.akumulasi_saldo}</td>
-                    <td className="small">{file.no_rekening_bank}</td>
+                    <td className="small">{file.user_anggotum.nama}</td>
+                    <td className="small">{file.user_anggotum.no_induk}</td>
+                    <td className="small">{file.user_anggotum.satuan_kerja}</td>
+                    <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button variant="primary" size="sm">
+                      <Button variant="primary" size="sm" onClick={ () => history.push(`detail/kematian/${file.id}`) }>
                         Check
                       </Button>
                     </td>
