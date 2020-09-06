@@ -12,6 +12,11 @@ router.get('/claim-kesehatan', authentication, adminAuth, ClaimDataController.sh
 router.get('/claim-nilai-hidup', authentication, adminAuth, ClaimDataController.showClaimNilaiHidup);
 router.get('/claim-perumahan', authentication, adminAuth, ClaimDataController.showClaimPerumahan);
 router.get('/claim-pendidikan', authentication, adminAuth, ClaimDataController.showClaimPendidikan);
+router.get('/claim-kematian/:id', authentication, adminAuth, ClaimDataController.showClaimKematianId);
+router.get('/claim-kesehatan/:id', authentication, adminAuth, ClaimDataController.showClaimKesehatanId);
+router.get('/claim-nilai-hidup/:id', authentication, adminAuth, ClaimDataController.showClaimNilaiHidupId);
+router.get('/claim-perumahan/:id', authentication, adminAuth, ClaimDataController.showClaimPerumahanId);
+router.get('/claim-pendidikan/:id', authentication, adminAuth, ClaimDataController.showClaimPendidikanId);
 router.get('/pindah-status/kematian/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimKematian);
 router.get('/pindah-status/kesehatan/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimKesehatan);
 router.get('/pindah-status/nilai-hidup/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimNilaiHidup);
