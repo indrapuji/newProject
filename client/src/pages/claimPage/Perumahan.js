@@ -19,41 +19,41 @@ export default () => {
     },
   };
   useEffect(() => {
-    if (!localStorage.token) history.push('/');
-  }, [history])
+    if (!localStorage.token) history.push("/");
+  }, [history]);
   function handdleBack() {
     history.push("/data/claim");
   }
   const [formData, setFormData] = useState({
-    blanko_permohonan: '',
-    surat_keputusan_phk: '',
-    data_keluarga: '',
-    akumulasi_saldo: '',
+    blanko_permohonan: "",
+    surat_keputusan_phk: "",
+    data_keluarga: "",
+    akumulasi_saldo: "",
   });
   const onFormChange = (e) => {
     e.preventDefault();
     const { name, files } = e.target;
     setFormData({
       ...formData,
-      [name]: files[0]
-    })
-  }
-  const onFormSubmit = async(e) => {
+      [name]: files[0],
+    });
+  };
+  const onFormSubmit = async (e) => {
     try {
       e.preventDefault();
       const newFormData = new FormData();
-      for(let keys in formData) {
+      for (let keys in formData) {
         newFormData.append(`${keys}`, formData[keys]);
-      };
+      }
       await axios({
         method: "POST",
-        url: 'http://localhost:3001/data/uploads/perumahan',
+        url: "http://localhost:3001/data/uploads/perumahan",
         data: newFormData,
         headers: {
-          token: localStorage.token
-        }
+          token: localStorage.token,
+        },
       });
-      history.push('/');
+      history.push("/");
     } catch (err) {
       let msg = "";
       if (err.response) {
@@ -73,27 +73,27 @@ export default () => {
         html: `${msg}`,
       });
     }
-  }
+  };
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Kematian</h1>
+      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Pengajuan Claim Perumahan</h1>
       <Container>
-        <Form onSubmit={ onFormSubmit }>
+        <Form onSubmit={onFormSubmit}>
           <Form.Group>
             <Form.Label>Blanko Permohonan dari peserta</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="blanko_permohonan" onChange={ onFormChange } />
+            <Form.File.Input name="blanko_permohonan" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat Keputusan pemberhentian hubungan kerja (PHK) </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="surat_keputusan_phk" onChange={ onFormChange } />
+            <Form.File.Input name="surat_keputusan_phk" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Data keluarga dari surat keterangan pemberhentian penghasilan (SKPP) atau dari blanko data keluarga (P10)</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="data_keluarga" onChange={ onFormChange } />
+            <Form.File.Input name="data_keluarga" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Akumulasi saldo iuran dari program gaji atau perhitungan manual </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="akumulasi_saldo" onChange={ onFormChange } />
+            <Form.File.Input name="akumulasi_saldo" onChange={onFormChange} />
           </Form.Group>
           <Button variant="success" onClick={handdleBack} block>
             Back

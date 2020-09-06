@@ -19,42 +19,42 @@ export default () => {
     },
   };
   useEffect(() => {
-    if (!localStorage.token) history.push('/');
-  }, [history])
+    if (!localStorage.token) history.push("/");
+  }, [history]);
   function handdleBack() {
     history.push("/data/claim");
   }
   const [formData, setFormData] = useState({
-    data1: '',
-    data2: '',
-    data3: '',
-    data4: '',
-    data5: '',
+    data1: "",
+    data2: "",
+    data3: "",
+    data4: "",
+    data5: "",
   });
   const onFormChange = (e) => {
     e.preventDefault();
     const { name, files } = e.target;
     setFormData({
       ...formData,
-      [name]: files[0]
-    })
-  }
-  const onFormSubmit = async(e) => {
+      [name]: files[0],
+    });
+  };
+  const onFormSubmit = async (e) => {
     try {
       e.preventDefault();
       const newFormData = new FormData();
-      for(let keys in formData) {
+      for (let keys in formData) {
         newFormData.append(`${keys}`, formData[keys]);
-      };
+      }
       await axios({
         method: "POST",
-        url: 'http://localhost:3001/data/uploads/pendidikan',
+        url: "http://localhost:3001/data/uploads/pendidikan",
         data: newFormData,
         headers: {
-          token: localStorage.token
-        }
+          token: localStorage.token,
+        },
       });
-      history.push('/');
+      history.push("/");
     } catch (err) {
       let msg = "";
       if (err.response) {
@@ -74,31 +74,31 @@ export default () => {
         html: `${msg}`,
       });
     }
-  }
+  };
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Kematian</h1>
+      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Pengajuan Claim Pendidikan</h1>
       <Container>
-        <Form onSubmit={ onFormSubmit }>
+        <Form onSubmit={onFormSubmit}>
           <Form.Group>
             <Form.Label>File 1</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="data1" onChange={ onFormChange } />
+            <Form.File.Input custom name="data1" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>File 2</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="data2" onChange={ onFormChange } />
+            <Form.File.Input custom name="data2" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>File 3</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="data3" onChange={ onFormChange } />
+            <Form.File.Input custom name="data3" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>File 4</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="data4" onChange={ onFormChange } />
+            <Form.File.Input custom name="data4" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>File 5</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="data5" onChange={ onFormChange } />
+            <Form.File.Input custom name="data5" onChange={onFormChange} />
           </Form.Group>
           <Button variant="success" onClick={handdleBack} block>
             Back
