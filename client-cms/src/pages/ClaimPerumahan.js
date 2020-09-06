@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Table, Spinner, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
-import axios from 'axios';
+import axios from "axios";
 
 export default () => {
   const history = useHistory();
@@ -14,17 +14,17 @@ export default () => {
   }, []);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const fetchApi = async() => {
+  const fetchApi = async () => {
     const { data } = await axios({
-      method: 'GET',
+      method: "GET",
       url: `http://localhost:3001/data/claim-perumahan`,
       headers: {
         token: localStorage.token,
-      }
+      },
     });
     setData(data);
     setLoading(false);
-  }
+  };
   const pageTransition = {
     init: {
       opacity: 0,
@@ -40,7 +40,7 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Kematian</h1>
+      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Perumahan</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         <Table striped bordered hover responsive>
           <thead>
@@ -72,7 +72,7 @@ export default () => {
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button variant="primary" size="sm" onClick={ () => history.push(`detail/kematian/${file.id}`) }>
+                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/perumahan/${file.id}`)}>
                         Check
                       </Button>
                     </td>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Table, Button, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
@@ -6,19 +6,28 @@ import useFetch from "../hooks/useFetch";
 import formatDate from "../hooks/FormatDate";
 import ReactExport from "react-export-excel";
 import Navigation from "../components/Navigation";
+import axios from "axios";
 
 export default () => {
   const history = useHistory();
   const onActive = "/";
 
-  const apiUrl = {
-    url:`http://localhost:3001/users/daftar-anggota`,
-    headers: {
-      token: localStorage.token
-    }
+  useEffect(() => {
+    fetchApi();
+  }, []);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fetchApi = async () => {
+    const { data } = await axios({
+      method: "GET",
+      url: `http://localhost:3001/users/daftar-anggota`,
+      headers: {
+        token: localStorage.token,
+      },
+    });
+    setData(data);
+    setLoading(false);
   };
-  // const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
-  const [data, loading] = useFetch(apiUrl);
 
   const ExcelFile = ReactExport.ExcelFile;
   const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;

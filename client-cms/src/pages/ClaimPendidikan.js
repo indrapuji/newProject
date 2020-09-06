@@ -40,7 +40,7 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Kematian</h1>
+      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Pendidikan</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         <Table striped bordered hover responsive>
           <thead>
@@ -72,7 +72,7 @@ export default () => {
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button variant="primary" size="sm" onClick={ () => history.push(`detail/kematian/${file.id}`) }>
+                      <Button variant="primary" size="sm" onClick={ () => history.push(`detail/pendidikan/${file.id}`) }>
                         Check
                       </Button>
                     </td>

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { Container, Form, Row, Col, Button, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
-import useFetch from "../hooks/useFetch";
+import axios from "axios";
 
 export default () => {
   const { dataId } = useParams();
@@ -18,9 +18,22 @@ export default () => {
     },
   };
   const history = useHistory();
-  //   const apiUrl = `http://localhost:3001/data/${dataId}`;
-  const apiUrl = `https://jatisejahtera.herokuapp.com/data/${dataId}`;
-  const [data, loading] = useFetch(apiUrl);
+  useEffect(() => {
+    fetchApi();
+  }, []);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fetchApi = async () => {
+    const { data } = await axios({
+      method: "GET",
+      url: `http://localhost:3001/users/daftar-anggota/${dataId}`,
+      headers: {
+        token: localStorage.token,
+      },
+    });
+    setData(data);
+    setLoading(false);
+  };
 
   function handdleCancel() {
     history.push("/");
@@ -255,7 +268,6 @@ export default () => {
               <Button variant="outline-danger" onClick={handdleCancel} block>
                 Kembali
               </Button>
-              
             </Form>
           </div>
         </Container>
