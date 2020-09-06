@@ -1,12 +1,14 @@
 import React from "react";
 import { Navbar, Nav, FormControl, Form, Button } from "react-bootstrap";
 import { IoIosLogOut } from "react-icons/io";
+import { IoIosLogIn } from "react-icons/io";
 import { useHistory } from "react-router-dom";
 
 export default (props) => {
   const history = useHistory();
 
   function handdleLogout() {
+    localStorage.removeItem("token");
     history.push("/");
   }
   return (
@@ -28,9 +30,16 @@ export default (props) => {
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>
         </Form>
-        <Nav style={{ marginLeft: 20 }}>
-          <IoIosLogOut color="green" size="30" onClick={handdleLogout} />
-        </Nav>
+
+        {localStorage.token ? (
+          <Nav style={{ marginLeft: 20 }}>
+            <IoIosLogOut color="green" size="30" onClick={handdleLogout} />
+          </Nav>
+        ) : (
+          <Nav style={{ marginLeft: 20 }}>
+            <IoIosLogIn color="green" size="30" />
+          </Nav>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
