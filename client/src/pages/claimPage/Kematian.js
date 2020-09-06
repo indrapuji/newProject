@@ -19,45 +19,45 @@ export default () => {
     },
   };
   useEffect(() => {
-    if (!localStorage.token) history.push('/');
-  }, [history])
+    if (!localStorage.token) history.push("/");
+  }, [history]);
   function handdleBack() {
     history.push("/data/claim");
   }
   const [formData, setFormData] = useState({
-    permohonan_ahli_waris: '',
-    keterangan_menginggal_dunia_lurah: '',
-    keterangan_meninggal_dunia_rumah_sakit: '',
-    keterangan_kepolisian: '',
-    fotokopi_kp: '',
-    fotokopi_kk: '',
-    fotokopi_sk_pengangkatan: '',
-    fotokopi_sk_pensiun: '',
+    permohonan_ahli_waris: "",
+    keterangan_menginggal_dunia_lurah: "",
+    keterangan_meninggal_dunia_rumah_sakit: "",
+    keterangan_kepolisian: "",
+    fotokopi_kp: "",
+    fotokopi_kk: "",
+    fotokopi_sk_pengangkatan: "",
+    fotokopi_sk_pensiun: "",
   });
   const onFormChange = (e) => {
     e.preventDefault();
     const { name, files } = e.target;
     setFormData({
       ...formData,
-      [name]: files[0]
-    })
-  }
-  const onFormSubmit = async(e) => {
+      [name]: files[0],
+    });
+  };
+  const onFormSubmit = async (e) => {
     try {
       e.preventDefault();
       const newFormData = new FormData();
-      for(let keys in formData) {
+      for (let keys in formData) {
         newFormData.append(`${keys}`, formData[keys]);
-      };
+      }
       await axios({
         method: "POST",
-        url: 'http://localhost:3001/data/uploads/kematian',
+        url: "http://localhost:3001/data/uploads/kematian",
         data: newFormData,
         headers: {
-          token: localStorage.token
-        }
+          token: localStorage.token,
+        },
       });
-      history.push('/');
+      history.push("/");
     } catch (err) {
       let msg = "";
       if (err.response) {
@@ -77,43 +77,43 @@ export default () => {
         html: `${msg}`,
       });
     }
-  }
+  };
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Kematian</h1>
+      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Pengajuan Claim Kematian</h1>
       <Container>
-        <Form onSubmit={ onFormSubmit }>
+        <Form onSubmit={onFormSubmit}>
           <Form.Group>
             <Form.Label>Surat Permohonan dari ahli waris</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="permohonan_ahli_waris" onChange={ onFormChange } />
+            <Form.File.Input name="permohonan_ahli_waris" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat keterangan meninggal dunia dari lurah </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="keterangan_menginggal_dunia_lurah" onChange={ onFormChange } />
+            <Form.File.Input name="keterangan_menginggal_dunia_lurah" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat keterangan meninggal dari RS apabila peserta meninggal nya di Rumah Sakit</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="keterangan_meninggal_dunia_rumah_sakit" onChange={ onFormChange } />
+            <Form.File.Input name="keterangan_meninggal_dunia_rumah_sakit" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat Keterangan dari Kepolisian apabila peserta meninggal dunia akibat kecelakaan </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="keterangan_kepolisian" onChange={ onFormChange } />
+            <Form.File.Input name="keterangan_kepolisian" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo copy kartu peserta </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="fotokopi_kp" onChange={ onFormChange } />
+            <Form.File.Input name="fotokopi_kp" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy kartu keluarga </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="fotokopi_kk" onChange={ onFormChange } />
+            <Form.File.Input name="fotokopi_kk" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy SK pengangkatan </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="fotokopi_sk_pengangkatan" onChange={ onFormChange } />
+            <Form.File.Input name="fotokopi_sk_pengangkatan" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy Sk.Pensiun </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="fotokopi_sk_pensiun" onChange={ onFormChange } />
+            <Form.File.Input name="fotokopi_sk_pensiun" onChange={onFormChange} />
           </Form.Group>
           <Button variant="success" onClick={handdleBack} block>
             Back

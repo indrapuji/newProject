@@ -19,41 +19,41 @@ export default () => {
     },
   };
   useEffect(() => {
-    if (!localStorage.token) history.push('/');
-  }, [history])
+    if (!localStorage.token) history.push("/");
+  }, [history]);
   function handdleBack() {
     history.push("/data/claim");
   }
   const [formData, setFormData] = useState({
-    permohonan_pensiunan: '',
-    pernyataan_dari_pensiunan: '',
-    fotokopi_kp: '',
-    fotokopi_sk_pensiun: '',
+    permohonan_pensiunan: "",
+    pernyataan_dari_pensiunan: "",
+    fotokopi_kp: "",
+    fotokopi_sk_pensiun: "",
   });
   const onFormChange = (e) => {
     e.preventDefault();
     const { name, files } = e.target;
     setFormData({
       ...formData,
-      [name]: files[0]
-    })
-  }
-  const onFormSubmit = async(e) => {
+      [name]: files[0],
+    });
+  };
+  const onFormSubmit = async (e) => {
     try {
       e.preventDefault();
       const newFormData = new FormData();
-      for(let keys in formData) {
+      for (let keys in formData) {
         newFormData.append(`${keys}`, formData[keys]);
-      };
+      }
       await axios({
         method: "POST",
-        url: 'http://localhost:3001/data/uploads/nilai-hidup',
+        url: "http://localhost:3001/data/uploads/nilai-hidup",
         data: newFormData,
         headers: {
-          token: localStorage.token
-        }
+          token: localStorage.token,
+        },
       });
-      history.push('/');
+      history.push("/");
     } catch (err) {
       let msg = "";
       if (err.response) {
@@ -73,27 +73,27 @@ export default () => {
         html: `${msg}`,
       });
     }
-  }
+  };
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Kematian</h1>
+      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Pengajuan Claim Manfaat Nilai Hidup</h1>
       <Container>
-        <Form onSubmit={ onFormSubmit }>
+        <Form onSubmit={onFormSubmit}>
           <Form.Group>
             <Form.Label>Surat permohonan pensiunan perum perhutani</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="permohonan_pensiunan" onChange={ onFormChange } />
+            <Form.File.Input name="permohonan_pensiunan" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat pernyataan dari pensiunan perum perhutani </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="pernyataan_dari_pensiunan" onChange={ onFormChange } />
+            <Form.File.Input name="pernyataan_dari_pensiunan" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy kartu peserta</Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="fotokopi_kp" onChange={ onFormChange } />
+            <Form.File.Input name="fotokopi_kp" onChange={onFormChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy SK Pensiun </Form.Label>
-            <Form.File id="custom-file" label="file input" custom name="fotokopi_sk_pensiun" onChange={ onFormChange } />
+            <Form.File.Input name="fotokopi_sk_pensiun" onChange={onFormChange} />
           </Form.Group>
           <Button variant="success" onClick={handdleBack} block>
             Back
