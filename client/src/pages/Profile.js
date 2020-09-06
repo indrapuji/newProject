@@ -40,8 +40,20 @@ export default () => {
   const claimData = () => {
     let temp = {};
     for (let keys in dataPengajuan) {
-      if (profileData[keys][0]) temp[keys] = `Sudah ada pengajuan, status "${profileData[keys][0].status}"`;
-      else temp[keys] = 'Belum ada Pengajuan';
+      if (profileData[keys][0]) {
+        console.log(profileData[keys][0])
+        if (profileData[keys][0].status === '1') {
+          temp[keys] = `Staff`;
+        } else if (profileData[keys][0].status === '2') {
+          temp[keys] = `Sekretaris`;
+        } else if (profileData[keys][0].status === '3') {
+          temp[keys] = `Pimpinan`;
+        } else if (profileData[keys][0].status === '4') {
+          temp[keys] = `Finance`;
+        } else if (profileData[keys][0].status === '5') {
+          temp[keys] = `Verified`;
+        }
+      } else temp[keys] = 'Belum ada Pengajuan';
     }
     setDataPengajuan(temp);
   }

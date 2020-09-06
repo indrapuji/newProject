@@ -168,6 +168,14 @@ class UserController {
       next(err);
     }
   };
+  static getAnggota = async(req, res, next) => {
+    try {
+      const result = await user_anggota.findAll();
+      res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
+  }
 };
 
 module.exports = UserController;
