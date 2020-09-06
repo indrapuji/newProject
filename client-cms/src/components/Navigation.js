@@ -30,7 +30,9 @@ export default (props) => {
           <Button variant="outline-success">Search</Button>
         </Form>
         <Nav style={{ marginLeft: 20 }}>
-          <IoIosLogOut color="green" size="30" onClick={handdleLogout} />
+          <div onClick={ handdleLogout } cursor="pointer">
+            <IoIosLogOut color="green" size="30" />
+          </div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

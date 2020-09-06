@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Table, Spinner, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
-import useFetch from "../hooks/useFetch";
 import Navigation from "../components/Navigation";
+import axios from 'axios';
 
 export default () => {
-  const history = useHistory();
+  // const history = useHistory();
   const onActive = "/claimkesehatan";
 
-  const apiUrl = {
-    url: `http://localhost:3001/data/claim-kesehatan`,
-    headers: {
-      token: localStorage.token,
-    },
-  };
-  const [data, loading] = useFetch(apiUrl);
-
+  useEffect(async() => {
+    fetchApi();
+  }, []);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fetchApi = async() => {
+    const { data } = await axios({
+      method: 'GET',
+      url: `http://localhost:3001/data/claim-kesehatan`,
+      headers: {
+        token: localStorage.token,
+      }
+    });
+    setData(data);
+    setLoading(false);
+  }
   const pageTransition = {
     init: {
       opacity: 0,
@@ -32,18 +40,18 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Kesehatan</h1>
+      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Kematian</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         <Table striped bordered hover responsive>
           <thead>
             <tr>
               <th className="small">No</th>
-              <th className="small">Nama</th>
-              <th className="small">No Induk</th>
-              <th className="small">Satuan Kerja</th>
-              <th className="small">Golongan</th>
-              <th className="small">No Telp</th>
-              <th className="small">Alamat</th>
+              <th className="small">Surat permohonan bantuan biaya rawat inap dari pensiunan</th>
+              <th className="small">Kuitansi asli dari Rumah Sakit pensiunan di rawat</th>
+              <th className="small">Surat keterangan sakit yang di tanda tangani oleh rumah sakit</th>
+              <th className="small">Photo Copy SK Pensiun</th>
+              <th className="small">Photo copy kartu peserta</th>
+              <th className="small">No Rekening Bank</th>
               <th className="small">Action</th>
             </tr>
           </thead>
@@ -61,12 +69,12 @@ export default () => {
                 return (
                   <tr key={file.id} style={{ cursor: "pointer" }}>
                     <td className="small">{idx + 1}</td>
-                    <td className="small">{file.nama}</td>
-                    <td className="small">{file.no_induk}</td>
-                    <td className="small">{file.satuan_kerja}</td>
-                    <td className="small">{file.golongan_pangkat}</td>
-                    <td className="small">{file.no_telp}</td>
-                    <td className="small">{file.alamat}</td>
+                    <td className="small">{file.surat_permohonan_bantuan_biaya}</td>
+                    <td className="small">{file.kuitansi_asli_rs}</td>
+                    <td className="small">{file.surat_keterangan_rs}</td>
+                    <td className="small">{file.fotokopi_sk_pensiun}</td>
+                    <td className="small">{file.fotokopi_kp}</td>
+                    <td className="small">{file.no_rekening_bank}</td>
                     <td>
                       <Button variant="primary" size="sm">
                         Check

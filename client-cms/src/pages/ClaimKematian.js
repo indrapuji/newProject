@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Table, Spinner, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
-import useFetch from "../hooks/useFetch";
 import Navigation from "../components/Navigation";
+import axios from 'axios';
 
 export default () => {
-  const history = useHistory();
+  // const history = useHistory();
   const onActive = "/claimkematian";
 
-  const apiUrl = {
-    url: `http://localhost:3001/data/claim-kematian`,
-    headers: {
-      token: localStorage.token,
-    },
-  };
-  const [data, loading] = useFetch(apiUrl);
-
+  useEffect(async() => {
+    fetchApi();
+  }, []);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fetchApi = async() => {
+    const { data } = await axios({
+      method: 'GET',
+      url: `http://localhost:3001/data/claim-kematian`,
+      headers: {
+        token: localStorage.token,
+      }
+    });
+    setData(data);
+    setLoading(false);
+  }
   const pageTransition = {
     init: {
       opacity: 0,
@@ -38,12 +46,15 @@ export default () => {
           <thead>
             <tr>
               <th className="small">No</th>
-              <th className="small">Nama</th>
-              <th className="small">No Induk</th>
-              <th className="small">Satuan Kerja</th>
-              <th className="small">Golongan</th>
-              <th className="small">No Telp</th>
-              <th className="small">Alamat</th>
+              <th className="small">Surat Permohonan dari ahli waris</th>
+              <th className="small">Surat keterangan meninggal dunia dari lurah</th>
+              <th className="small">Surat keterangan meninggal dari RS apabila peserta meninggal nya di Rumah Sakit</th>
+              <th className="small">Surat Keterangan dari Kepolisian apabila peserta meninggal dunia akibat kecelakaan</th>
+              <th className="small">Photo copy kartu peserta</th>
+              <th className="small">Photo Copy kartu keluarga</th>
+              <th className="small">Photo Copy SK pengangkatan</th>
+              <th className="small">Photo Copy Sk.Pensiun</th>
+              <th className="small">No Rekening Bank</th>
               <th className="small">Action</th>
             </tr>
           </thead>
@@ -61,12 +72,15 @@ export default () => {
                 return (
                   <tr key={file.id} style={{ cursor: "pointer" }}>
                     <td className="small">{idx + 1}</td>
-                    <td className="small">{file.nama}</td>
-                    <td className="small">{file.no_induk}</td>
-                    <td className="small">{file.satuan_kerja}</td>
-                    <td className="small">{file.golongan_pangkat}</td>
-                    <td className="small">{file.no_telp}</td>
-                    <td className="small">{file.alamat}</td>
+                    <td className="small">{file.permohonan_ahli_waris}</td>
+                    <td className="small">{file.keterangan_menginggal_dunia_lurah}</td>
+                    <td className="small">{file.keterangan_meninggal_dunia_rumah_sakit}</td>
+                    <td className="small">{file.keterangan_kepolisian}</td>
+                    <td className="small">{file.fotokopi_kp}</td>
+                    <td className="small">{file.fotokopi_kk}</td>
+                    <td className="small">{file.fotokopi_sk_pengangkatan}</td>
+                    <td className="small">{file.fotokopi_sk_pensiun}</td>
+                    <td className="small">{file.no_rekening_bank}</td>
                     <td>
                       <Button variant="primary" size="sm">
                         Check

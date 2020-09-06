@@ -11,20 +11,19 @@ const { Op } = require("sequelize");
 const changeStatusValidation = require('../helpers/changeStatusValidation');
 const createError = require('http-errors');
 
-const serverUrl = 'http://localhost:3000/uploads/'
+const serverUrl = 'http://localhost:3001/uploads/'
 
 class ClaimDataController {
   static showClaimKematian = async(req, res, next) => {
     try {
+      console.log('masuk');
       const { id } = req.UserData;
       const userData = await user_admin.findOne({ where: { id } });
-      let statusValidation = '0';
-      if (userData.status !== '007') statusValidation = userData.status;
+      // let statusValidation = '0';
+      // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_kematian.findAll({
         where: {
-          status: {
-            [Op.gte]: statusValidation
-          }
+          status: userData.status
         }
       });
       res.status(200).json(result);
@@ -36,13 +35,11 @@ class ClaimDataController {
     try {
       const { id } = req.UserData;
       const userData = await user_admin.findOne({ where: { id } });
-      let statusValidation = '0';
-      if (userData.status !== '007') statusValidation = userData.status;
+      // let statusValidation = '0';
+      // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_kesehatan.findAll({
         where: {
-          status: {
-            [Op.gte]: statusValidation
-          }
+          status: userData.status
         }
       });
       res.status(200).json(result);
@@ -54,13 +51,11 @@ class ClaimDataController {
     try {
       const { id } = req.UserData;
       const userData = await user_admin.findOne({ where: { id } });
-      let statusValidation = '0';
-      if (userData.status !== '007') statusValidation = userData.status;
+      // let statusValidation = '0';
+      // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_nilai_hidup.findAll({
         where: {
-          status: {
-            [Op.gte]: statusValidation
-          }
+          status: userData.status
         }
       });
       res.status(200).json(result);
@@ -72,13 +67,11 @@ class ClaimDataController {
     try {
       const { id } = req.UserData;
       const userData = await user_admin.findOne({ where: { id } });
-      let statusValidation = '0';
-      if (userData.status !== '007') statusValidation = userData.status;
+      // let statusValidation = '0';
+      // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_perumahan.findAll({
         where: {
-          status: {
-            [Op.gte]: statusValidation
-          }
+          status: userData.status
         }
       });
       res.status(200).json(result);
@@ -90,13 +83,11 @@ class ClaimDataController {
     try {
       const { id } = req.UserData;
       const userData = await user_admin.findOne({ where: { id } });
-      let statusValidation = '0';
-      if (userData.status !== '007') statusValidation = userData.status;
+      // let statusValidation = '0';
+      // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_pendidikan.findAll({
         where: {
-          status: {
-            [Op.gte]: statusValidation
-          }
+          status: userData.status
         }
       });
       res.status(200).json(result);
