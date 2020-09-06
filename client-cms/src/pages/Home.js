@@ -11,8 +11,8 @@ export default () => {
   const history = useHistory();
   const onActive = "/";
 
-  //   const apiUrl = `http://localhost:3001/data`;
-  const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
+  const apiUrl = `http://localhost:3001/users/daftar-anggota`;
+  // const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
   const [data, loading] = useFetch(apiUrl);
 
   const ExcelFile = ReactExport.ExcelFile;
