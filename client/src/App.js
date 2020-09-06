@@ -1,5 +1,6 @@
 import React from "react";
-import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pendidikan, Sosial, Perumahan, Kesehatan, Update, Realisasi, Profile, Claim } from "./pages";
+import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pendidikan, Sosial, Perumahan, Kesehatan, Update, Realisasi, Profile, Claim, FormLogin } from "./pages";
+import { ClaimKematian, ClaimKesehatan, ClaimManfaat, ClaimPendidikan, ClaimPerumahan } from "./pages/claimPage";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -45,6 +46,21 @@ function App() {
           <Route exact path="/data/claim">
             <Claim />
           </Route>
+          <Route exact path="/claim/kematian">
+            <ClaimKematian />
+          </Route>
+          <Route exact path="/claim/Kesehatan">
+            <ClaimKesehatan />
+          </Route>
+          <Route exact path="/claim/manfaat">
+            <ClaimManfaat />
+          </Route>
+          <Route exact path="/claim/pendidikan">
+            <ClaimPendidikan />
+          </Route>
+          <Route exact path="/claim/perumahan">
+            <ClaimPerumahan />
+          </Route>
           <Route path="/berita">
             <Berita />
           </Route>
@@ -54,8 +70,11 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/user/profile">
+          <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/login">
+            <FormLogin />
           </Route>
         </Switch>
       </AnimatePresence>

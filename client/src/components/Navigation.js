@@ -68,6 +68,7 @@ export default () => {
           <Link to="/berita">Berita</Link>
           <Link to="/galery">Galery</Link>
           <Link to="/contact">Kontak</Link>
+          <Link to="/profile">Profile</Link>
         </Navbar.Collapse>
       </Navbar>
     </>

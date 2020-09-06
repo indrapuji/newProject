@@ -11,7 +11,9 @@ export default (props) => {
   }
   return (
     <Navbar bg="light" expand="lg" sticky="top">
-      <Navbar.Brand href="/">Jati Sejahtera</Navbar.Brand>
+      <Navbar.Brand href="/" style={{ fontWeight: "bolder" }}>
+        Jati Sejahtera CMS
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto" defaultActiveKey={props.activePath}>

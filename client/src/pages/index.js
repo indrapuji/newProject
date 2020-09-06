@@ -14,3 +14,4 @@ export { default as Update } from "./Update";
 export { default as Realisasi } from "./Realisasi";
 export { default as Profile } from "./Profile";
 export { default as Claim } from "./Claim";
+export { default as FormLogin } from "./FormLogin";
