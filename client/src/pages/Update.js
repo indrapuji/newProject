@@ -69,9 +69,9 @@ export default () => {
         url: 'http://localhost:3001/users/super/pengkinian-data',
         // url: "https://jatisejahtera.herokuapp.com/data",
         data: dataForm,
-        headers: {
-          token: localStorage.token
-        }
+        // headers: {
+        //   token: localStorage.token
+        // }
       });
       history.push("/");
     } catch (err) {
