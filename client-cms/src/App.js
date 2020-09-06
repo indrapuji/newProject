@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Home, Detail, FormLogin, ClaimKematian, ClaimKesehatan, ClaimPerumahan, ClaimPendidikan, ClaimManfaat } from "./pages";
+import { DetailKematian, DetailKesehatan, DetailManfaat, DetailPendidikan, DetailPerumahan } from "./pages";
 import "./App.css";
 
 function App() {
@@ -35,6 +36,21 @@ function App() {
           </Route>
           <Route exact path="/detail/:dataId">
             <Detail />
+          </Route>
+          <Route exact path="/detail/kematian/:dataId">
+            <DetailKematian />
+          </Route>
+          <Route exact path="/detail/kesehatan/:dataId">
+            <DetailKesehatan />
+          </Route>
+          <Route exact path="/detail/manfaat/:dataId">
+            <DetailManfaat />
+          </Route>
+          <Route exact path="/detail/pendidikan/:dataId">
+            <DetailPendidikan />
+          </Route>
+          <Route exact path="/detail/perumahan/:dataId">
+            <DetailPerumahan />
           </Route>
           <Route exact path="/login">
             <FormLogin />

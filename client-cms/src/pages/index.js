@@ -6,3 +6,8 @@ export { default as ClaimKesehatan } from "./ClaimKesehatan";
 export { default as ClaimPerumahan } from "./ClaimPerumahan";
 export { default as ClaimPendidikan } from "./ClaimPendidikan";
 export { default as ClaimManfaat } from "./ClaimManfaat";
+export { default as DetailKematian } from "./DetailKematian";
+export { default as DetailKesehatan } from "./DetailKesehatan";
+export { default as DetailManfaat } from "./DetailManfaat";
+export { default as DetailPendidikan } from "./DetailPendidikan";
+export { default as DetailPerumahan } from "./DetailPerumahan";
