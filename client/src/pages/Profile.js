@@ -20,28 +20,30 @@ export default () => {
     },
   };
   const history = useHistory();
-  const [profileData, setProfileData] = useState({});
+  const [profileData, setProfileData] = useState(false);
   const [dataPengajuan, setDataPengajuan] = useState({
-    claim_kematians: 'Belum ada Pengajuan',
-    claim_kesehatans: 'Belum ada Pengajuan',
-    claim_nilai_hidups: 'Belum ada Pengajuan',
-    claim_pendidikans: 'Belum ada Pengajuan',
-    claim_perumahans: 'Belum ada Pengajuan'
+    claim_kematians: '',
+    claim_kesehatans: '',
+    claim_nilai_hidups: '',
+    claim_pendidikans: '',
+    claim_perumahans: ''
   });
   useEffect(() => {
     if (!localStorage.token) history.push('/');
     getProfileData();
     // eslint-disable-next-line
   }, [history]);
-  const claimData = (data) => {
+  useEffect(() => {
+    if (profileData) claimData();
+    // eslint-disable-next-line
+  }, [profileData]);
+  const claimData = () => {
+    let temp = {};
     for (let keys in dataPengajuan) {
-      let temp;
-      if (data[keys][0]) temp = `Sudah ada pengajuan, status "${data[keys][0]}.status"`;
-      setDataPengajuan({
-        ...dataPengajuan,
-        keys: temp
-      })
+      if (profileData[keys][0]) temp[keys] = `Sudah ada pengajuan, status "${profileData[keys][0].status}"`;
+      else temp[keys] = 'Belum ada Pengajuan';
     }
+    setDataPengajuan(temp);
   }
   const getProfileData = async() => {
     try {
@@ -53,7 +55,6 @@ export default () => {
         }
       });
       setProfileData(data);
-      claimData(data);
     } catch (err) {
       let msg = "";
       if (err.response) {
