@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      claim_perumahan.belongsTo(models.user_anggota);
     }
   };
   claim_perumahan.init({

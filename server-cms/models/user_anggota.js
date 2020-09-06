@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      user_anggota.hasMany(models.claim_kematian, { foreignKey: 'user_id' });
+      user_anggota.hasMany(models.claim_kesehatan, { foreignKey: 'user_id' });
+      user_anggota.hasMany(models.claim_nilai_hidup, { foreignKey: 'user_id' });
+      user_anggota.hasMany(models.claim_perumahan, { foreignKey: 'user_id' });
+      user_anggota.hasMany(models.claim_pendidikan, { foreignKey: 'user_id' });
     }
   }
   user_anggota.init({
@@ -225,7 +230,6 @@ module.exports = (sequelize, DataTypes) => {
     no_bpjs_anak: DataTypes.STRING,
     nama_bank_anak: DataTypes.STRING,
     no_rekening_anak: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: "user_anggota",
