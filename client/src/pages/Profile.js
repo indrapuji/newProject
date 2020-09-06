@@ -43,13 +43,13 @@ export default () => {
       if (profileData[keys][0]) {
         console.log(profileData[keys][0])
         if (profileData[keys][0].status === '1') {
-          temp[keys] = `Staff`;
+          temp[keys] = `Checking Staff`;
         } else if (profileData[keys][0].status === '2') {
-          temp[keys] = `Sekretaris`;
+          temp[keys] = `Checking Sekretaris`;
         } else if (profileData[keys][0].status === '3') {
-          temp[keys] = `Pimpinan`;
+          temp[keys] = `Checking Pimpinan`;
         } else if (profileData[keys][0].status === '4') {
-          temp[keys] = `Finance`;
+          temp[keys] = `Checking Finance`;
         } else if (profileData[keys][0].status === '5') {
           temp[keys] = `Verified`;
         }
