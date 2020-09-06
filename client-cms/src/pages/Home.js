@@ -1,20 +1,15 @@
-import React, { useEffect } from "react";
-import Navigation from "../components/Navigation";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import Footer from "../components/Footer";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
-import Aos from "aos";
 import useFetch from "../hooks/useFetch";
 import formatDate from "../hooks/FormatDate";
-import "aos/dist/aos.css";
 import ReactExport from "react-export-excel";
+import Navigation from "../components/Navigation";
 
 export default () => {
-  useEffect(() => {
-    Aos.init({ duration: 2500 });
-  }, []);
   const history = useHistory();
+  const onActive = "/";
 
   //   const apiUrl = `http://localhost:3001/data`;
   const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
@@ -25,7 +20,7 @@ export default () => {
   const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
   function handdleDetail(dataId) {
-    history.push(`/data/detail/${dataId}`);
+    history.push(`/detail/${dataId}`);
   }
   const pageTransition = {
     init: {
@@ -38,15 +33,13 @@ export default () => {
       opacity: 0,
     },
   };
-  if (loading) {
-    return <h1>Loading</h1>;
-  } else {
-    return (
-      <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-        <Navigation />
-        {/* {JSON.stringify(data)} */}
-        <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Update</h1>
-        <div style={{ marginLeft: 10, marginRight: 10 }}>
+  return (
+    <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
+      <Navigation onActive={onActive} />
+      {/* {JSON.stringify(data)} */}
+      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Update</h1>
+      <div style={{ marginLeft: 10, marginRight: 10 }}>
+        {!loading ? (
           <div style={{ marginBottom: 10 }}>
             <ExcelFile element={<Button variant="success">Download</Button>} filename="Pengkinian Data">
               <ExcelSheet data={data} name="Data Peserta">
@@ -84,24 +77,35 @@ export default () => {
               </ExcelSheet>
             </ExcelFile>
           </div>
-          <Table striped bordered hover>
-            <thead>
+        ) : null}
+
+        <Table striped bordered hover responsive>
+          <thead>
+            <tr>
+              <th className="small">No</th>
+              <th className="small">Nama</th>
+              <th className="small">No Induk</th>
+              <th className="small">Email</th>
+              <th className="small">tanggal Lahir</th>
+              <th className="small">No KTP</th>
+              <th className="small">No BPJS</th>
+              <th className="small">Nama Bank</th>
+              <th className="small">No Rekening</th>
+              <th className="small">Satuan Kerja</th>
+              <th className="small">Golongan</th>
+              <th className="small">No Telp</th>
+              <th className="small">Alamat</th>
+            </tr>
+          </thead>
+          {loading ? (
+            <tbody>
               <tr>
-                <th className="small">No</th>
-                <th className="small">Nama</th>
-                <th className="small">No Induk</th>
-                <th className="small">Email</th>
-                <th className="small">tanggal Lahir</th>
-                <th className="small">No KTP</th>
-                <th className="small">No BPJS</th>
-                <th className="small">Nama Bank</th>
-                <th className="small">No Rekening</th>
-                <th className="small">Satuan Kerja</th>
-                <th className="small">Golongan</th>
-                <th className="small">No Telp</th>
-                <th className="small">Alamat</th>
+                <td colSpan="13" className="small" style={{ textAlign: "center" }}>
+                  <Spinner animation="border" variant="success" />
+                </td>
               </tr>
-            </thead>
+            </tbody>
+          ) : (
             <tbody>
               {data.map((file, idx) => {
                 return (
@@ -123,12 +127,9 @@ export default () => {
                 );
               })}
             </tbody>
-          </Table>
-        </div>
-        {/* <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
-        <Footer />
-        </div> */}
-      </motion.div>
-    );
-  }
+          )}
+        </Table>
+      </div>
+    </motion.div>
+  );
 };

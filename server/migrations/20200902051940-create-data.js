@@ -20,6 +20,9 @@ module.exports = {
       tgl_lahir: {
         type: Sequelize.STRING
       },
+      password: {
+        type: Sequelize.STRING
+      },
       no_ktp: {
         type: Sequelize.STRING
       },

@@ -19,17 +19,6 @@
   left: -120px;
 }
 
-/* .time > li:before,
-.time > li:after {
-  content: " ";
-  display: table;
-} */
-
-/* .time > li:after {
-  clear: both;
-  min-height: 170px;
-} */
-
 .time > li .time-panel {
   position: relative;
   float: left;
@@ -37,13 +26,6 @@
   padding: 0 20px 20px 30px;
   text-align: right;
 }
-
-/* .time > li .time-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-} */
 
 .time > li .time-panel:after {
   right: auto;
