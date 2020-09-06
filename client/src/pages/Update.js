@@ -66,9 +66,12 @@ export default () => {
       e.preventDefault();
       await axios({
         method: "POST",
-        // url: 'http://localhost:3001/data',
-        url: "https://jatisejahtera.herokuapp.com/data",
+        url: 'http://localhost:3001/users/super/pengkinian-data',
+        // url: "https://jatisejahtera.herokuapp.com/data",
         data: dataForm,
+        headers: {
+          token: localStorage.token
+        }
       });
       history.push("/");
     } catch (err) {

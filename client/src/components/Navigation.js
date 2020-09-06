@@ -68,7 +68,11 @@ export default () => {
           <Link to="/berita">Berita</Link>
           <Link to="/galery">Galery</Link>
           <Link to="/contact">Kontak</Link>
-          <Link to="/profile">Profile</Link>
+          {
+            localStorage.token ?
+            <Link to="/profile">Profile</Link> :
+            <Link to="/login">Login</Link>
+          }
         </Navbar.Collapse>
       </Navbar>
     </>

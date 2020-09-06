@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      claim_nilai_hidup.belongsTo(models.user_anggota);
+      claim_nilai_hidup.belongsTo(models.user_anggota, { foreignKey: 'user_id' });
     }
   };
   claim_nilai_hidup.init({

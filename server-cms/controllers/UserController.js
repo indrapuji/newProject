@@ -91,7 +91,7 @@ class UserController {
       next(err);
     }
   }
-  static addAnggota = async(req, res) => {
+  static addAnggota = async(req, res, next) => {
     try {
       const {
         nama,
@@ -160,6 +160,8 @@ class UserController {
         nama_bank_anak,
         no_rekening_anak,
       };
+      const emailValidation = await user_admin.findOne({ where: { email } });
+      if (emailValidation) throw createError(400, 'Email already been used');
       const result = await user_anggota.create(query);
       res.status(201).json(result);
     } catch (err) {

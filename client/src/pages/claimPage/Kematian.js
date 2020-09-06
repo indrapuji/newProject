@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button, Form, Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default () => {
   const history = useHistory();
@@ -16,55 +18,110 @@ export default () => {
       opacity: 0,
     },
   };
+  useEffect(() => {
+    if (!localStorage.token) history.push('/');
+  }, [history])
   function handdleBack() {
     history.push("/data/claim");
   }
-
+  const [formData, setFormData] = useState({
+    permohonan_ahli_waris: '',
+    keterangan_menginggal_dunia_lurah: '',
+    keterangan_meninggal_dunia_rumah_sakit: '',
+    keterangan_kepolisian: '',
+    fotokopi_kp: '',
+    fotokopi_kk: '',
+    fotokopi_sk_pengangkatan: '',
+    fotokopi_sk_pensiun: '',
+  });
+  const onFormChange = (e) => {
+    e.preventDefault();
+    const { name, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files[0]
+    })
+  }
+  const onFormSubmit = async(e) => {
+    try {
+      e.preventDefault();
+      const newFormData = new FormData();
+      for(let keys in formData) {
+        newFormData.append(`${keys}`, formData[keys]);
+      };
+      await axios({
+        method: "POST",
+        url: 'http://localhost:3001/data/uploads/kematian',
+        data: newFormData,
+        headers: {
+          token: localStorage.token
+        }
+      });
+      history.push('/');
+    } catch (err) {
+      let msg = "";
+      if (err.response) {
+        if (Array.isArray(err.response.data.msg)) {
+          msg = err.response.data.msg.join("<br>");
+        } else {
+          msg = err.response.data.msg;
+        }
+      } else if (err.request) {
+        msg = err.request;
+      } else {
+        msg = err.message;
+      }
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        html: `${msg}`,
+      });
+    }
+  }
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Kematian</h1>
       <Container>
-        <Form>
+        <Form onSubmit={ onFormSubmit }>
           <Form.Group>
             <Form.Label>Surat Permohonan dari ahli waris</Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="permohonan_ahli_waris" onChange={ onFormChange } />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat keterangan meninggal dunia dari lurah </Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="keterangan_menginggal_dunia_lurah" onChange={ onFormChange } />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat keterangan meninggal dari RS apabila peserta meninggal nya di Rumah Sakit</Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="keterangan_meninggal_dunia_rumah_sakit" onChange={ onFormChange } />
           </Form.Group>
           <Form.Group>
             <Form.Label>Surat Keterangan dari Kepolisian apabila peserta meninggal dunia akibat kecelakaan </Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="keterangan_kepolisian" onChange={ onFormChange } />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo copy kartu peserta </Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="fotokopi_kp" onChange={ onFormChange } />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy kartu keluarga </Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="fotokopi_kk" onChange={ onFormChange } />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy SK pengangkatan </Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="fotokopi_sk_pengangkatan" onChange={ onFormChange } />
           </Form.Group>
           <Form.Group>
             <Form.Label>Photo Copy Sk.Pensiun </Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
+            <Form.File id="custom-file" label="file input" custom name="fotokopi_sk_pensiun" onChange={ onFormChange } />
           </Form.Group>
-          <Form.Group>
-            <Form.Label>No Rekening Bank tujuan bayar</Form.Label>
-            <Form.File id="custom-file" label="file input" custom />
-          </Form.Group>
+          <Button variant="success" onClick={handdleBack} block>
+            Back
+          </Button>
+          <Button variant="primary" type="submit" block>
+            Submit
+          </Button>
         </Form>
-        <Button variant="success" onClick={handdleBack} block>
-          Back
-        </Button>
       </Container>
     </motion.div>
   );
