@@ -11,7 +11,12 @@ export default () => {
   const history = useHistory();
   const onActive = "/";
 
-  const apiUrl = `http://localhost:3001/users/daftar-anggota`;
+  const apiUrl = {
+    url:`http://localhost:3001/users/daftar-anggota`,
+    headers: {
+      token: localStorage.token
+    }
+  };
   // const apiUrl = `https://jatisejahtera.herokuapp.com/data`;
   const [data, loading] = useFetch(apiUrl);
 
