@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Row, Col, Image, Container, Form, Card, Button } from "react-bootstrap";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 export default () => {
   const pageTransition = {
@@ -20,25 +21,48 @@ export default () => {
       <Navigation />
       <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 50 }}>User Profile</h1>
       <Container>
+        <div style={{ display: "flex", marginBottom: 20 }}>
+          <Card style={{ width: "20rem", marginTop: 20 }}>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Sudah Pengajuan</Card.Subtitle>
+              <Card.Text></Card.Text>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: "20rem", marginTop: 20 }}>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Sudah Pengajuan</Card.Subtitle>
+              <Card.Text></Card.Text>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: "20rem", marginTop: 20 }}>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Sudah Pengajuan</Card.Subtitle>
+              <Card.Text></Card.Text>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: "20rem", marginTop: 20 }}>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Sudah Pengajuan</Card.Subtitle>
+              <Card.Text></Card.Text>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: "20rem", marginTop: 20 }}>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Sudah Pengajuan</Card.Subtitle>
+              <Card.Text></Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
         <Row>
           <Col>
             <div style={{ marginBottom: 20 }}>
               <Image src={require("../assets/image/default-profile.jpg")} roundedCircle />
             </div>
-            <Card style={{ width: "20rem", marginTop: 20 }}>
-              <Card.Body>
-                <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Sudah Pengajuan</Card.Subtitle>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
-            <Card style={{ width: "20rem", marginTop: 20 }}>
-              <Card.Body>
-                <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Sudah Pengajuan</Card.Subtitle>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
             <Card style={{ width: "20rem", marginTop: 20 }}>
               <Button variant="primary" size="lg" type="submit" block>
                 Logout
@@ -169,6 +193,7 @@ export default () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </motion.div>
   );
 };

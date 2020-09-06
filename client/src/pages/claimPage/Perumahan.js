@@ -1,7 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Button, Form, Container } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 export default () => {
+  const history = useHistory();
   const pageTransition = {
     init: {
       opacity: 0,
@@ -13,9 +16,35 @@ export default () => {
       opacity: 0,
     },
   };
+  function handdleBack() {
+    history.push("/data/claim");
+  }
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      <h1>Perumahan</h1>
+      <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>Perumahan</h1>
+      <Container>
+        <Form>
+          <Form.Group>
+            <Form.Label>Blanko Permohonan dari peserta </Form.Label>
+            <Form.File id="custom-file" label="file input" custom />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Surat Keputusan pemberhentian hubungan kerja (PHK)</Form.Label>
+            <Form.File id="custom-file" label="file input" custom />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Data keluarga dari surat keterangan pemberhentian penghasilan (SKPP) atau dari blanko data keluarga (P10)</Form.Label>
+            <Form.File id="custom-file" label="file input" custom />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Akumulasi saldo iuran dari program gaji atau perhitungan manual </Form.Label>
+            <Form.File id="custom-file" label="file input" custom />
+          </Form.Group>
+        </Form>
+        <Button variant="success" onClick={handdleBack} block>
+          Back
+        </Button>
+      </Container>
     </motion.div>
   );
 };
