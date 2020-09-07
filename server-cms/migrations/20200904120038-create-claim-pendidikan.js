@@ -11,6 +11,9 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER
       },
+      pesan_claim_id: {
+        type: Sequelize.INTEGER
+      },
       status: {
         type: Sequelize.STRING
       },

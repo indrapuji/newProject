@@ -17,11 +17,11 @@ router.get('/claim-kesehatan/:id', authentication, adminAuth, ClaimDataControlle
 router.get('/claim-nilai-hidup/:id', authentication, adminAuth, ClaimDataController.showClaimNilaiHidupId);
 router.get('/claim-perumahan/:id', authentication, adminAuth, ClaimDataController.showClaimPerumahanId);
 router.get('/claim-pendidikan/:id', authentication, adminAuth, ClaimDataController.showClaimPendidikanId);
-router.get('/pindah-status/kematian/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimKematian);
-router.get('/pindah-status/kesehatan/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimKesehatan);
-router.get('/pindah-status/nilai-hidup/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimNilaiHidup);
-router.get('/pindah-status/perumahan/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimPerumahan);
-router.get('/pindah-status/pendidikan/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimPendidikan);
+router.post('/pindah-status/kematian/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimKematian);
+router.post('/pindah-status/kesehatan/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimKesehatan);
+router.post('/pindah-status/nilai-hidup/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimNilaiHidup);
+router.post('/pindah-status/perumahan/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimPerumahan);
+router.post('/pindah-status/pendidikan/:claim_id/:status', authentication, adminAuth, ClaimDataController.changeStatusClaimPendidikan);
 router.post('/uploads/kematian', authentication, addClaimAuth,
   upload.fields([{
     name: 'permohonan_ahli_waris',

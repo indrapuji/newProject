@@ -12,10 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       claim_kematian.belongsTo(models.user_anggota, { foreignKey: 'user_id' });
+      claim_kematian.belongsTo(models.pesan_claim, { foreignKey: 'pesan_claim_id' });
     }
   };
   claim_kematian.init({
     user_id: DataTypes.INTEGER,
+    pesan_claim_id: DataTypes.INTEGER,
     permohonan_ahli_waris: {
       type: DataTypes.STRING,
       allowNull: false,
