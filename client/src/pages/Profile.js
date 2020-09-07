@@ -55,7 +55,7 @@ export default () => {
         } else if (profileData[keys][0].status === "0") {
           temp[keys] = `Ditolak`;
         }
-      } else temp[keys] = "Belum ada Pengajuan";
+      } else temp[keys] = "-";
     }
     setDataPengajuan(temp);
   };
@@ -96,38 +96,48 @@ export default () => {
       <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 50 }}>User Profile</h1>
       <Container>
         <div style={{ display: "flex", marginBottom: 20 }}>
-          <Card style={{ width: "20rem", marginTop: 20 }}>
+          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
             <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Kematian</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_kematians}</Card.Subtitle>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kematian</Card.Title>
+              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                {dataPengajuan.claim_kematians}
+              </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
-          <Card style={{ width: "20rem", marginTop: 20 }}>
+          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
             <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Kesehatan</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_kesehatans}</Card.Subtitle>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kesehatan</Card.Title>
+              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                {dataPengajuan.claim_kesehatans}
+              </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
-          <Card style={{ width: "20rem", marginTop: 20 }}>
+          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
             <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Nilai Hidup</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_nilai_hidups}</Card.Subtitle>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Nilai Hidup</Card.Title>
+              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                {dataPengajuan.claim_nilai_hidups}
+              </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
-          <Card style={{ width: "20rem", marginTop: 20 }}>
+          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
             <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Perumahan</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_perumahans}</Card.Subtitle>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Perumahan</Card.Title>
+              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                {dataPengajuan.claim_perumahans}
+              </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
-          <Card style={{ width: "20rem", marginTop: 20 }}>
+          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
             <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_pendidikans}</Card.Subtitle>
+              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Pendidikan</Card.Title>
+              <Card.Subtitle className="mb-2" style={{ textAlign: "center", fontWeight: "bold" }}>
+                {dataPengajuan.claim_pendidikans}
+              </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
