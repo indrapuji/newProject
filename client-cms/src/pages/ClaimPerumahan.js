@@ -17,7 +17,8 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/data/claim-perumahan`,
+      url: `https://jatisejahtera-cms.herokuapp.com/data/claim-perumahan`,
+    //   url: `http://localhost:3001/data/claim-perumahan`,
       headers: {
         token: localStorage.token,
       },

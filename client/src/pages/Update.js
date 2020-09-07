@@ -66,8 +66,9 @@ export default () => {
       e.preventDefault();
       await axios({
         method: "POST",
-        url: 'http://localhost:3001/users/super/pengkinian-data',
-        // url: "https://jatisejahtera.herokuapp.com/data",
+        url: "https://jatisejahtera-cms.herokuapp.com/users/super/pengkinian-data",
+        // url: 'http://localhost:3001/users/super/pengkinian-data',
+
         data: dataForm,
         // headers: {
         //   token: localStorage.token

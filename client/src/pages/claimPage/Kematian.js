@@ -51,7 +51,8 @@ export default () => {
       }
       await axios({
         method: "POST",
-        url: "http://localhost:3001/data/uploads/kematian",
+        url: "https://jatisejahtera-cms.herokuapp.com/data/uploads/kematian",
+        // url: "http://localhost:3001/data/uploads/kematian",
         data: newFormData,
         headers: {
           token: localStorage.token,

@@ -36,7 +36,8 @@ export default () => {
       e.preventDefault();
       const { data } = await axios({
         method: "POST",
-        url: "http://localhost:3001/users/login/admin",
+        url: "https://jatisejahtera-cms.herokuapp.com/users/login/admin",
+        // url: "http://localhost:3001/users/login/admin",
         data: formData,
       });
       console.log(data);

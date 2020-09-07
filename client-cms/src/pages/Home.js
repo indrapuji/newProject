@@ -20,7 +20,8 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/users/daftar-anggota`,
+      url: `https://jatisejahtera-cms.herokuapp.com/users/daftar-anggota`,
+      // url: `http://localhost:3001/users/daftar-anggota`,
       headers: {
         token: localStorage.token,
       },

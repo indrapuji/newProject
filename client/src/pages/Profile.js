@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Row, Col, Image, Container, Form, Card, Button } from "react-bootstrap";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -22,14 +22,14 @@ export default () => {
   const history = useHistory();
   const [profileData, setProfileData] = useState(false);
   const [dataPengajuan, setDataPengajuan] = useState({
-    claim_kematians: '',
-    claim_kesehatans: '',
-    claim_nilai_hidups: '',
-    claim_pendidikans: '',
-    claim_perumahans: ''
+    claim_kematians: "",
+    claim_kesehatans: "",
+    claim_nilai_hidups: "",
+    claim_pendidikans: "",
+    claim_perumahans: "",
   });
   useEffect(() => {
-    if (!localStorage.token) history.push('/');
+    if (!localStorage.token) history.push("/");
     getProfileData();
     // eslint-disable-next-line
   }, [history]);
@@ -41,30 +41,33 @@ export default () => {
     let temp = {};
     for (let keys in dataPengajuan) {
       if (profileData[keys][0]) {
-        console.log(profileData[keys][0])
-        if (profileData[keys][0].status === '1') {
+        console.log(profileData[keys][0]);
+        if (profileData[keys][0].status === "1") {
           temp[keys] = `Checking Staff`;
-        } else if (profileData[keys][0].status === '2') {
+        } else if (profileData[keys][0].status === "2") {
           temp[keys] = `Checking Sekretaris`;
-        } else if (profileData[keys][0].status === '3') {
+        } else if (profileData[keys][0].status === "3") {
           temp[keys] = `Checking Pimpinan`;
-        } else if (profileData[keys][0].status === '4') {
+        } else if (profileData[keys][0].status === "4") {
           temp[keys] = `Checking Finance`;
-        } else if (profileData[keys][0].status === '5') {
+        } else if (profileData[keys][0].status === "5") {
           temp[keys] = `Verified`;
+        } else if (profileData[keys][0].status === "0") {
+          temp[keys] = `Ditolak`;
         }
-      } else temp[keys] = 'Belum ada Pengajuan';
+      } else temp[keys] = "Belum ada Pengajuan";
     }
     setDataPengajuan(temp);
-  }
-  const getProfileData = async() => {
+  };
+  const getProfileData = async () => {
     try {
       const { data } = await axios({
-        method: 'GET',
-        url: 'http://localhost:3001/users/profile',
+        method: "GET",
+        url: "https://jatisejahtera-cms.herokuapp.com/users/profile",
+        // url: 'http://localhost:3001/users/profile',
         headers: {
-          token: localStorage.token
-        }
+          token: localStorage.token,
+        },
       });
       setProfileData(data);
     } catch (err) {
@@ -86,7 +89,7 @@ export default () => {
         html: `${msg}`,
       });
     }
-  }
+  };
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
@@ -96,35 +99,35 @@ export default () => {
           <Card style={{ width: "20rem", marginTop: 20 }}>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Kematian</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{ dataPengajuan.claim_kematians }</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_kematians}</Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
           <Card style={{ width: "20rem", marginTop: 20 }}>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Kesehatan</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{ dataPengajuan.claim_kesehatans }</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_kesehatans}</Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
           <Card style={{ width: "20rem", marginTop: 20 }}>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Nilai Hidup</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{ dataPengajuan.claim_nilai_hidups }</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_nilai_hidups}</Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
           <Card style={{ width: "20rem", marginTop: 20 }}>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Perumahan</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{ dataPengajuan.claim_perumahans }</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_perumahans}</Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
           <Card style={{ width: "20rem", marginTop: 20 }}>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20 }}>Santunan Pendidikan</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{ dataPengajuan.claim_pendidikans }</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{dataPengajuan.claim_pendidikans}</Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
           </Card>
@@ -135,10 +138,16 @@ export default () => {
               <Image src={require("../assets/image/default-profile.jpg")} roundedCircle />
             </div>
             <Card style={{ width: "20rem", marginTop: 20 }}>
-              <Button variant="primary" size="lg" type="submit" block onClick={ () => {
-                localStorage.removeItem('token');
-                history.push('/');
-              } }>
+              <Button
+                variant="primary"
+                size="lg"
+                type="submit"
+                block
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  history.push("/");
+                }}
+              >
                 Logout
               </Button>
             </Card>
@@ -150,7 +159,7 @@ export default () => {
                   Nama
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="text" name="nama" value={ profileData.nama } disabled={true} />
+                  <Form.Control type="text" name="nama" value={profileData.nama} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -158,7 +167,7 @@ export default () => {
                   No Induk
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="text" name="no_induk" value={ profileData.no_induk } disabled={true} />
+                  <Form.Control type="text" name="no_induk" value={profileData.no_induk} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -166,7 +175,7 @@ export default () => {
                   Email
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="email" name="email" value={ profileData.email } disabled={true} />
+                  <Form.Control type="email" name="email" value={profileData.email} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -174,7 +183,7 @@ export default () => {
                   Tgl Lahir
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="date" name="tgl_lahir" value={ profileData.tgl_lahir } disabled={true} />
+                  <Form.Control type="date" name="tgl_lahir" value={profileData.tgl_lahir} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -182,7 +191,7 @@ export default () => {
                   No KTP
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="text" name="no_ktp" value={ profileData.no_ktp } disabled={true} />
+                  <Form.Control type="text" name="no_ktp" value={profileData.no_ktp} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -190,7 +199,7 @@ export default () => {
                   No BPJS
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="text" name="no_bpjs" value={ profileData.no_bpjs } disabled={true} />
+                  <Form.Control type="text" name="no_bpjs" value={profileData.no_bpjs} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -198,13 +207,13 @@ export default () => {
                   Nama Bank
                 </Form.Label>
                 <Col xs={3}>
-                  <Form.Control name="nama_bank" value={ profileData.nama_bank } disabled={true} />
+                  <Form.Control name="nama_bank" value={profileData.nama_bank} disabled={true} />
                 </Col>
                 <Form.Label column sm="1.5">
                   No Rek
                 </Form.Label>
                 <Col>
-                  <Form.Control name="no_rekening" value={ profileData.no_rekening } disabled={true} />
+                  <Form.Control name="no_rekening" value={profileData.no_rekening} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -212,13 +221,13 @@ export default () => {
                   Sat. Kerja
                 </Form.Label>
                 <Col xs={5}>
-                  <Form.Control name="satuan_kerja" value={ profileData.satuan_kerja } disabled={true} />
+                  <Form.Control name="satuan_kerja" value={profileData.satuan_kerja} disabled={true} />
                 </Col>
                 <Form.Label column sm="1.5">
                   Golongan
                 </Form.Label>
                 <Col>
-                  <Form.Control name="golongan_pangkat" value={ profileData.golongan_pangkat } disabled={true} />
+                  <Form.Control name="golongan_pangkat" value={profileData.golongan_pangkat} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -226,7 +235,7 @@ export default () => {
                   No Telp
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="text" name="no_telp" value={ profileData.no_telp } disabled={true} />
+                  <Form.Control type="text" name="no_telp" value={profileData.no_telp} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -234,7 +243,7 @@ export default () => {
                   Alamat
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control type="text" name="alamat" value={ profileData.alamat } disabled={true} />
+                  <Form.Control type="text" name="alamat" value={profileData.alamat} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -242,25 +251,25 @@ export default () => {
                   Kel
                 </Form.Label>
                 <Col xs={5}>
-                  <Form.Control name="kelurahan" value={ profileData.kelurahan } disabled={true} />
+                  <Form.Control name="kelurahan" value={profileData.kelurahan} disabled={true} />
                 </Col>
                 <Form.Label column sm="1.5">
                   Kec
                 </Form.Label>
                 <Col>
-                  <Form.Control name="kecamatan" value={ profileData.kecamatan } disabled={true} />
+                  <Form.Control name="kecamatan" value={profileData.kecamatan} disabled={true} />
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
                 <Form.Label column sm="2"></Form.Label>
                 <Col xs={4}>
-                  <Form.Control name="kota" value={ profileData.kota } disabled={true} />
+                  <Form.Control name="kota" value={profileData.kota} disabled={true} />
                 </Col>
                 <Col>
-                  <Form.Control name="kodepos" value={ profileData.kodepos } disabled={true} />
+                  <Form.Control name="kodepos" value={profileData.kodepos} disabled={true} />
                 </Col>
                 <Col>
-                  <Form.Control name="provinsi" value={ profileData.provinsi } disabled={true} />
+                  <Form.Control name="provinsi" value={profileData.provinsi} disabled={true} />
                 </Col>
               </Form.Group>
             </Form>

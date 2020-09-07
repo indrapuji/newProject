@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, FormControl, Form, Button } from "react-bootstrap";
 import { IoIosLogOut } from "react-icons/io";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 export default (props) => {
   const history = useHistory();
@@ -18,19 +18,28 @@ export default (props) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto" defaultActiveKey={props.activePath}>
-          <Nav.Link href="/claimkematian">Kematian</Nav.Link>
-          <Nav.Link href="/claimmanfaat">Manfaat</Nav.Link>
-          <Nav.Link href="/claimkesehatan">Kesehatan</Nav.Link>
-          <Nav.Link href="/claimperumahan">Perumahan</Nav.Link>
-          <Nav.Link href="/claimpendidikan">Pendidikan</Nav.Link>
-          <Nav.Link href="/histori">Histori</Nav.Link>
+          <Nav.Link>
+            <Link to="/claimkematian">Kematian</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/claimmanfaat">Manfaat</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/claimkesehatan">Kesehatan</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/claimperumahan">Perumahan</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/claimpendidikan">Pendidikan</Link>
+          </Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>
         </Form>
         <Nav style={{ marginLeft: 20 }}>
-          <div onClick={ handdleLogout } cursor="pointer">
+          <div onClick={handdleLogout} cursor="pointer">
             <IoIosLogOut color="green" size="30" />
           </div>
         </Nav>

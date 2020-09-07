@@ -28,7 +28,8 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `http://localhost:3001/data/claim-nilai-hidup/${dataId}`,
+      url: `https://jatisejahtera-cms.herokuapp.com/data/claim-nilai-hidup/${dataId}`,
+    //   url: `http://localhost:3001/data/claim-nilai-hidup/${dataId}`,
       headers: {
         token: localStorage.token,
       },
@@ -41,7 +42,8 @@ export default () => {
       if (data) {
         await axios({
           method: "GET",
-          url: `http://localhost:3001/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) + 1}`,
+          url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) + 1}`,
+        //   url: `http://localhost:3001/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) + 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -73,7 +75,8 @@ export default () => {
       if (data) {
         await axios({
           method: "GET",
-          url: `http://localhost:3001/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) - 1}`,
+          url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) - 1}`,
+        //   url: `http://localhost:3001/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) - 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -179,7 +182,7 @@ export default () => {
                   <Form.Label column sm="1.5">
                     No Rekening
                   </Form.Label>
-                  <Col xs={5}>
+                  <Col xs={4}>
                     <Form.Control placeholder="No Rekening" name="no_rekening" value={data.user_anggotum.no_rekening} disabled={true} />
                   </Col>
                 </Form.Group>

@@ -35,7 +35,8 @@ export default () => {
       e.preventDefault();
       const { data } = await axios({
         method: 'POST',
-        url: 'http://localhost:3001/users/login/anggota',
+        url: 'https://jatisejahtera-cms.herokuapp.com/users/login/anggota',
+        // url: 'http://localhost:3001/users/login/anggota',
         data: dataForm
       })
       localStorage.setItem('token', data.access_token);

@@ -47,7 +47,8 @@ export default () => {
       }
       await axios({
         method: "POST",
-        url: "http://localhost:3001/data/uploads/nilai-hidup",
+        url: "https://jatisejahtera-cms.herokuapp.com/data/uploads/nilai-hidup",
+        // url: "http://localhost:3001/data/uploads/nilai-hidup",
         data: newFormData,
         headers: {
           token: localStorage.token,

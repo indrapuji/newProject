@@ -61,18 +61,15 @@ export default () => {
             {/* <NavDropdown.Item href="https://jatisejahtera-93bab.firebaseapp.com/" style={{ color: "blue" }}>
               Pengajuan
             </NavDropdown.Item> */}
-            <NavDropdown.Item href="https://jaticms.firebaseapp.com/" style={{ color: "blue" }}>
+            {/* <NavDropdown.Item href="https://jaticms.firebaseapp.com/" style={{ color: "blue" }}> */}
+            <NavDropdown.Item href="https://jatisejahtera-cms.web.app/" style={{ color: "blue" }}>
               Admin
             </NavDropdown.Item>
           </NavDropdown>
           <Link to="/berita">Berita</Link>
           <Link to="/galery">Galery</Link>
           <Link to="/contact">Kontak</Link>
-          {
-            localStorage.token ?
-            <Link to="/profile">Profile</Link> :
-            <Link to="/login">Login</Link>
-          }
+          {localStorage.token ? <Link to="/profile">Profile</Link> : <Link to="/login">Login</Link>}
         </Navbar.Collapse>
       </Navbar>
     </>
