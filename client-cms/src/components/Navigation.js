@@ -53,7 +53,7 @@ export default (props) => {
           <Button variant="outline-success">Search</Button>
         </Form>
         <Nav style={{ marginLeft: 20 }}>
-          <div onClick={handdleLogout} cursor="pointer">
+          <div onClick={handdleLogout} style={{ cursor: "pointer" }}>
             <IoIosLogOut color="green" size="30" />
           </div>
         </Nav>

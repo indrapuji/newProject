@@ -29,7 +29,7 @@ export default () => {
     const { data } = await axios({
       method: "GET",
       url: `https://jatisejahtera-cms.herokuapp.com/data/claim-pendidikan/${dataId}`,
-    //   url: `http://localhost:3001/data/claim-pendidikan/${dataId}`,
+      //   url: `http://localhost:3001/data/claim-pendidikan/${dataId}`,
       headers: {
         token: localStorage.token,
       },
@@ -43,7 +43,7 @@ export default () => {
         await axios({
           method: "POST",
           url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/pendidikan/${dataId}/${Number(data.status) + 1}`,
-        //   url: `http://localhost:3001/data/pindah-status/pendidikan/${dataId}/${Number(data.status) + 1}`,
+          //   url: `http://localhost:3001/data/pindah-status/pendidikan/${dataId}/${Number(data.status) + 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -76,7 +76,7 @@ export default () => {
         await axios({
           method: "POST",
           url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/pendidikan/${dataId}/${Number(data.status) - 1}`,
-        //   url: `http://localhost:3001/data/pindah-status/pendidikan/${dataId}/${Number(data.status) - 1}`,
+          //   url: `http://localhost:3001/data/pindah-status/pendidikan/${dataId}/${Number(data.status) - 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -387,6 +387,14 @@ export default () => {
                 </Form.Label>
                 <Col sm="10">
                   <Form.Control type="text" value={data.no_rekening_bank} disabled={true} />
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm="2">
+                  Catatan
+                </Form.Label>
+                <Col sm="10">
+                  <Form.Control as="textarea" placeholder="Catatan" rows="3" />
                 </Col>
               </Form.Group>
               <Row style={{ marginBottom: 20 }}>

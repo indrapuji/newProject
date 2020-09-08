@@ -430,6 +430,14 @@ export default () => {
                 </div>
               </Col>
             </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm="2">
+                Catatan
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control as="textarea" placeholder="Catatan" rows="3" />
+              </Col>
+            </Form.Group>
             <Row style={{ marginBottom: 20 }}>
               <Col>
                 <Button variant="outline-success" block onClick={setuju}>

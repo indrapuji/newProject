@@ -90,6 +90,22 @@ export default () => {
       });
     }
   };
+  function handdleLogout() {
+    Swal.fire({
+      title: "Logout?",
+      text: "Yakin ingin logout!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Iya",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+        history.push("/");
+      }
+    });
+  }
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
@@ -142,22 +158,19 @@ export default () => {
             </Card.Body>
           </Card>
         </div>
+        <div style={{ marginBottom: 50 }}>
+          <Form.Group>
+            <Form.Label style={{ display: "flex", justifyContent: "center" }}>Catatan</Form.Label>
+            <Form.Control as="textarea" rows="3" />
+          </Form.Group>
+        </div>
         <Row>
           <Col>
             <div style={{ marginBottom: 20 }}>
               <Image src={require("../assets/image/default-profile.jpg")} roundedCircle />
             </div>
             <Card style={{ width: "20rem", marginTop: 20 }}>
-              <Button
-                variant="primary"
-                size="lg"
-                type="submit"
-                block
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  history.push("/");
-                }}
-              >
+              <Button variant="primary" size="lg" type="submit" block onClick={handdleLogout}>
                 Logout
               </Button>
             </Card>
