@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 export default () => {
   const { dataId } = useParams();
+  const [pesan, setPesan] = useState("");
   const pageTransition = {
     init: {
       opacity: 0,
@@ -47,6 +48,7 @@ export default () => {
           headers: {
             token: localStorage.token,
           },
+          data: { pesan },
         });
         history.push("/claimperumahan");
       }
@@ -80,6 +82,7 @@ export default () => {
           headers: {
             token: localStorage.token,
           },
+          data: { pesan },
         });
         history.push("/claimperumahan");
       }
@@ -435,7 +438,7 @@ export default () => {
                 Catatan
               </Form.Label>
               <Col sm="10">
-                <Form.Control as="textarea" placeholder="Catatan" rows="3" />
+                <Form.Control as="textarea" placeholder="Catatan" rows="3" onChange={(e) => setPesan(e.target.value)} />
               </Col>
             </Form.Group>
             <Row style={{ marginBottom: 20 }}>
