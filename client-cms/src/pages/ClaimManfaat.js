@@ -65,7 +65,7 @@ export default () => {
           ) : data.length === 0 ? (
             <tbody>
               <tr>
-                <td colSpan="13" className="small" style={{ textAlign: "center" }}>
+                <td colSpan="6" className="small" style={{ textAlign: "center" }}>
                   Tidak Ada Pengajuan
                 </td>
               </tr>

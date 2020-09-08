@@ -109,7 +109,7 @@ export default () => {
 
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      {JSON.stringify(data)}
+      {/* {JSON.stringify(data)} */}
       {loading ? (
         <div style={{ display: "flex", justifyContent: "center", marginTop: 100 }}>
           <Spinner animation="border" variant="success" />

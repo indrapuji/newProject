@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Table, Spinner, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
-import axios from 'axios';
+import axios from "axios";
 
 export default () => {
   const history = useHistory();
@@ -14,18 +14,18 @@ export default () => {
   }, []);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const fetchApi = async() => {
+  const fetchApi = async () => {
     const { data } = await axios({
-      method: 'GET',
+      method: "GET",
       url: `https://jatisejahtera-cms.herokuapp.com/data/claim-kesehatan`,
-    //   url: `http://localhost:3001/data/claim-kesehatan`,
+      //   url: `http://localhost:3001/data/claim-kesehatan`,
       headers: {
         token: localStorage.token,
-      }
+      },
     });
     setData(data);
     setLoading(false);
-  }
+  };
   const pageTransition = {
     init: {
       opacity: 0,
@@ -62,6 +62,14 @@ export default () => {
                 </td>
               </tr>
             </tbody>
+          ) : data.length === 0 ? (
+            <tbody>
+              <tr>
+                <td colSpan="6" className="small" style={{ textAlign: "center" }}>
+                  Tidak Ada Pengajuan
+                </td>
+              </tr>
+            </tbody>
           ) : (
             <tbody>
               {data.map((file, idx) => {
@@ -73,7 +81,7 @@ export default () => {
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button variant="primary" size="sm" onClick={ () => history.push(`detail/kesehatan/${file.id}`) }>
+                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/kesehatan/${file.id}`)}>
                         Check
                       </Button>
                     </td>

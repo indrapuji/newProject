@@ -57,7 +57,7 @@ export default () => {
           {loading ? (
             <tbody>
               <tr>
-                <td colSpan="13" className="small" style={{ textAlign: "center" }}>
+                <td colSpan="6" className="small" style={{ textAlign: "center" }}>
                   <Spinner animation="border" variant="success" />
                 </td>
               </tr>
