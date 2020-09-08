@@ -19,7 +19,15 @@ export default () => {
     },
   };
   useEffect(() => {
-    if (!localStorage.token) history.push("/");
+    if (!localStorage.token) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops... Kamu harus login terlebih dahulu",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      history.push("/data/claim");
+    }
   }, [history]);
   function handdleBack() {
     history.push("/data/claim");
