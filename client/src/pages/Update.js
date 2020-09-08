@@ -74,6 +74,12 @@ export default () => {
         //   token: localStorage.token
         // }
       });
+      Swal.fire({
+        icon: "success",
+        title: "Record data success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       history.push("/");
     } catch (err) {
       let msg = "";
