@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Table, Spinner, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
-import axios from 'axios';
+import axios from "axios";
 
 export default () => {
   const history = useHistory();
@@ -14,18 +14,18 @@ export default () => {
   }, []);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const fetchApi = async() => {
+  const fetchApi = async () => {
     const { data } = await axios({
-      method: 'GET',
+      method: "GET",
       url: `https://jatisejahtera-cms.herokuapp.com/data/claim-nilai-hidup`,
-    //   url: `http://localhost:3001/data/claim-nilai-hidup`,
+      //   url: `http://localhost:3001/data/claim-nilai-hidup`,
       headers: {
         token: localStorage.token,
-      }
+      },
     });
     setData(data);
     setLoading(false);
-  }
+  };
   const pageTransition = {
     init: {
       opacity: 0,
@@ -57,8 +57,16 @@ export default () => {
           {loading ? (
             <tbody>
               <tr>
-                <td colSpan="13" className="small" style={{ textAlign: "center" }}>
+                <td colSpan="6" className="small" style={{ textAlign: "center" }}>
                   <Spinner animation="border" variant="success" />
+                </td>
+              </tr>
+            </tbody>
+          ) : data.length === 0 ? (
+            <tbody>
+              <tr>
+                <td colSpan="13" className="small" style={{ textAlign: "center" }}>
+                  Tidak Ada Pengajuan
                 </td>
               </tr>
             </tbody>
@@ -73,7 +81,7 @@ export default () => {
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button variant="primary" size="sm" onClick={ () => history.push(`detail/manfaat/${file.id}`) }>
+                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/manfaat/${file.id}`)}>
                         Check
                       </Button>
                     </td>

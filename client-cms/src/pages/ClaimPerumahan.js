@@ -18,7 +18,7 @@ export default () => {
     const { data } = await axios({
       method: "GET",
       url: `https://jatisejahtera-cms.herokuapp.com/data/claim-perumahan`,
-    //   url: `http://localhost:3001/data/claim-perumahan`,
+      //   url: `http://localhost:3001/data/claim-perumahan`,
       headers: {
         token: localStorage.token,
       },
@@ -59,6 +59,14 @@ export default () => {
               <tr>
                 <td colSpan="13" className="small" style={{ textAlign: "center" }}>
                   <Spinner animation="border" variant="success" />
+                </td>
+              </tr>
+            </tbody>
+          ) : data.length === 0 ? (
+            <tbody>
+              <tr>
+                <td colSpan="6" className="small" style={{ textAlign: "center" }}>
+                  Tidak Ada Pengajuan
                 </td>
               </tr>
             </tbody>

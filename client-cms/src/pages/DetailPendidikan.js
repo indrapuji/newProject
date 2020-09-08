@@ -104,7 +104,7 @@ export default () => {
     }
   };
   function handdleCancel() {
-    history.push("/");
+    history.push("/claimpendidikan");
   }
 
   return (

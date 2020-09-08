@@ -29,7 +29,7 @@ export default () => {
     const { data } = await axios({
       method: "GET",
       url: `https://jatisejahtera-cms.herokuapp.com/data/claim-kematian/${dataId}`,
-    //   url: `http://localhost:3001/data/claim-kematian/${dataId}`,
+      //   url: `http://localhost:3001/data/claim-kematian/${dataId}`,
       headers: {
         token: localStorage.token,
       },
@@ -43,7 +43,7 @@ export default () => {
         await axios({
           method: "GET",
           url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/kematian/${dataId}/${Number(data.status) + 1}`,
-        //   url: `http://localhost:3001/data/pindah-status/kematian/${dataId}/${Number(data.status) + 1}`,
+          //   url: `http://localhost:3001/data/pindah-status/kematian/${dataId}/${Number(data.status) + 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -76,7 +76,7 @@ export default () => {
         await axios({
           method: "GET",
           url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/kematian/${dataId}/${Number(data.status) - 1}`,
-        //   url: `http://localhost:3001/data/pindah-status/kematian/${dataId}/${Number(data.status) - 1}`,
+          //   url: `http://localhost:3001/data/pindah-status/kematian/${dataId}/${Number(data.status) - 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -104,7 +104,7 @@ export default () => {
     }
   };
   function handdleCancel() {
-    history.push("/");
+    history.push("/claimkematian");
   }
 
   return (

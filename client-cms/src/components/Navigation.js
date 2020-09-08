@@ -2,14 +2,28 @@ import React from "react";
 import { Navbar, Nav, FormControl, Form, Button } from "react-bootstrap";
 import { IoIosLogOut } from "react-icons/io";
 import { useHistory, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default (props) => {
   const history = useHistory();
 
   function handdleLogout() {
-    localStorage.removeItem("token");
-    history.push("/login");
+    Swal.fire({
+      title: "Logout?",
+      text: "Yakin ingin logout!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Iya",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+        history.push("/login");
+      }
+    });
   }
+
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Navbar.Brand href="/" style={{ fontWeight: "bolder" }}>

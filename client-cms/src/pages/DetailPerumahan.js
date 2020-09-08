@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { Container, Form, Row, Col, Button, Spinner } from "react-bootstrap";
+import { Container, Form, Row, Col, Button, Spinner, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -104,12 +104,12 @@ export default () => {
     }
   };
   function handdleCancel() {
-    history.push("/");
+    history.push("/claimperumahan");
   }
 
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
-      {/* {JSON.stringify(data)} */}
+      {JSON.stringify(data)}
       {loading ? (
         <div style={{ display: "flex", justifyContent: "center", marginTop: 100 }}>
           <Spinner animation="border" variant="success" />
@@ -340,7 +340,7 @@ export default () => {
                 </Form.Group>
               </Form>
             </div>
-            <Form>
+            {/* <Form>
               <Form.Group as={Row}>
                 <Form.Label column sm="2">
                   Blanko Permohonan dari peserta
@@ -396,7 +396,55 @@ export default () => {
               <Button variant="outline-warning" onClick={handdleCancel} block>
                 Kembali
               </Button>
-            </Form>
+            </Form> */}
+            <Form.Group as={Row}>
+              <Form.Label column sm="2">
+                No Rekening Bank
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control type="text" value={data.no_rekening_bank} disabled={true} />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm="2">
+                Data Pendukung
+              </Form.Label>
+              <Col sm="10">
+                <div style={{ display: "flex", flexDirection: "row", marginBottom: 20, flexWrap: "wrap" }}>
+                  <div style={{ height: 300, width: 200, justifyContent: "center", textAlign: "center" }}>
+                    <p style={{ textAlign: "center" }}>Data 1</p>
+                    <Image src={data.blanko_permohonan} style={{ height: 200 }} />
+                  </div>
+                  <div style={{ height: 300, width: 200, justifyContent: "center", textAlign: "center" }}>
+                    <p style={{ textAlign: "center" }}>Data 2</p>
+                    <Image src={data.surat_keputusan_phk} style={{ height: 200 }} />
+                  </div>
+                  <div style={{ height: 300, width: 200, justifyContent: "center", textAlign: "center" }}>
+                    <p style={{ textAlign: "center" }}>Data 3</p>
+                    <Image src={data.data_keluarga} style={{ height: 200 }} />
+                  </div>
+                  <div style={{ height: 300, width: 200, justifyContent: "center", textAlign: "center" }}>
+                    <p style={{ textAlign: "center" }}>Data 4</p>
+                    <Image src={data.akumulasi_saldo} style={{ height: 200 }} />
+                  </div>
+                </div>
+              </Col>
+            </Form.Group>
+            <Row style={{ marginBottom: 20 }}>
+              <Col>
+                <Button variant="outline-success" block onClick={setuju}>
+                  Setuju
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="outline-danger" block onClick={tolak}>
+                  Tolak
+                </Button>
+              </Col>
+            </Row>
+            <Button variant="outline-warning" onClick={handdleCancel} block>
+              Kembali
+            </Button>
           </div>
         </Container>
       )}

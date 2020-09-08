@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Table, Button, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
-import useFetch from "../hooks/useFetch";
 import formatDate from "../hooks/FormatDate";
 import ReactExport from "react-export-excel";
 import Navigation from "../components/Navigation";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default () => {
   const history = useHistory();
@@ -48,6 +48,14 @@ export default () => {
       opacity: 0,
     },
   };
+  function handdleSukses() {
+    Swal.fire({
+      icon: "success",
+      title: "Update data downloaded",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation onActive={onActive} />
@@ -56,7 +64,14 @@ export default () => {
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         {!loading ? (
           <div style={{ marginBottom: 10 }}>
-            <ExcelFile element={<Button variant="success">Download</Button>} filename="Pengkinian Data">
+            <ExcelFile
+              element={
+                <Button variant="success" onClick={handdleSukses}>
+                  Download
+                </Button>
+              }
+              filename="Pengkinian Data"
+            >
               <ExcelSheet data={data} name="Data Peserta">
                 <ExcelColumn label="Nama" value="nama" />
                 <ExcelColumn label="No Induk" value="no_induk" />
