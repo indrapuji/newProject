@@ -40,24 +40,24 @@ export default () => {
   const claimData = () => {
     let temp = {
       claim_kematians: {
-        status: '',
-        pesan: ''
+        status: "",
+        pesan: "",
       },
       claim_kesehatans: {
-        status: '',
-        pesan: ''
+        status: "",
+        pesan: "",
       },
       claim_nilai_hidups: {
-        status: '',
-        pesan: ''
+        status: "",
+        pesan: "",
       },
       claim_pendidikans: {
-        status: '',
-        pesan: ''
+        status: "",
+        pesan: "",
       },
       claim_perumahans: {
-        status: '',
-        pesan: ''
+        status: "",
+        pesan: "",
       },
     };
     for (let keys in dataPengajuan) {
@@ -76,7 +76,7 @@ export default () => {
         } else if (profileData[keys][0].status === "0") {
           temp[keys].status = `Ditolak`;
         }
-      } else temp[keys] = "-";
+      } else temp[keys].status = "-";
     }
     setDataPengajuan(temp);
   };
@@ -182,7 +182,8 @@ export default () => {
         <div style={{ marginBottom: 50 }}>
           <Form.Group>
             <Form.Label style={{ display: "flex", justifyContent: "center" }}>Catatan</Form.Label>
-            <Form.Control as="textarea" rows="3" />
+            {/* <Form.Control as="textarea" value={dataPengajuan.claim_pendidikans.pesan} rows="3" /> */}
+            <Form.Control type="text" name="nama" value={dataPengajuan.claim_pendidikans.pesan} disabled={true} />
           </Form.Group>
         </div>
         <Row>
