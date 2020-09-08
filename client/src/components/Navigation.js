@@ -62,7 +62,8 @@ export default () => {
               Pengajuan
             </NavDropdown.Item> */}
             {/* <NavDropdown.Item href="https://jaticms.firebaseapp.com/" style={{ color: "blue" }}> */}
-            <NavDropdown.Item href="https://jatisejahtera-cms.web.app/" style={{ color: "blue" }}>
+            {/* <NavDropdown.Item href="https://jatisejahtera-cms.web.app/" style={{ color: "blue" }}> */}
+            <NavDropdown.Item href="https://jatisejahtera-cms.vercel.app/" style={{ color: "blue" }}>
               Admin
             </NavDropdown.Item>
           </NavDropdown>
