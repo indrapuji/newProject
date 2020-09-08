@@ -66,7 +66,13 @@ export default () => {
           token: localStorage.token,
         },
       });
-      history.push("/");
+      Swal.fire({
+        icon: "success",
+        title: "Pengajuan Claim success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      history.push("/data/claim");
     } catch (err) {
       let msg = "";
       if (err.response) {
