@@ -41,7 +41,7 @@ export default () => {
     try {
       if (data) {
         await axios({
-          method: "GET",
+          method: "POST",
           url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/perumahan/${dataId}/${Number(data.status) + 1}`,
           //   url: `http://localhost:3001/data/pindah-status/perumahan/${dataId}/${Number(data.status) + 1}`,
           headers: {
@@ -74,7 +74,7 @@ export default () => {
     try {
       if (data) {
         await axios({
-          method: "GET",
+          method: "POST",
           url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/perumahan/${dataId}/${Number(data.status) - 1}`,
           //   url: `http://localhost:3001/data/pindah-status/perumahan/${dataId}/${Number(data.status) - 1}`,
           headers: {
