@@ -240,7 +240,7 @@ class ClaimDataController {
           claim_status: Number(claimData.status),
           user_status: Number(userData.status),
           status,
-        } && userData.status !== "007"))
+        }) && userData.status !== "007")
         throw createError(401, "You are not authorized to do that!");
       await claim_kematian.update({ status: `${status}` }, { where: { id: claim_id } });
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id, claim_category: 'Kematian' } });
@@ -263,7 +263,7 @@ class ClaimDataController {
           claim_status: Number(claimData.status),
           user_status: Number(userData.status),
           status,
-        } && userData.status !== "007"))
+        }) && userData.status !== "007")
         throw createError(401, "You are not authorized to do that!");
       await claim_kesehatan.update({ status: `${status}` }, { where: { id: claim_id } });
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id, claim_category: 'Kesehatan' } });
@@ -286,7 +286,7 @@ class ClaimDataController {
           claim_status: Number(claimData.status),
           user_status: Number(userData.status),
           status,
-        } && userData.status !== "007"))
+        }) && userData.status !== "007")
         throw createError(401, "You are not authorized to do that!");
       await claim_nilai_hidup.update({ status: `${status}` }, { where: { id: claim_id } });
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id, claim_category: 'Nilai Hidup' } });
@@ -309,7 +309,7 @@ class ClaimDataController {
           claim_status: Number(claimData.status),
           user_status: Number(userData.status),
           status,
-        } && userData.status !== "007"))
+        }) && userData.status !== "007")
         throw createError(401, "You are not authorized to do that!");
       await claim_perumahan.update({ status: `${status}` }, { where: { id: claim_id } });
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id, claim_category: 'Perumahan' } });
@@ -332,7 +332,7 @@ class ClaimDataController {
           claim_status: Number(claimData.status),
           user_status: Number(userData.status),
           status,
-        } && userData.status !== "007"))
+        }) && userData.status !== "007")
         throw createError(401, "You are not authorized to do that!");
       await claim_pendidikan.update({ status: `${status}` }, { where: { id: claim_id } });
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id, claim_category: 'Pendidikan' } });
