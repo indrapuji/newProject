@@ -1,10 +1,19 @@
 const createError = require("http-errors");
-const { user_admin, user_anggota, claim_kematian, claim_kesehatan, claim_nilai_hidup, claim_pendidikan, claim_perumahan } = require("../models");
+const {
+  user_admin,
+  user_anggota,
+  claim_kematian,
+  claim_kesehatan,
+  claim_nilai_hidup,
+  claim_pendidikan,
+  claim_perumahan,
+  pesan_claim
+} = require("../models");
 const { comparePassword } = require("../helpers/bcrypt");
 const { generateToken } = require("../helpers/jwt");
 
 class UserController {
-  static loginAnggota = async (req, res, next) => {
+  static loginAnggota = async(req, res, next) => {
     try {
       const { email, password } = req.body;
       if (!email || !password) throw createError(400, "Wrong Username / Password");
@@ -20,7 +29,7 @@ class UserController {
       next(err);
     }
   };
-  static loginAdmin = async (req, res, next) => {
+  static loginAdmin = async(req, res, next) => {
     try {
       const { email, password } = req.body;
       if (!email || !password) throw createError(400, "Wrong Username / Password");
@@ -36,7 +45,7 @@ class UserController {
       next(err);
     }
   };
-  static addUserAdmin = async (req, res, next) => {
+  static addUserAdmin = async(req, res, next) => {
     try {
       const { email, password, status, nama } = req.body;
       const result = await user_admin.create({ email, password, status, nama });
@@ -45,7 +54,7 @@ class UserController {
       next(err);
     }
   };
-  static deleteUser = async (req, res, next) => {
+  static deleteUser = async(req, res, next) => {
     try {
       const { email } = req.body;
       await user_anggota.destroy({ where: { email } });
@@ -55,32 +64,51 @@ class UserController {
       next(err);
     }
   };
-  static userProfile = async (req, res, next) => {
+  static userProfile = async(req, res, next) => {
     try {
       const { id, role } = req.UserData;
       if (role != "anggota") throw createError(400, "Hanya Untuk Anggota");
       const userData = await user_anggota.findOne({
         where: { id },
-        include: [
-          {
+        include: [{
             model: claim_kematian,
             required: false,
+            include: [{
+              model: pesan_claim,
+              required: false
+            }]
           },
           {
             model: claim_kesehatan,
             required: false,
+            include: [{
+              model: pesan_claim,
+              required: false
+            }]
           },
           {
             model: claim_nilai_hidup,
             required: false,
+            include: [{
+              model: pesan_claim,
+              required: false
+            }]
           },
           {
             model: claim_perumahan,
             required: false,
+            include: [{
+              model: pesan_claim,
+              required: false
+            }]
           },
           {
             model: claim_pendidikan,
             required: false,
+            include: [{
+              model: pesan_claim,
+              required: false
+            }]
           },
         ],
       });
@@ -89,7 +117,7 @@ class UserController {
       next(err);
     }
   };
-  static addAnggota = async (req, res, next) => {
+  static addAnggota = async(req, res, next) => {
     try {
       const {
         nama,
@@ -166,7 +194,7 @@ class UserController {
       next(err);
     }
   };
-  static getAnggota = async (req, res, next) => {
+  static getAnggota = async(req, res, next) => {
     try {
       const result = await user_anggota.findAll();
       res.status(200).json(result);
@@ -175,7 +203,7 @@ class UserController {
     }
   };
 
-  static getAnggotaId = async (req, res, next) => {
+  static getAnggotaId = async(req, res, next) => {
     try {
       const { id } = req.params;
       const result = await user_anggota.findOne({

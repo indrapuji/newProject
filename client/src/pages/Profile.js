@@ -22,11 +22,11 @@ export default () => {
   const history = useHistory();
   const [profileData, setProfileData] = useState(false);
   const [dataPengajuan, setDataPengajuan] = useState({
-    claim_kematians: "",
-    claim_kesehatans: "",
-    claim_nilai_hidups: "",
-    claim_pendidikans: "",
-    claim_perumahans: "",
+    claim_kematians: {},
+    claim_kesehatans: {},
+    claim_nilai_hidups: {},
+    claim_pendidikans: {},
+    claim_perumahans: {},
   });
   useEffect(() => {
     if (!localStorage.token) history.push("/");
@@ -38,22 +38,43 @@ export default () => {
     // eslint-disable-next-line
   }, [profileData]);
   const claimData = () => {
-    let temp = {};
+    let temp = {
+      claim_kematians: {
+        status: '',
+        pesan: ''
+      },
+      claim_kesehatans: {
+        status: '',
+        pesan: ''
+      },
+      claim_nilai_hidups: {
+        status: '',
+        pesan: ''
+      },
+      claim_pendidikans: {
+        status: '',
+        pesan: ''
+      },
+      claim_perumahans: {
+        status: '',
+        pesan: ''
+      },
+    };
     for (let keys in dataPengajuan) {
       if (profileData[keys][0]) {
-        console.log(profileData[keys][0]);
+        if (profileData[keys][0].pesan_claim) temp[keys].pesan = profileData[keys][0].pesan_claim.pesan;
         if (profileData[keys][0].status === "1") {
-          temp[keys] = `Checking Staff`;
+          temp[keys].status = `Checking Staff`;
         } else if (profileData[keys][0].status === "2") {
-          temp[keys] = `Checking Sekretaris`;
+          temp[keys].status = `Checking Sekretaris`;
         } else if (profileData[keys][0].status === "3") {
-          temp[keys] = `Checking Pimpinan`;
+          temp[keys].status = `Checking Pimpinan`;
         } else if (profileData[keys][0].status === "4") {
-          temp[keys] = `Checking Finance`;
+          temp[keys].status = `Checking Finance`;
         } else if (profileData[keys][0].status === "5") {
-          temp[keys] = `Verified`;
+          temp[keys].status = `Verified`;
         } else if (profileData[keys][0].status === "0") {
-          temp[keys] = `Ditolak`;
+          temp[keys].status = `Ditolak`;
         }
       } else temp[keys] = "-";
     }
@@ -116,7 +137,7 @@ export default () => {
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kematian</Card.Title>
               <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_kematians}
+                {dataPengajuan.claim_kematians.status}
               </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
@@ -125,7 +146,7 @@ export default () => {
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kesehatan</Card.Title>
               <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_kesehatans}
+                {dataPengajuan.claim_kesehatans.status}
               </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
@@ -134,7 +155,7 @@ export default () => {
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Nilai Hidup</Card.Title>
               <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_nilai_hidups}
+                {dataPengajuan.claim_nilai_hidups.status}
               </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
@@ -143,7 +164,7 @@ export default () => {
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Perumahan</Card.Title>
               <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_perumahans}
+                {dataPengajuan.claim_perumahans.status}
               </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
@@ -152,7 +173,7 @@ export default () => {
             <Card.Body>
               <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Pendidikan</Card.Title>
               <Card.Subtitle className="mb-2" style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_pendidikans}
+                {dataPengajuan.claim_pendidikans.status}
               </Card.Subtitle>
               <Card.Text></Card.Text>
             </Card.Body>
