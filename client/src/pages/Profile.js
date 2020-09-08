@@ -127,104 +127,258 @@ export default () => {
       }
     });
   }
+  function handdleKematian() {
+    history.push("/claim/kematian");
+  }
+  function handdleManfaat() {
+    history.push("/claim/manfaat");
+  }
+  function handdleKesehatan() {
+    history.push("/claim/kesehatan");
+  }
+  function handdlePerumahan() {
+    history.push("/claim/perumahan");
+  }
+  function handdlePendidikan() {
+    history.push("/claim/pendidikan");
+  }
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
       <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 50 }}>User Profile</h1>
       <Container>
         <div style={{ display: "flex", marginBottom: 20 }}>
-          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
-            <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kematian</Card.Title>
-              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_kematians.status}
-              </Card.Subtitle>
-              <Card.Text></Card.Text>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
-            <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kesehatan</Card.Title>
-              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_kesehatans.status}
-              </Card.Subtitle>
-              <Card.Text></Card.Text>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
-            <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Nilai Hidup</Card.Title>
-              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_nilai_hidups.status}
-              </Card.Subtitle>
-              <Card.Text></Card.Text>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
-            <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Perumahan</Card.Title>
-              <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_perumahans.status}
-              </Card.Subtitle>
-              <Card.Text></Card.Text>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
-            <Card.Body>
-              <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Pendidikan</Card.Title>
-              <Card.Subtitle className="mb-2" style={{ textAlign: "center", fontWeight: "bold" }}>
-                {dataPengajuan.claim_pendidikans.status}
-              </Card.Subtitle>
-              <Card.Text></Card.Text>
-            </Card.Body>
-          </Card>
+          <div style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
+            <Card
+              border={
+                dataPengajuan.claim_kematians.status === "-"
+                  ? "secondary"
+                  : dataPengajuan.claim_kematians.status === "Ditolak"
+                  ? "danger"
+                  : dataPengajuan.claim_kematians.status === "Verified"
+                  ? "success"
+                  : "primary"
+              }
+            >
+              <Card.Body>
+                <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kematian</Card.Title>
+                <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                  {dataPengajuan.claim_kematians.status}
+                </Card.Subtitle>
+              </Card.Body>
+            </Card>
+            <div style={{ marginTop: 5 }}>
+              {dataPengajuan.claim_kematians.status === "-" ? (
+                <Button variant="outline-success" block size="sm" onClick={handdleKematian}>
+                  Ajukan
+                </Button>
+              ) : dataPengajuan.claim_kematians.status === "Ditolak" ? (
+                <Button variant="outline-warning" block size="sm">
+                  Ajukan Kembali
+                </Button>
+              ) : (
+                <Button variant="outline-secondary" block size="sm" disabled>
+                  Disabled
+                </Button>
+              )}
+            </div>
+          </div>
+          <div style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
+            <Card
+              border={
+                dataPengajuan.claim_kesehatans.status === "-"
+                  ? "secondary"
+                  : dataPengajuan.claim_kesehatans.status === "Ditolak"
+                  ? "danger"
+                  : dataPengajuan.claim_kesehatans.status === "Verified"
+                  ? "success"
+                  : "primary"
+              }
+            >
+              <Card.Body>
+                <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Kesehatan</Card.Title>
+                <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                  {dataPengajuan.claim_kesehatans.status}
+                </Card.Subtitle>
+                <Card.Text></Card.Text>
+              </Card.Body>
+            </Card>
+            <div style={{ marginTop: 5 }}>
+              {dataPengajuan.claim_kesehatans.status === "-" ? (
+                <Button variant="outline-success" block size="sm" onClick={handdleKesehatan}>
+                  Ajukan
+                </Button>
+              ) : dataPengajuan.claim_kesehatans.status === "Ditolak" ? (
+                <Button variant="outline-warning" block size="sm">
+                  Ajukan Kembali
+                </Button>
+              ) : (
+                <Button variant="outline-secondary" block size="sm" disabled>
+                  Disabled
+                </Button>
+              )}
+            </div>
+          </div>
+          <div style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
+            <Card
+              border={
+                dataPengajuan.claim_nilai_hidups.status === "-"
+                  ? "secondary"
+                  : dataPengajuan.claim_nilai_hidups.status === "Ditolak"
+                  ? "danger"
+                  : dataPengajuan.claim_nilai_hidups.status === "Verified"
+                  ? "success"
+                  : "primary"
+              }
+            >
+              <Card.Body>
+                <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Nilai Hidup</Card.Title>
+                <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                  {dataPengajuan.claim_nilai_hidups.status}
+                </Card.Subtitle>
+                <Card.Text></Card.Text>
+              </Card.Body>
+            </Card>
+            <div style={{ marginTop: 5 }}>
+              {dataPengajuan.claim_nilai_hidups.status === "-" ? (
+                <Button variant="outline-success" block size="sm" onClick={handdleManfaat}>
+                  Ajukan
+                </Button>
+              ) : dataPengajuan.claim_nilai_hidups.status === "Ditolak" ? (
+                <Button variant="outline-warning" block size="sm">
+                  Ajukan Kembali
+                </Button>
+              ) : (
+                <Button variant="outline-secondary" block size="sm" disabled>
+                  Disabled
+                </Button>
+              )}
+            </div>
+          </div>
+          <div style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
+            <Card
+              border={
+                dataPengajuan.claim_perumahans.status === "-"
+                  ? "secondary"
+                  : dataPengajuan.claim_perumahans.status === "Ditolak"
+                  ? "danger"
+                  : dataPengajuan.claim_perumahans.status === "Verified"
+                  ? "success"
+                  : "primary"
+              }
+            >
+              <Card.Body>
+                <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Perumahan</Card.Title>
+                <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                  {dataPengajuan.claim_perumahans.status}
+                </Card.Subtitle>
+                <Card.Text></Card.Text>
+              </Card.Body>
+            </Card>
+            <div style={{ marginTop: 5 }}>
+              {dataPengajuan.claim_perumahans.status === "-" ? (
+                <Button variant="outline-success" block size="sm" onClick={handdlePerumahan}>
+                  Ajukan
+                </Button>
+              ) : dataPengajuan.claim_perumahans.status === "Ditolak" ? (
+                <Button variant="outline-warning" block size="sm">
+                  Ajukan Kembali
+                </Button>
+              ) : (
+                <Button variant="outline-secondary" block size="sm" disabled>
+                  Disabled
+                </Button>
+              )}
+            </div>
+          </div>
+          <div style={{ width: "20rem", marginTop: 20, marginLeft: 5, marginRight: 5 }}>
+            <Card
+              border={
+                dataPengajuan.claim_pendidikans.status === "-"
+                  ? "secondary"
+                  : dataPengajuan.claim_pendidikans.status === "Ditolak"
+                  ? "danger"
+                  : dataPengajuan.claim_pendidikans.status === "Verified"
+                  ? "success"
+                  : "primary"
+              }
+            >
+              <Card.Body>
+                <Card.Title style={{ textAlign: "center", marginBottom: 20, fontSize: 13 }}>Santunan Pendidikan</Card.Title>
+                <Card.Subtitle className="mb-2" style={{ textAlign: "center", fontWeight: "bold" }}>
+                  {dataPengajuan.claim_pendidikans.status}
+                </Card.Subtitle>
+                <Card.Text></Card.Text>
+              </Card.Body>
+            </Card>
+            <div style={{ marginTop: 5 }}>
+              {dataPengajuan.claim_pendidikans.status === "-" ? (
+                <Button variant="outline-success" block size="sm" onClick={handdlePendidikan}>
+                  Ajukan
+                </Button>
+              ) : dataPengajuan.claim_pendidikans.status === "Ditolak" ? (
+                <Button variant="outline-warning" block size="sm">
+                  Ajukan Kembali
+                </Button>
+              ) : (
+                <Button variant="outline-secondary" block size="sm" disabled>
+                  Disabled
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
-        <Form.Group as={Row}>
-          <Form.Label column sm="3">
-            Catatan claim Kematian
-          </Form.Label>
-          <Col sm="9">
-            <Form.Control type="text" value={dataPengajuan.claim_kematians.pesan === null ? "-" : dataPengajuan.claim_kematians.pesan} disabled={true} />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm="3">
-            Catatan claim Kesehatan
-          </Form.Label>
-          <Col sm="9">
-            <Form.Control type="text" value={dataPengajuan.claim_kesehatans.pesan === null ? "-" : dataPengajuan.claim_kesehatans.pesan} disabled={true} />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm="3">
-            Catatan claim Nilai Hidup
-          </Form.Label>
-          <Col sm="9">
-            <Form.Control type="text" value={dataPengajuan.claim_nilai_hidups.pesan === null ? "-" : dataPengajuan.claim_nilai_hidups.pesan} disabled={true} />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm="3">
-            Catatan claim Perumahan
-          </Form.Label>
-          <Col sm="9">
-            <Form.Control type="text" value={dataPengajuan.claim_perumahans.pesan === null ? "-" : dataPengajuan.claim_perumahans.pesan} disabled={true} />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm="3">
-            Catatan claim Pendidikan
-          </Form.Label>
-          <Col sm="9">
-            <Form.Control type="text" value={dataPengajuan.claim_pendidikans.pesan === null ? "-" : dataPengajuan.claim_pendidikans.pesan} disabled={true} />
-          </Col>
-        </Form.Group>
-
         <div style={{ marginBottom: 50 }}>
-          {/* <Form.Group>
-            <Form.Label style={{ display: "flex", justifyContent: "center" }}>Catatan</Form.Label>
-            <Form.Control type="text" name="nama" value={dataPengajuan.claim_pendidikans.pesan} disabled={true} />
-          </Form.Group> */}
+          {dataPengajuan.claim_kematians.pesan && (
+            <Form.Group as={Row}>
+              <Form.Label column sm="3">
+                Catatan claim Kematian
+              </Form.Label>
+              <Col sm="9">
+                <Form.Control type="text" value={dataPengajuan.claim_kematians.pesan} disabled={true} />
+              </Col>
+            </Form.Group>
+          )}
+          {dataPengajuan.claim_kesehatans.pesan && (
+            <Form.Group as={Row}>
+              <Form.Label column sm="3">
+                Catatan claim Kesehatan
+              </Form.Label>
+              <Col sm="9">
+                <Form.Control type="text" value={dataPengajuan.claim_kesehatans.pesan} disabled={true} />
+              </Col>
+            </Form.Group>
+          )}
+          {dataPengajuan.claim_nilai_hidups.pesan && (
+            <Form.Group as={Row}>
+              <Form.Label column sm="3">
+                Catatan claim Nilai Hidup
+              </Form.Label>
+              <Col sm="9">
+                <Form.Control type="text" value={dataPengajuan.claim_nilai_hidups.pesan} disabled={true} />
+              </Col>
+            </Form.Group>
+          )}
+          {dataPengajuan.claim_perumahans.pesan && (
+            <Form.Group as={Row}>
+              <Form.Label column sm="3">
+                Catatan claim Perumahan
+              </Form.Label>
+              <Col sm="9">
+                <Form.Control type="text" value={dataPengajuan.claim_perumahans.pesan} disabled={true} />
+              </Col>
+            </Form.Group>
+          )}
+          {dataPengajuan.claim_pendidikans.pesan && (
+            <Form.Group as={Row}>
+              <Form.Label column sm="3">
+                Catatan claim Pendidikan
+              </Form.Label>
+              <Col sm="9">
+                <Form.Control type="text" value={dataPengajuan.claim_pendidikans.pesan} disabled={true} />
+              </Col>
+            </Form.Group>
+          )}
         </div>
         <Row>
           <Col>

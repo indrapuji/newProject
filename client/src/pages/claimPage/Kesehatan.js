@@ -69,7 +69,7 @@ export default () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      history.push("/data/claim");
+      history.push("/profile");
     } catch (err) {
       let msg = "";
       if (err.response) {
