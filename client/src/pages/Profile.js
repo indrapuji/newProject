@@ -182,7 +182,8 @@ export default () => {
         <div style={{ marginBottom: 50 }}>
           <Form.Group>
             <Form.Label style={{ display: "flex", justifyContent: "center" }}>Catatan</Form.Label>
-            <Form.Control as="textarea" rows="3" />
+            {/* <Form.Control as="textarea" value={dataPengajuan.claim_pendidikans.pesan} rows="3" /> */}
+            <Form.Control type="text" name="nama" value={dataPengajuan.claim_pendidikans.pesan} disabled={true} />
           </Form.Group>
         </div>
         <Row>
