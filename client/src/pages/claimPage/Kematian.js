@@ -26,7 +26,7 @@ export default () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      history.push("/data/claim");
+      // history.push("/data/claim");
     }
   }, [history]);
   function handdleBack() {
