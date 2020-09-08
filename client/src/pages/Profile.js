@@ -179,12 +179,52 @@ export default () => {
             </Card.Body>
           </Card>
         </div>
+        <Form.Group as={Row}>
+          <Form.Label column sm="3">
+            Catatan claim Kematian
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control type="text" value={dataPengajuan.claim_kematians.pesan === null ? "-" : dataPengajuan.claim_kematians.pesan} disabled={true} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="3">
+            Catatan claim Kesehatan
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control type="text" value={dataPengajuan.claim_kesehatans.pesan === null ? "-" : dataPengajuan.claim_kesehatans.pesan} disabled={true} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="3">
+            Catatan claim Nilai Hidup
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control type="text" value={dataPengajuan.claim_nilai_hidups.pesan === null ? "-" : dataPengajuan.claim_nilai_hidups.pesan} disabled={true} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="3">
+            Catatan claim Perumahan
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control type="text" value={dataPengajuan.claim_perumahans.pesan === null ? "-" : dataPengajuan.claim_perumahans.pesan} disabled={true} />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="3">
+            Catatan claim Pendidikan
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control type="text" value={dataPengajuan.claim_pendidikans.pesan === null ? "-" : dataPengajuan.claim_pendidikans.pesan} disabled={true} />
+          </Col>
+        </Form.Group>
+
         <div style={{ marginBottom: 50 }}>
-          <Form.Group>
+          {/* <Form.Group>
             <Form.Label style={{ display: "flex", justifyContent: "center" }}>Catatan</Form.Label>
-            {/* <Form.Control as="textarea" value={dataPengajuan.claim_pendidikans.pesan} rows="3" /> */}
             <Form.Control type="text" name="nama" value={dataPengajuan.claim_pendidikans.pesan} disabled={true} />
-          </Form.Group>
+          </Form.Group> */}
         </div>
         <Row>
           <Col>
