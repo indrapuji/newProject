@@ -214,7 +214,7 @@ export default () => {
                 </Button>
               ) : (
                 <Button variant="outline-secondary" block size="sm" disabled>
-                  Disabled
+                  disabled
                 </Button>
               )}
             </div>
