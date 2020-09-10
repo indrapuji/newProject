@@ -3,11 +3,13 @@ import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pe
 import { ClaimKematian, ClaimKesehatan, ClaimManfaat, ClaimPendidikan, ClaimPerumahan } from "./pages/claimPage";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "./pages/ScrollToTop";
 
 function App() {
   const location = useLocation();
   return (
     <>
+      <ScrollToTop />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route exact path="/">

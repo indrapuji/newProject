@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import { Container, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Peserta from "../assets/data/peserta.png";
-import Aset from "../assets/data/aset.png";
-import Pendanaan from "../assets/data/pendanaan.png";
+// import Aset from "../assets/data/aset.png";
+// import Pendanaan from "../assets/data/pendanaan.png";
 import Kesehatan from "../assets/data/pembayaran program kesehatan.png";
 import Perumahan from "../assets/data/pengembalian iuran perumahan.png";
 import Pinjaman from "../assets/data/pinjaman perumahan.png";
@@ -44,7 +44,7 @@ export default () => {
             Perhutani yang memasuki masa pensiun. Dinamika jumlah peserta dalam 5 tahun terakhir seperti pada table dan grafik berikut.
           </p>
         </div>
-        <div data-aos="fade-up">
+        {/* <div data-aos="fade-up">
           <div style={{ display: "flex", justifyContent: "center", marginTop: 40, marginBottom: 20 }}>
             <Image src={Aset} rounded style={{ height: 400, width: 600 }} />
           </div>
@@ -55,7 +55,7 @@ export default () => {
             <Image src={Pendanaan} rounded style={{ height: 400, width: 600 }} />
           </div>
           <p style={{ textAlign: "center", marginTop: -10 }}>Komposisi pendanaan</p>
-        </div>
+        </div> */}
         <div data-aos="fade-up">
           <div style={{ display: "flex", justifyContent: "center", marginTop: 40, marginBottom: 20 }}>
             <Image src={Kesehatan} rounded style={{ height: 400, width: 600 }} />
