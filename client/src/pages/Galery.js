@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Penanaman from "../assets/image/penanamanjagung.jpeg";
 import BangunKemandirian from "../assets/image/bangunkemandirian.jpeg";
 import BriDukung from "../assets/image/bridukungjati.jpeg";
 import Santunan from "../assets/image/santunan.jpeg";
+import Covid2 from "../assets/image/covid2.png";
+import Covid3 from "../assets/image/covid3.png";
+import Covid4 from "../assets/image/covid4.png";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { Modal, Image } from "react-bootstrap";
 
 export default () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  const [prev, setPrev] = useState("");
+
+  function handleShow(imageshow) {
+    setShow(true);
+    setPrev(imageshow);
+  }
+
   const pageTransition = {
     init: {
       opacity: 0,
@@ -30,7 +44,7 @@ export default () => {
         <div style={{ padding: 10 }}>
           <div className="container mt-40">
             <div className="row mt-30">
-              <div className="col-md-3 col-sm-6">
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Penanaman)}>
                 <div className="box15">
                   <img src={Penanaman} style={{ height: "10rem" }} alt="" />
                   <div className="box-content">
@@ -40,7 +54,7 @@ export default () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-3 col-sm-6">
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(BangunKemandirian)}>
                 <div className="box15">
                   <img src={BangunKemandirian} style={{ height: "10rem" }} alt="" />
                   <div className="box-content">
@@ -50,7 +64,7 @@ export default () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-3 col-sm-6">
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(BriDukung)}>
                 <div className="box15">
                   <img src={BriDukung} style={{ height: "10rem" }} alt="" />
                   <div className="box-content">
@@ -60,7 +74,7 @@ export default () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-3 col-sm-6">
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Santunan)}>
                 <div className="box15">
                   <img src={Santunan} style={{ height: "10rem" }} alt="" />
                   <div className="box-content">
@@ -73,6 +87,47 @@ export default () => {
             </div>
           </div>
         </div>
+        <div style={{ padding: 10 }}>
+          <div className="container mt-40">
+            <div className="row mt-30">
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Covid2)}>
+                <div className="box15">
+                  <img src={Covid2} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Kegiatan Bhakti Sosial YKP3JS
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Covid3)}>
+                <div className="box15">
+                  <img src={Covid3} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Kegiatan Bhakti Sosial YKP3JS
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Covid4)}>
+                <div className="box15">
+                  <img src={Covid4} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Kegiatan Bhakti Sosial YKP3JS
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Modal size="lg" show={show} onHide={handleClose} keyboard={false}>
+          <Modal.Body style={{ display: "flex", justifyContent: "center" }}>
+            <Image src={prev} style={{ height: 510 }} />
+          </Modal.Body>
+        </Modal>
       </Container>
       <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
         <Footer />
