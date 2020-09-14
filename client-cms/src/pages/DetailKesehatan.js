@@ -403,12 +403,12 @@ export default () => {
               <Row style={{ marginBottom: 20 }}>
                 <Col>
                   <Button variant="outline-success" block onClick={setuju}>
-                    Setuju
+                    Iya
                   </Button>
                 </Col>
                 <Col>
                   <Button variant="outline-danger" block onClick={tolak}>
-                    Tolak
+                    Tidak
                   </Button>
                 </Col>
               </Row>
