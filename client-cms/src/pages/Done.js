@@ -8,9 +8,9 @@ import axios from "axios";
 export default () => {
   const host = "http://localhost:3001";
   // const host = "https://jatisejahtera-cms.herokuapp.com";
-
+  
   const history = useHistory();
-  const onActive = "/claimkematian";
+  const onActive = "/claimperumahan";
 
   useEffect(() => {
     fetchApi();
@@ -20,7 +20,7 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `${host}/data/claim-kematian`,
+      url: `${host}/data/histori`,
       headers: {
         token: localStorage.token,
       },
@@ -42,8 +42,8 @@ export default () => {
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
-      {JSON.stringify(data)}
-      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Kematian</h1>
+      {/* {JSON.stringify(data)} */}
+      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Perumahan</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         <Table striped bordered hover responsive>
           <thead>
@@ -83,7 +83,7 @@ export default () => {
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/kematian/${file.id}`)}>
+                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/perumahan/${file.id}`)}>
                         Check
                       </Button>
                     </td>

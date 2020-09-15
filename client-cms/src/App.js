@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Home, Detail, FormLogin, ClaimKematian, ClaimKesehatan, ClaimPerumahan, ClaimPendidikan, ClaimManfaat } from "./pages";
+import { Home, Detail, FormLogin, ClaimKematian, ClaimKesehatan, ClaimPerumahan, ClaimPendidikan, ClaimManfaat, Approve, Done } from "./pages";
 import { DetailKematian, DetailKesehatan, DetailManfaat, DetailPendidikan, DetailPerumahan } from "./pages";
 import "./App.css";
 
@@ -34,6 +34,12 @@ function App() {
           <Route exact path="/claimmanfaat">
             <ClaimManfaat />
           </Route>
+          <Route exact path="/approve">
+            <Approve />
+          </Route>
+          <Route exact path="/done">
+            <Done />
+          </Route>
           <Route exact path="/detail/:dataId">
             <Detail />
           </Route>
@@ -52,6 +58,21 @@ function App() {
           <Route exact path="/detail/perumahan/:dataId">
             <DetailPerumahan />
           </Route>
+          <Route exact path="/upload/kematian/:dataId">
+            <DetailPerumahan />
+          </Route>
+          {/* <Route exact path="/upload/kesehatan/:dataId">
+            <DetailPerumahan />
+          </Route>
+          <Route exact path="/upload/manfaat/:dataId">
+            <DetailPerumahan />
+          </Route>
+          <Route exact path="/upload/pendidikan/:dataId">
+            <DetailPerumahan />
+          </Route>
+          <Route exact path="/upload/perumahan/:dataId">
+            <DetailPerumahan />
+          </Route> */}
           <Route exact path="/login">
             <FormLogin />
           </Route>

@@ -48,10 +48,16 @@ export default (props) => {
             <Link to="/claimpendidikan">Pendidikan</Link>
           </Nav.Link>
         </Nav>
-        <Form inline>
+        <Nav.Link>
+          <Link to="/approve">Approve</Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to="/done">Done</Link>
+        </Nav.Link>
+        {/* <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>
-        </Form>
+        </Form> */}
         <Nav style={{ marginLeft: 20 }}>
           <div onClick={handdleLogout} style={{ cursor: "pointer" }}>
             <IoIosLogOut color="green" size="30" />

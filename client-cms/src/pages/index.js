@@ -11,3 +11,5 @@ export { default as DetailKesehatan } from "./DetailKesehatan";
 export { default as DetailManfaat } from "./DetailManfaat";
 export { default as DetailPendidikan } from "./DetailPendidikan";
 export { default as DetailPerumahan } from "./DetailPerumahan";
+export { default as Approve } from "./Approve";
+export { default as Done } from "./Done";

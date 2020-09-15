@@ -69,7 +69,7 @@ export default () => {
         if (profileData[keys][0].status === "1") {
           temp[keys].status = `Checking Staff`;
         } else if (profileData[keys][0].status === "2") {
-          temp[keys].status = `Checking Sekretaris`;
+          temp[keys].status = `Proses Pencairan`;
         } else if (profileData[keys][0].status === "3") {
           temp[keys].status = `Checking Pimpinan`;
         } else if (profileData[keys][0].status === "4") {
