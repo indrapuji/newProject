@@ -23,9 +23,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_kematian.findAll({
-        where: {
-          status: userData.status,
-        },
+        // where: {
+        //   status: userData.status,
+        // },
         include: [{
           model: user_anggota,
           required: false,
@@ -43,9 +43,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_kesehatan.findAll({
-        where: {
-          status: userData.status,
-        },
+        // where: {
+        //   status: userData.status,
+        // },
         include: [{
           model: user_anggota,
           required: false,
@@ -63,9 +63,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_nilai_hidup.findAll({
-        where: {
-          status: userData.status,
-        },
+        // where: {
+        //   status: userData.status,
+        // },
         include: [{
           model: user_anggota,
           required: false,
@@ -83,9 +83,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_perumahan.findAll({
-        where: {
-          status: userData.status,
-        },
+        // where: {
+        //   status: userData.status,
+        // },
         include: [{
           model: user_anggota,
           required: false,
@@ -103,9 +103,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_pendidikan.findAll({
-        where: {
-          status: userData.status,
-        },
+        // where: {
+        //   status: userData.status,
+        // },
         include: [{
           model: user_anggota,
           required: false,
