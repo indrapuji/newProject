@@ -6,6 +6,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  
   const { dataId } = useParams();
   const [pesan, setPesan] = useState("");
   const pageTransition = {
@@ -29,8 +32,7 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `https://jatisejahtera-cms.herokuapp.com/data/claim-perumahan/${dataId}`,
-      //   url: `http://localhost:3001/data/claim-perumahan/${dataId}`,
+      url: `${host}/data/claim-perumahan/${dataId}`,
       headers: {
         token: localStorage.token,
       },
@@ -43,8 +45,7 @@ export default () => {
       if (data) {
         await axios({
           method: "POST",
-          url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/perumahan/${dataId}/${Number(data.status) + 1}`,
-          //   url: `http://localhost:3001/data/pindah-status/perumahan/${dataId}/${Number(data.status) + 1}`,
+          url: `${host}/data/pindah-status/perumahan/${dataId}/${Number(data.status) + 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -77,8 +78,7 @@ export default () => {
       if (data) {
         await axios({
           method: "POST",
-          url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/perumahan/${dataId}/${Number(data.status) - 1}`,
-          //   url: `http://localhost:3001/data/pindah-status/perumahan/${dataId}/${Number(data.status) - 1}`,
+          url: `${host}/data/pindah-status/perumahan/${dataId}/${Number(data.status) - 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -343,63 +343,6 @@ export default () => {
                 </Form.Group>
               </Form>
             </div>
-            {/* <Form>
-              <Form.Group as={Row}>
-                <Form.Label column sm="2">
-                  Blanko Permohonan dari peserta
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" value={data.blanko_permohonan} disabled={true} />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row}>
-                <Form.Label column sm="2">
-                  Surat Keputusan pemberhentian hubungan kerja (PHK)
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" value={data.surat_keputusan_phk} disabled={true} />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row}>
-                <Form.Label column sm="2">
-                  Data keluarga dari surat keterangan pemberhentian penghasilan (SKPP) atau dari blanko data keluarga (P10)
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" value={data.data_keluarga} disabled={true} />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row}>
-                <Form.Label column sm="2">
-                  Akumulasi saldo iuran dari program gaji atau perhitungan manual
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" value={data.akumulasi_saldo} disabled={true} />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row}>
-                <Form.Label column sm="2">
-                  No Rekening Bank
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" value={data.no_rekening_bank} disabled={true} />
-                </Col>
-              </Form.Group>
-              <Row style={{ marginBottom: 20 }}>
-                <Col>
-                  <Button variant="outline-success" block onClick={setuju}>
-                    Setuju
-                  </Button>
-                </Col>
-                <Col>
-                  <Button variant="outline-danger" block onClick={tolak}>
-                    Tolak
-                  </Button>
-                </Col>
-              </Row>
-              <Button variant="outline-warning" onClick={handdleCancel} block>
-                Kembali
-              </Button>
-            </Form> */}
             <Form.Group as={Row}>
               <Form.Label column sm="2">
                 No Rekening Bank

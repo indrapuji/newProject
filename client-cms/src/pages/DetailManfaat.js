@@ -6,6 +6,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  
   const { dataId } = useParams();
   const [pesan, setPesan] = useState("");
   const pageTransition = {
@@ -29,8 +32,7 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `https://jatisejahtera-cms.herokuapp.com/data/claim-nilai-hidup/${dataId}`,
-      //   url: `http://localhost:3001/data/claim-nilai-hidup/${dataId}`,
+      url: `${host}/data/claim-nilai-hidup/${dataId}`,
       headers: {
         token: localStorage.token,
       },
@@ -43,8 +45,7 @@ export default () => {
       if (data) {
         await axios({
           method: "POST",
-          url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) + 1}`,
-          //   url: `http://localhost:3001/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) + 1}`,
+          url: `${host}/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) + 1}`,
           headers: {
             token: localStorage.token,
           },
@@ -77,8 +78,7 @@ export default () => {
       if (data) {
         await axios({
           method: "POST",
-          url: `https://jatisejahtera-cms.herokuapp.com/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) - 1}`,
-          //   url: `http://localhost:3001/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) - 1}`,
+          url: `${host}/data/pindah-status/nilai-hidup/${dataId}/${Number(data.status) - 1}`,
           headers: {
             token: localStorage.token,
           },

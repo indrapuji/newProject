@@ -7,6 +7,9 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+
   const history = useHistory();
   const pageTransition = {
     init: {
@@ -36,8 +39,7 @@ export default () => {
       e.preventDefault();
       const { data } = await axios({
         method: "POST",
-        url: "https://jatisejahtera-cms.herokuapp.com/users/login/admin",
-        // url: "http://localhost:3001/users/login/admin",
+        url: `${host}/users/login/admin`,
         data: formData,
       });
       console.log(data);

@@ -6,6 +6,9 @@ import Navigation from "../components/Navigation";
 import axios from "axios";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+
   const history = useHistory();
   const onActive = "/claimkematian";
 
@@ -17,8 +20,7 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `https://jatisejahtera-cms.herokuapp.com/data/claim-kematian`,
-      //   url: `http://localhost:3001/data/claim-kematian`,
+      url: `${host}/data/claim-kematian`,
       headers: {
         token: localStorage.token,
       },
@@ -51,6 +53,7 @@ export default () => {
               <th className="small">No Induk</th>
               <th className="small">Satuan Kerja</th>
               <th className="small">Golongan</th>
+              <th className="small">Status</th>
               <th className="small">Action</th>
             </tr>
           </thead>
@@ -80,6 +83,7 @@ export default () => {
                     <td className="small">{file.user_anggotum.no_induk}</td>
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
+                    <td className="small">{file.status === 1 ? "Pengajuan" : "verify"}</td>
                     <td>
                       <Button variant="primary" size="sm" onClick={() => history.push(`detail/kematian/${file.id}`)}>
                         Check

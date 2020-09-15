@@ -6,6 +6,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  
   const history = useHistory();
   const pageTransition = {
     init: {
@@ -55,8 +58,7 @@ export default () => {
       }
       await axios({
         method: "POST",
-        url: "https://jatisejahtera-cms.herokuapp.com/data/uploads/nilai-hidup",
-        // url: "http://localhost:3001/data/uploads/nilai-hidup",
+        url: `${host}/data/uploads/nilai-hidup`,
         data: newFormData,
         headers: {
           token: localStorage.token,

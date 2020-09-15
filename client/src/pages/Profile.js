@@ -8,6 +8,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+
   const pageTransition = {
     init: {
       opacity: 0,
@@ -84,8 +87,7 @@ export default () => {
     try {
       const { data } = await axios({
         method: "GET",
-        url: "https://jatisejahtera-cms.herokuapp.com/users/profile",
-        // url: 'http://localhost:3001/users/profile',
+        url: `${host}/users/profile`,
         headers: {
           token: localStorage.token,
         },

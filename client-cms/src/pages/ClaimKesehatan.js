@@ -6,6 +6,9 @@ import Navigation from "../components/Navigation";
 import axios from "axios";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+
   const history = useHistory();
   const onActive = "/claimkesehatan";
 
@@ -17,8 +20,7 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `https://jatisejahtera-cms.herokuapp.com/data/claim-kesehatan`,
-      //   url: `http://localhost:3001/data/claim-kesehatan`,
+      url: `${host}/data/claim-kesehatan`,
       headers: {
         token: localStorage.token,
       },

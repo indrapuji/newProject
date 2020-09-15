@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+
   const { dataId } = useParams();
   const pageTransition = {
     init: {
@@ -18,6 +21,7 @@ export default () => {
     },
   };
   const history = useHistory();
+
   useEffect(() => {
     fetchApi();
   }, []);
@@ -26,8 +30,7 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `https://jatisejahtera-cms.herokuapp.com/users/daftar-anggota/${dataId}`,
-      // url: `http://localhost:3001/users/daftar-anggota/${dataId}`,
+      url: `${host}/users/daftar-anggota/${dataId}`,
       headers: {
         token: localStorage.token,
       },

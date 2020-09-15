@@ -8,6 +8,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+
   const pageTransition = {
     init: {
       opacity: 0,
@@ -66,8 +69,7 @@ export default () => {
       e.preventDefault();
       await axios({
         method: "POST",
-        url: "https://jatisejahtera-cms.herokuapp.com/users/super/pengkinian-data",
-        // url: 'http://localhost:3001/users/super/pengkinian-data',
+        url: `${host}/users/super/pengkinian-data`,
 
         data: dataForm,
         // headers: {

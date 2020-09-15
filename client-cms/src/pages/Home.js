@@ -9,6 +9,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default () => {
+  const host = "http://localhost:3001";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+
   const history = useHistory();
   const onActive = "/";
 
@@ -20,8 +23,7 @@ export default () => {
   const fetchApi = async () => {
     const { data } = await axios({
       method: "GET",
-      url: `https://jatisejahtera-cms.herokuapp.com/users/daftar-anggota`,
-      // url: `http://localhost:3001/users/daftar-anggota`,
+      url: `${host}/users/daftar-anggota`,
       headers: {
         token: localStorage.token,
       },
