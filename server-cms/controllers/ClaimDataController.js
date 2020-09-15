@@ -23,9 +23,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_kematian.findAll({
-        // where: {
-        //   status: userData.status,
-        // },
+        where: {
+          status: userData.status,
+        },
         include: [{
           model: user_anggota,
           required: false,
@@ -43,9 +43,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_kesehatan.findAll({
-        // where: {
-        //   status: userData.status,
-        // },
+        where: {
+          status: userData.status,
+        },
         include: [{
           model: user_anggota,
           required: false,
@@ -63,9 +63,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_nilai_hidup.findAll({
-        // where: {
-        //   status: userData.status,
-        // },
+        where: {
+          status: userData.status,
+        },
         include: [{
           model: user_anggota,
           required: false,
@@ -83,9 +83,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_perumahan.findAll({
-        // where: {
-        //   status: userData.status,
-        // },
+        where: {
+          status: userData.status,
+        },
         include: [{
           model: user_anggota,
           required: false,
@@ -103,9 +103,9 @@ class ClaimDataController {
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
       const result = await claim_pendidikan.findAll({
-        // where: {
-        //   status: userData.status,
-        // },
+        where: {
+          status: userData.status,
+        },
         include: [{
           model: user_anggota,
           required: false,
@@ -884,6 +884,154 @@ class ClaimDataController {
       res.status(200).json({ msg: 'Success' });
     } catch (err) {
       if (req.file) fs.unlinkSync(req.file.path);
+      next(err);
+    }
+  }
+  static butuhVerifikasi = async(req ,res, next) => {
+    try {
+      let result = [];
+      const claimKematian = await claim_kematian.findAll({
+        where: {
+          status: '2'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimKesehatan = await claim_kesehatan.findAll({
+        where: {
+          status: '2'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimNilaiHidup = await claim_nilai_hidup.findAll({
+        where: {
+          status: '2'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimPendidikan = await claim_pendidikan.findAll({
+        where: {
+          status: '2'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimPerumahan = await claim_perumahan.findAll({
+        where: {
+          status: '2'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      result = result.concat(claimKematian);
+      result = result.concat(claimKesehatan);
+      result = result.concat(claimNilaiHidup);
+      result = result.concat(claimPendidikan);
+      result = result.concat(claimPerumahan);
+      result = result.sort((a,b) => b - a);
+      res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
+  }
+  static historiData = async(req ,res, next) => {
+    try {
+      let result = [];
+      const claimKematian = await claim_kematian.findAll({
+        where: {
+          status: '3'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimKesehatan = await claim_kesehatan.findAll({
+        where: {
+          status: '3'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimNilaiHidup = await claim_nilai_hidup.findAll({
+        where: {
+          status: '3'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimPendidikan = await claim_pendidikan.findAll({
+        where: {
+          status: '3'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      const claimPerumahan = await claim_perumahan.findAll({
+        where: {
+          status: '3'
+        },
+        include: [{
+          model: user_anggota,
+          required: false,
+        }, {
+          model: pesan_claim,
+          required: false
+        }],
+      })
+      result = result.concat(claimKematian);
+      result = result.concat(claimKesehatan);
+      result = result.concat(claimNilaiHidup);
+      result = result.concat(claimPendidikan);
+      result = result.concat(claimPerumahan);
+      result = result.sort((a,b) => b - a);
+      res.status(200).json(result);
+    } catch (err) {
       next(err);
     }
   }

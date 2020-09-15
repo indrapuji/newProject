@@ -224,4 +224,7 @@ router.put('/bukti-transfer/nilai-hidup/:id', authentication, staffAuth, upload.
 router.put('/bukti-transfer/pendidikan/:id', authentication, staffAuth, upload.single('bukti_tf'), ClaimDataController.pendidikanBuktiTf);
 router.put('/bukti-transfer/perumahan/:id', authentication, staffAuth, upload.single('bukti_tf'), ClaimDataController.peumahanBuktiTf);
 
+router.get('/butuh-verifikasi', authentication, ClaimDataController.butuhVerifikasi); //status = 2
+router.get('/histori', authentication, ClaimDataController.historiData); //status = 3
+
 module.exports = router;
