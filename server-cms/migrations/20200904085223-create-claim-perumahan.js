@@ -32,6 +32,9 @@ module.exports = {
       no_rekening_bank: {
         type: Sequelize.STRING
       },
+      bukti_tf: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

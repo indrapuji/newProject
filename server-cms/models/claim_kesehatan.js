@@ -78,7 +78,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: "No Rekening Bank Harus Diisi",
         },
       },
-    }
+    },
+    bukti_tf: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'claim_kesehatan',

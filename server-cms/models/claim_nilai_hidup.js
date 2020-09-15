@@ -68,7 +68,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: "No Rekening Bank Tujuan Harus Diisi",
         },
       },
-    }
+    },
+    bukti_tf: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'claim_nilai_hidup',

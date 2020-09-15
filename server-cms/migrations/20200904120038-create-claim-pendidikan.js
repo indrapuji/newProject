@@ -32,6 +32,9 @@ module.exports = {
       data5: {
         type: Sequelize.STRING
       },
+      bukti_tf: {
+        type: Sequelize.STRING
+      },
       no_rekening_bank: {
         type: Sequelize.STRING
       },

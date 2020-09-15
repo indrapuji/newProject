@@ -797,6 +797,96 @@ class ClaimDataController {
       next(err);
     }
   };
+  static kematianBuktiTf = async(req, res, next) => {
+    try {
+      const { id } = req.params;
+      let { pesan } = req.body;
+      if (!pesan) pesan = '';
+      if (!req.file) throw createError(400, 'Bukti Tranfer Dibutuhkan!');
+      const claimData = await claim_kematian.findOne({ where: { id } });
+      if (!claimData) throw createError(404, 'Data Not Found');
+      await claim_kematian.update({ bukti_tf: serverUrl + req.file.path }, { where: { id } });
+      const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: 'Kematian' } });
+      if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: 'Kematian' } });
+      else await pesan_claim.create({ claim_id, claim_category: 'Kematian', pesan });
+      res.status(200).json({ msg: 'Success' });
+    } catch (err) {
+      if (req.file) fs.unlinkSync(req.file.path);
+      next(err);
+    }
+  }
+  static kesehatanBuktiTf = async(req, res, next) => {
+    try {
+      const { id } = req.params;
+      let { pesan } = req.body;
+      if (!pesan) pesan = '';
+      if (!req.file) throw createError(400, 'Bukti Tranfer Dibutuhkan!');
+      const claimData = await claim_kesehatan.findOne({ where: { id } });
+      if (!claimData) throw createError(404, 'Data Not Found');
+      await claim_kesehatan.update({ bukti_tf: serverUrl + req.file.path }, { where: { id } });
+      const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: 'Kesehatan' } });
+      if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: 'Kesehatan' } });
+      else await pesan_claim.create({ claim_id, claim_category: 'Kesehatan', pesan });
+      res.status(200).json({ msg: 'Success' });
+    } catch (err) {
+      if (req.file) fs.unlinkSync(req.file.path);
+      next(err);
+    }
+  }
+  static nilaiHidupBuktiTf = async(req, res, next) => {
+    try {
+      const { id } = req.params;
+      let { pesan } = req.body;
+      if (!pesan) pesan = '';
+      if (!req.file) throw createError(400, 'Bukti Tranfer Dibutuhkan!');
+      const claimData = await claim_nilai_hidup.findOne({ where: { id } });
+      if (!claimData) throw createError(404, 'Data Not Found');
+      await claim_nilai_hidup.update({ bukti_tf: serverUrl + req.file.path }, { where: { id } });
+      const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: 'Nilai Hidup' } });
+      if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: 'Nilai Hidup' } });
+      else await pesan_claim.create({ claim_id, claim_category: 'Nilai Hidup', pesan });
+      res.status(200).json({ msg: 'Success' });
+    } catch (err) {
+      if (req.file) fs.unlinkSync(req.file.path);
+      next(err);
+    }
+  }
+  static pendidikanBuktiTf = async(req, res, next) => {
+    try {
+      const { id } = req.params;
+      let { pesan } = req.body;
+      if (!pesan) pesan = '';
+      if (!req.file) throw createError(400, 'Bukti Tranfer Dibutuhkan!');
+      const claimData = await claim_pendidikan.findOne({ where: { id } });
+      if (!claimData) throw createError(404, 'Data Not Found');
+      await claim_pendidikan.update({ bukti_tf: serverUrl + req.file.path }, { where: { id } });
+      const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: 'Pendidikan' } });
+      if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: 'Pendidikan' } });
+      else await pesan_claim.create({ claim_id, claim_category: 'Pendidikan', pesan });
+      res.status(200).json({ msg: 'Success' });
+    } catch (err) {
+      if (req.file) fs.unlinkSync(req.file.path);
+      next(err);
+    }
+  }
+  static peumahanBuktiTf = async(req, res, next) => {
+    try {
+      const { id } = req.params;
+      let { pesan } = req.body;
+      if (!pesan) pesan = '';
+      if (!req.file) throw createError(400, 'Bukti Tranfer Dibutuhkan!');
+      const claimData = await claim_perumahan.findOne({ where: { id } });
+      if (!claimData) throw createError(404, 'Data Not Found');
+      await claim_perumahan.update({ bukti_tf: serverUrl + req.file.path }, { where: { id } });
+      const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: 'Perumahan' } });
+      if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: 'Perumahan' } });
+      else await pesan_claim.create({ claim_id, claim_category: 'Perumahan', pesan });
+      res.status(200).json({ msg: 'Success' });
+    } catch (err) {
+      if (req.file) fs.unlinkSync(req.file.path);
+      next(err);
+    }
+  }
 }
 
 module.exports = ClaimDataController;

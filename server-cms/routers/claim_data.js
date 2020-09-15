@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const ClaimDataController = require('../controllers/ClaimDataController');
 const authentication = require('../middlewares/authentication');
-const { adminAuth, addClaimAuth } = require('../middlewares/authorization');
+const { adminAuth, addClaimAuth, staffAuth } = require('../middlewares/authorization');
 const multer = require('multer');
 const storage = require('../helpers/multer');
 
@@ -217,5 +217,11 @@ router.put('/edit/pendidikan', authentication, addClaimAuth,
     maxCount: 1
   }]),
   ClaimDataController.editClaimPendidikan);
+
+router.put('/bukti-transfer/kematian/:id', authentication, staffAuth, upload.single('bukti_tf'), ClaimDataController.kematianBuktiTf);
+router.put('/bukti-transfer/kesehatan/:id', authentication, staffAuth, upload.single('bukti_tf'), ClaimDataController.kesehatanBuktiTf);
+router.put('/bukti-transfer/nilai-hidup/:id', authentication, staffAuth, upload.single('bukti_tf'), ClaimDataController.nilaiHidupBuktiTf);
+router.put('/bukti-transfer/pendidikan/:id', authentication, staffAuth, upload.single('bukti_tf'), ClaimDataController.pendidikanBuktiTf);
+router.put('/bukti-transfer/perumahan/:id', authentication, staffAuth, upload.single('bukti_tf'), ClaimDataController.peumahanBuktiTf);
 
 module.exports = router;
