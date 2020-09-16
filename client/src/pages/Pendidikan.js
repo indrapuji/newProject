@@ -43,6 +43,41 @@ export default () => {
               <li>Menyelenggarakan Pendidikan Non-formal (TK/TPA/PAUD)</li>
             </ol>
           </div>
+          <div style={{ marginTop: 20 }}>
+            <p style={{ display: "flex", justifyContent: "center", marginTop: 30, fontWeight: "bold", fontSize: 30 }}>Bantuan Pendidikan</p>
+            <p style={{ fontWeight: "bold", marginBottom: 0 }}>Peruntukan</p>
+            <ul style={{ marginLeft: -20 }}>
+              <li>Putra/Putri Siswa/Mahasiswa dari Pensiunan atau Janda Pensiunan Karyawan Perum Perhutani</li>
+              <li>Karyawan, Golongan A dan Golongan I, Golongan II yang tidak menjabat</li>
+              <li>Guru Sekolah Taruna Rimba yang sedang menempuh S1 bidang pendidikan</li>
+            </ul>
+            <p style={{ fontWeight: "bold", marginBottom: 0 }}>Manfaat</p>
+            <ul style={{ marginLeft: -20 }}>
+              <li>Bantuan Pendidikan dengan nilai</li>
+              <table>
+                <tr>
+                  <td>Tingkat SD</td>
+                  <td>Rp. 50.000,- /bln.</td>
+                </tr>
+                <tr>
+                  <td>Tingkat SLTP</td>
+                  <td>Rp . 60.000,-/bln.</td>
+                </tr>
+                <tr>
+                  <td>Tingkat SLTA</td>
+                  <td>Rp. 75.000,-/bln.</td>
+                </tr>
+                <tr>
+                  <td>Perguruan Tinggi</td>
+                  <td>Rp 100.000,/bln.</td>
+                </tr>
+              </table>
+              {/* <ul>Tingkat SD {"          "}Rp. 50.000,- /bln.</ul>
+              <ul>Tingkat SLTP Rp . 60.000,-/bln.</ul>
+              <ul>Tingkat SLTA Rp. 75.000,-/bln.</ul>
+              <ul>Perguruan Tinggi Rp 100.000,/bln.</ul> */}
+            </ul>
+          </div>
         </Container>
       </div>
       <Footer />
