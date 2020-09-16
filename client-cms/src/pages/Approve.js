@@ -89,35 +89,35 @@ export default () => {
                     <td className="small">{FormatDate(file.pesan_claim.updatedAt)}</td>
                     {file.pesan_claim.claim_category === "Kematian" && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kematian/${file.id}`)}>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kematian/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === "Kesehatan" && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kesehatan/${file.id}`)}>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kesehatan/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === "Nilai Hidup" && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/manfaat/${file.id}`)}>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/manfaat/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === "Pendidikan" && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/pendidikan/${file.id}`)}>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/pendidikan/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === "Perumahan" && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/perumahan/${file.id}`)}>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/perumahan/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>

@@ -58,19 +58,19 @@ function App() {
           <Route exact path="/detail/perumahan/:dataId">
             <DetailPerumahan />
           </Route>
-          <Route exact path="/upload/kematian/:dataId">
+          <Route exact path="/upload/kematian/:nama/:dataId">
             <UploadBukti />
           </Route>
-          <Route exact path="/upload/kesehatan/:dataId">
+          <Route exact path="/upload/kesehatan/:nama/:dataId">
             <UploadBukti />
           </Route>
-          <Route exact path="/upload/manfaat/:dataId">
+          <Route exact path="/upload/manfaat/:nama/:dataId">
             <UploadBukti />
           </Route>
-          <Route exact path="/upload/pendidikan/:dataId">
+          <Route exact path="/upload/pendidikan/:nama/:dataId">
             <UploadBukti />
           </Route>
-          <Route exact path="/upload/perumahan/:dataId">
+          <Route exact path="/upload/perumahan/:nama/:dataId">
             <UploadBukti />
           </Route>
           <Route exact path="/login">
