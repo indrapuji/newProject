@@ -71,7 +71,7 @@ export default () => {
         } else if (profileData[keys][0].status === "2") {
           temp[keys].status = `Proses Pencairan`;
         } else if (profileData[keys][0].status === "3") {
-          temp[keys].status = `Checking Pimpinan`;
+          temp[keys].status = `Pencairan Berhasil`;
         } else if (profileData[keys][0].status === "4") {
           temp[keys].status = `Checking Finance`;
         } else if (profileData[keys][0].status === "5") {
@@ -147,6 +147,7 @@ export default () => {
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
+      {JSON.stringify(dataPengajuan)}
       <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 50 }}>User Profile</h1>
       <Container>
         <div style={{ display: "flex", marginBottom: 20 }}>

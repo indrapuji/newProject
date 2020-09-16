@@ -50,7 +50,7 @@ module.exports = {
       if (role != "admin") throw createError(401, "You are not authorized to do that!");
       const userData = await user_admin.findOne({ where: { id } });
       if (!userData) throw createError(404, "User not found");
-      if (userData.status != "2") throw createError(401, "You are not authorized to do that!");
+      if (userData.status != "1") throw createError(401, "You are not authorized to do that!");
       next();
     } catch (err) {
       next(err);
