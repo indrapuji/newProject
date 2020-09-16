@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Row, Col, Image, Container, Form, Card, Button } from "react-bootstrap";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -45,27 +45,33 @@ export default () => {
       claim_kematians: {
         status: "",
         pesan: "",
+        bukti_tf: "",
       },
       claim_kesehatans: {
         status: "",
         pesan: "",
+        bukti_tf: "",
       },
       claim_nilai_hidups: {
         status: "",
         pesan: "",
+        bukti_tf: "",
       },
       claim_pendidikans: {
         status: "",
         pesan: "",
+        bukti_tf: "",
       },
       claim_perumahans: {
         status: "",
         pesan: "",
+        bukti_tf: "",
       },
     };
     for (let keys in dataPengajuan) {
       if (profileData[keys][0]) {
         if (profileData[keys][0].pesan_claim) temp[keys].pesan = profileData[keys][0].pesan_claim.pesan;
+        if (profileData[keys][0].bukti_tf) temp[keys].bukti_tf = profileData[keys][0].bukti_tf;
         if (profileData[keys][0].status === "1") {
           temp[keys].status = `Checking Staff`;
         } else if (profileData[keys][0].status === "2") {
@@ -82,6 +88,15 @@ export default () => {
       } else temp[keys].status = "-";
     }
     setDataPengajuan(temp);
+  };
+
+  const buktiTF = () => {
+    let buktitf_kematian = {
+      link_tf: "",
+    };
+    for (let keys in profileData.claim_kematians) {
+      buktitf_kematian.link_tf = profileData[keys][0].bukti_tf;
+    }
   };
   const getProfileData = async () => {
     try {
@@ -147,7 +162,8 @@ export default () => {
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
-      {JSON.stringify(dataPengajuan)}
+      {/* {JSON.stringify(dataPengajuan)} */}
+      {/* {JSON.stringify(dataPengajuan.claim_kematians.bukti_tf)} */}
       <h1 style={{ textAlign: "center", marginTop: 20, marginBottom: 50 }}>User Profile</h1>
       <Container>
         <div style={{ display: "flex", marginBottom: 20 }}>
@@ -168,6 +184,11 @@ export default () => {
                 <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
                   {dataPengajuan.claim_kematians.status}
                 </Card.Subtitle>
+                {dataPengajuan.claim_kematians.bukti_tf && (
+                  <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                    <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 100 }} />
+                  </Card.Subtitle>
+                )}
               </Card.Body>
             </Card>
             <div style={{ marginTop: 5 }}>
@@ -203,6 +224,11 @@ export default () => {
                 <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
                   {dataPengajuan.claim_kesehatans.status}
                 </Card.Subtitle>
+                {dataPengajuan.claim_kesehatans.bukti_tf && (
+                  <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                    <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 100 }} />
+                  </Card.Subtitle>
+                )}
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
@@ -239,6 +265,11 @@ export default () => {
                 <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
                   {dataPengajuan.claim_nilai_hidups.status}
                 </Card.Subtitle>
+                {dataPengajuan.claim_nilai_hidups.bukti_tf && (
+                  <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                    <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 100 }} />
+                  </Card.Subtitle>
+                )}
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
@@ -275,6 +306,11 @@ export default () => {
                 <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
                   {dataPengajuan.claim_perumahans.status}
                 </Card.Subtitle>
+                {dataPengajuan.claim_perumahans.bukti_tf && (
+                  <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                    <Image src={dataPengajuan.claim_perumahans.bukti_tf} style={{ width: 100 }} />
+                  </Card.Subtitle>
+                )}
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
@@ -311,6 +347,11 @@ export default () => {
                 <Card.Subtitle className="mb-2" style={{ textAlign: "center", fontWeight: "bold" }}>
                   {dataPengajuan.claim_pendidikans.status}
                 </Card.Subtitle>
+                {dataPengajuan.claim_pendidikans.bukti_tf && (
+                  <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
+                    <Image src={dataPengajuan.claim_pendidikans.bukti_tf} style={{ width: 100 }} />
+                  </Card.Subtitle>
+                )}
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
