@@ -6,8 +6,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default () => {
-  const host = "http://localhost:3001";
-  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  // const host = "http://localhost:3001";
+  const host = "https://jatisejahtera-cms.herokuapp.com";
 
   const history = useHistory();
   const pageTransition = {

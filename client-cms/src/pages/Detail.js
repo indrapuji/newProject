@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 export default () => {
-  const host = "http://localhost:3001";
-  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  // const host = "http://localhost:3001";
+  const host = "https://jatisejahtera-cms.herokuapp.com";
 
   const { dataId } = useParams();
   const pageTransition = {

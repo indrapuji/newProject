@@ -7,8 +7,8 @@ import Swal from "sweetalert2";
 import checkPath from "../hooks/checkPath";
 
 export default () => {
-  const host = "http://localhost:3001";
-  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  // const host = "http://localhost:3001";
+  const host = "https://jatisejahtera-cms.herokuapp.com";
 
   const history = useHistory();
   const { dataId } = useParams();

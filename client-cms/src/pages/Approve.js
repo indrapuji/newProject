@@ -7,8 +7,8 @@ import axios from "axios";
 import FormatDate from "../hooks/FormatDate";
 
 export default () => {
-  const host = "http://localhost:3001";
-  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  // const host = "http://localhost:3001";
+  const host = "https://jatisejahtera-cms.herokuapp.com";
 
   const history = useHistory();
   const onActive = "/claimperumahan";

@@ -6,8 +6,8 @@ import Navigation from "../components/Navigation";
 import axios from "axios";
 
 export default () => {
-  const host = "http://localhost:3001";
-  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  // const host = "http://localhost:3001";
+  const host = "https://jatisejahtera-cms.herokuapp.com";
   
   const history = useHistory();
   const onActive = "/claimmanfaat";
