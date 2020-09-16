@@ -62,13 +62,13 @@ function App() {
             <UploadBukti />
           </Route>
           <Route exact path="/upload/kesehatan/:dataId">
-            <DetailPerumahan />
+            <UploadBukti />
           </Route>
           <Route exact path="/upload/manfaat/:dataId">
-            <DetailPerumahan />
+            <UploadBukti />
           </Route>
           <Route exact path="/upload/pendidikan/:dataId">
-            <DetailPerumahan />
+            <UploadBukti />
           </Route>
           <Route exact path="/upload/perumahan/:dataId">
             <UploadBukti />
