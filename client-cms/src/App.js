@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Home, Detail, FormLogin, ClaimKematian, ClaimKesehatan, ClaimPerumahan, ClaimPendidikan, ClaimManfaat, Approve, Done } from "./pages";
+import { Home, Detail, FormLogin, ClaimKematian, ClaimKesehatan, ClaimPerumahan, ClaimPendidikan, ClaimManfaat, Approve, Done, UploadBukti } from "./pages";
 import { DetailKematian, DetailKesehatan, DetailManfaat, DetailPendidikan, DetailPerumahan } from "./pages";
 import "./App.css";
 
@@ -59,9 +59,9 @@ function App() {
             <DetailPerumahan />
           </Route>
           <Route exact path="/upload/kematian/:dataId">
-            <DetailPerumahan />
+            <UploadBukti />
           </Route>
-          {/* <Route exact path="/upload/kesehatan/:dataId">
+          <Route exact path="/upload/kesehatan/:dataId">
             <DetailPerumahan />
           </Route>
           <Route exact path="/upload/manfaat/:dataId">
@@ -71,8 +71,8 @@ function App() {
             <DetailPerumahan />
           </Route>
           <Route exact path="/upload/perumahan/:dataId">
-            <DetailPerumahan />
-          </Route> */}
+            <UploadBukti />
+          </Route>
           <Route exact path="/login">
             <FormLogin />
           </Route>

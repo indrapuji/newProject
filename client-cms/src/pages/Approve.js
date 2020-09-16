@@ -4,12 +4,12 @@ import { Table, Spinner, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
 import axios from "axios";
-import FormatDate from '../hooks/FormatDate'
+import FormatDate from "../hooks/FormatDate";
 
 export default () => {
   const host = "http://localhost:3001";
   // const host = "https://jatisejahtera-cms.herokuapp.com";
-  
+
   const history = useHistory();
   const onActive = "/claimperumahan";
 
@@ -50,12 +50,12 @@ export default () => {
           <thead>
             <tr>
               <th className="small">No</th>
-              <th className="small">Tanggal Approve</th>
               <th className="small">Nama</th>
               <th className="small">No Induk</th>
               <th className="small">Satuan Kerja</th>
               <th className="small">Golongan</th>
               <th className="small">Kategori Claim</th>
+              <th className="small">Tanggal Approve</th>
               <th className="small">Action</th>
             </tr>
           </thead>
@@ -70,7 +70,7 @@ export default () => {
           ) : data.length === 0 ? (
             <tbody>
               <tr>
-                <td colSpan="6" className="small" style={{ textAlign: "center" }}>
+                <td colSpan="8" className="small" style={{ textAlign: "center" }}>
                   Tidak Ada Pengajuan
                 </td>
               </tr>
@@ -81,17 +81,47 @@ export default () => {
                 return (
                   <tr key={file.id} style={{ cursor: "pointer" }}>
                     <td className="small">{idx + 1}</td>
-                    <td className="small">{FormatDate(file.pesan_claim.updatedAt)}</td>
                     <td className="small">{file.user_anggotum.nama}</td>
                     <td className="small">{file.user_anggotum.no_induk}</td>
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td className="small">{file.pesan_claim.claim_category}</td>
-                    <td>
-                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/perumahan/${file.id}`)}>
-                        Upload Bukti
-                      </Button>
-                    </td>
+                    <td className="small">{FormatDate(file.pesan_claim.updatedAt)}</td>
+                    {file.pesan_claim.claim_category === "Kematian" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kematian/${file.id}`)}>
+                          Upload Bukti
+                        </Button>
+                      </td>
+                    )}
+                    {file.pesan_claim.claim_category === "Kesehatan" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kesehatan/${file.id}`)}>
+                          Upload Bukti
+                        </Button>
+                      </td>
+                    )}
+                    {file.pesan_claim.claim_category === "Nilai Hidup" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/manfaat/${file.id}`)}>
+                          Upload Bukti
+                        </Button>
+                      </td>
+                    )}
+                    {file.pesan_claim.claim_category === "Pendidikan" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/pendidikan/${file.id}`)}>
+                          Upload Bukti
+                        </Button>
+                      </td>
+                    )}
+                    {file.pesan_claim.claim_category === "Perumahan" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/perumahan/${file.id}`)}>
+                          Upload Bukti
+                        </Button>
+                      </td>
+                    )}
                   </tr>
                 );
               })}

@@ -13,3 +13,4 @@ export { default as DetailPendidikan } from "./DetailPendidikan";
 export { default as DetailPerumahan } from "./DetailPerumahan";
 export { default as Approve } from "./Approve";
 export { default as Done } from "./Done";
+export { default as UploadBukti } from "./UploadBukti";
