@@ -9,6 +9,8 @@ import Peserta from "../assets/data/peserta.png";
 import Kesehatan from "../assets/data/pembayaran program kesehatan.png";
 import Perumahan from "../assets/data/pengembalian iuran perumahan.png";
 import Pinjaman from "../assets/data/pinjaman perumahan.png";
+import PenerimaBantuan2019 from "../assets/image/PenerimabantuanPendidikan-2019.png";
+import PenerimaBantuan2020 from "../assets/image/PenerimabantuanPendidikan-2020.png";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -73,6 +75,18 @@ export default () => {
             <Image src={Pinjaman} rounded style={{ height: 400, width: 600 }} />
           </div>
           <p style={{ textAlign: "center", marginTop: -10 }}>Penyaluran Pinjaman Perumahan</p>
+        </div>
+        <div data-aos="fade-up">
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 40, marginBottom: 20 }}>
+            <Image src={PenerimaBantuan2019} rounded style={{ height: 400, width: 600 }} />
+          </div>
+          <p style={{ textAlign: "center", marginTop: -10 }}>Penerima bantuan Pendidikan berdasarkan tingkat pendidikan tahun 2015 s/d Juni 2019 (dalam Jumlah Siswa)</p>
+        </div>
+        <div data-aos="fade-up">
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 40, marginBottom: 20 }}>
+            <Image src={PenerimaBantuan2020} rounded style={{ height: 400, width: 600 }} />
+          </div>
+          <p style={{ textAlign: "center", marginTop: -10 }}>Penerima Bantuan Pendidikan per tingkat Pendidikan Tahun 2015 s/d 2020</p>
         </div>
       </Container>
       <Footer />

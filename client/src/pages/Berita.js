@@ -43,8 +43,8 @@ export default () => {
             </Col>
             <Col>
               <motion.div whileHover={{ scale: 1.1 }}>
-                <p style={{ fontWeight: "bold" }}>Sosialisasi Pensiunan Perhutani Jawa Tengah Semarang</p>
-                <p>Pensiunan perhutani jawa tengah semarang melakukan sosialisasi mengenai biaya bantuan rawat inap dan santunan kematian bagi pensiunan Perhutani.</p>
+                <p style={{ fontWeight: "bold" }}>Yayasan Jatisejahtera melakukan sosialisasi kepada pensiunan Perhutani Jawa Tengah</p>
+                <p>Sosialisasi mengenai bantuan kesehatan, khususnya mengenai biaya bantuan rawat inap dan santunan kematian bagi pensiunan Perhutani.</p>
               </motion.div>
             </Col>
           </Row>
