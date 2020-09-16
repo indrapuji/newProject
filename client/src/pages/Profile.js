@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Row, Col, Image, Container, Form, Card, Button } from "react-bootstrap";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -90,14 +90,6 @@ export default () => {
     setDataPengajuan(temp);
   };
 
-  const buktiTF = () => {
-    let buktitf_kematian = {
-      link_tf: "",
-    };
-    for (let keys in profileData.claim_kematians) {
-      buktitf_kematian.link_tf = profileData[keys][0].bukti_tf;
-    }
-  };
   const getProfileData = async () => {
     try {
       const { data } = await axios({
