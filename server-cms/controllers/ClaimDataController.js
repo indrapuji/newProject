@@ -2,6 +2,7 @@ const { claim_kematian, claim_kesehatan, claim_nilai_hidup, claim_perumahan, cla
 const { Op, where } = require("sequelize");
 const changeStatusValidation = require("../helpers/changeStatusValidation");
 const createError = require("http-errors");
+const fs = require("fs");
 
 const serverUrl = "https://jatisejahtera-cms.herokuapp.com/";
 // const serverUrl = 'http://localhost:3001/uploads/'

@@ -1,4 +1,7 @@
 const { Content } = require("../models");
+const fs = require("fs");
+
+const serverUrl = "http://localhost:3001/"; // jangan lupa ganti
 
 class ContentController {
   static getAll(req, res) {
@@ -34,14 +37,10 @@ class ContentController {
   }
 
   static create(req, res) {
-    const { category, title, image_url, text } = req.body;
-    Content.create({
-      category,
-      title,
-      image_url,
-      text,
-      userId: req.user.id,
-    })
+    const { category, title, text } = req.body;
+    let option = { category, title, text, userId: req.user.id };
+    if (req.file) option.image_url = serverUrl + req.file.path;
+    Content.create(option)
       .then((data) => {
         res.status(201).json({
           message: "Success create content",
@@ -49,6 +48,7 @@ class ContentController {
         });
       })
       .catch((err) => {
+        if (req.file) fs.unlinkSync(req.file.path);
         if (err.errors) {
           let errData = [];
           for (let i = 0; i < err.errors.length; i++) {
@@ -67,18 +67,24 @@ class ContentController {
 
   static update(req, res) {
     const id = req.params.id;
-    const { category, title, image_url, text } = req.body;
-    let input = { category, title, image_url, text, userId: req.user.id };
+    const { category, title, text } = req.body;
+    let input = { category, title, text, userId: req.user.id };
+    if (req.file) input.image_url = serverUrl + req.file.path;
     let option = { where: { id } };
-    Content.update(input, option)
+    let prevData = {};
+    Content.findOne(option)
       .then((data) => {
         if (data) {
-          res.status(200).json({
-            category,
-            title,
-            image_url,
-            text,
-          });
+          prevData = data;
+        }
+        return Content.update(input, option);
+      })
+      .then((data) => {
+        if (data) {
+          const regex = new RegExp(serverUrl, "g");
+          const prevPath = prevData.image_url.replace(regex, "");
+          if (fs.existsSync(prevPath)) fs.unlinkSync(prevPath);
+          res.status(200).json(input);
         } else {
           res.status(404).json({
             message: "Content not found",
@@ -86,6 +92,7 @@ class ContentController {
         }
       })
       .catch((err) => {
+        if (req.file) fs.unlinkSync(req.file.path);
         if (err.errors) {
           let errData = [];
           for (let i = 0; i < err.errors.length; i++) {
