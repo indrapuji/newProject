@@ -4,7 +4,8 @@ const changeStatusValidation = require("../helpers/changeStatusValidation");
 const createError = require("http-errors");
 const fs = require("fs");
 
-const serverUrl = "https://jatisejahtera-cms.herokuapp.com/";
+// const serverUrl = "https://jatisejahtera-cms.herokuapp.com/";
+const serverUrl = "http://128.199.238.147:3001/";
 // const serverUrl = 'http://localhost:3001/uploads/'
 
 class ClaimDataController {
