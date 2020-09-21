@@ -37,7 +37,7 @@ class ContentController {
   }
 
   static create(req, res) {
-    const { category, title, text } = req.body;
+    const { category, title, text, status } = req.body;
     let option = { category, title, text, userId: req.user.id };
     if (req.file) option.image_url = serverUrl + req.file.path;
     Content.create(option)
@@ -67,8 +67,8 @@ class ContentController {
 
   static update(req, res) {
     const id = req.params.id;
-    const { category, title, text } = req.body;
-    let input = { category, title, text, userId: req.user.id };
+    const { category, title, text, status } = req.body;
+    let input = { category, title, text, status, userId: req.user.id };
     if (req.file) input.image_url = serverUrl + req.file.path;
     let option = { where: { id } };
     let prevData = {};
