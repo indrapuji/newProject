@@ -10,7 +10,7 @@ const upload = multer({ storage: storage });
 
 router.get("/", ContentController.getAll);
 router.get("/:id", ContentController.getOne);
-authentication;
+router.use(authentication)
 router.post("/create", upload.single("image_url"), ContentController.create);
 router.put("/:id", authorization, upload.single("image_url"), ContentController.update);
 router.delete("/:id", authorization, ContentController.delete);

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import host from "../helpers/host";
-import { Card, Table, Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
-import Swal from "sweetalert2";
 
 export default function Home() {
   const [file, setFile] = useState([]);
@@ -122,101 +121,6 @@ export default function Home() {
           </Card>
         </div>
       </div>
-
-      {/* <Card bg="light" text="dark" border="primary" size="sm" style={{ marginLeft: 30, marginRight: 30, marginTop: 30 }}>
-        <Card.Header>Pendidikan</Card.Header>
-        <Card.Body>
-          <Table striped bordered hover responsive="sm" size="sm">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Text</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            {loading ? (
-              <tbody>
-                <tr>
-                  <td colSpan="6" className="small" style={{ textAlign: "center" }}>
-                    <Spinner animation="border" variant="success" />
-                  </td>
-                </tr>
-              </tbody>
-            ) : pendidikans.length === 0 ? (
-              <tbody>
-                <tr>
-                  <td colSpan="8" className="small" style={{ textAlign: "center" }}>
-                    Tidak Ada Data
-                  </td>
-                </tr>
-              </tbody>
-            ) : (
-              <tbody>
-                {pendidikans.map((file, idx) => {
-                  return (
-                    <tr key={file.id} style={{ cursor: "pointer" }}>
-                      <td className="small">{idx + 1}</td>
-                      <td className="small">{file.title}</td>
-                      <td className="small">{file.image_url}</td>
-                      <td className="small">{file.text}</td>
-                      <td className="small">{file.status === true ? "Active" : "Not Active"}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            )}
-          </Table>
-        </Card.Body>
-      </Card>
-      <Card bg="light" text="dark" border="primary" size="sm" style={{ marginLeft: 30, marginRight: 30, marginTop: 30 }}>
-        <Card.Header>Kesehatan</Card.Header>
-        <Card.Body>
-          <Table striped bordered hover responsive="sm" size="sm">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Text</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            {loading ? (
-              <tbody>
-                <tr>
-                  <td colSpan="6" className="small" style={{ textAlign: "center" }}>
-                    <Spinner animation="border" variant="success" />
-                  </td>
-                </tr>
-              </tbody>
-            ) : kesehatans.length === 0 ? (
-              <tbody>
-                <tr>
-                  <td colSpan="8" className="small" style={{ textAlign: "center" }}>
-                    Tidak Ada Data
-                  </td>
-                </tr>
-              </tbody>
-            ) : (
-              <tbody>
-                {kesehatans.map((file, idx) => {
-                  return (
-                    <tr key={file.id} style={{ cursor: "pointer" }}>
-                      <td className="small">{idx + 1}</td>
-                      <td className="small">{file.title}</td>
-                      <td className="small">{file.image_url}</td>
-                      <td className="small">{file.text}</td>
-                      <td className="small">{file.status === true ? "Active" : "Not Active"}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            )}
-          </Table>
-        </Card.Body>
-      </Card> */}
     </>
   );
 }

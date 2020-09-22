@@ -71,11 +71,7 @@ export default () => {
       await axios({
         method: "POST",
         url: `${host}/users/super/pengkinian-data`,
-
         data: dataForm,
-        // headers: {
-        //   token: localStorage.token
-        // }
       });
       Swal.fire({
         icon: "success",
