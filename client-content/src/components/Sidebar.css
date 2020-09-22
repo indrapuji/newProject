@@ -2,14 +2,20 @@
     background-color: #060b26;
     height: 80px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
 .menu-bars {
     margin-left: 2rem;
+    margin-right: 2rem;
     font-size: 2rem;
     background: none;
+}
+
+.menu-bars :hover {
+    color: #1a83ff;
+    cursor: pointer;
 }
 
 .nav-menu {
@@ -22,6 +28,7 @@
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 1;
 }
 
 .nav-menu.active {

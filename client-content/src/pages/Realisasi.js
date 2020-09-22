@@ -1,8 +1,10 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 function Realisasi() {
   return (
-    <div className="realisasi">
+    <div>
+      <Sidebar/>
       <h1>Realisasi</h1>
     </div>
   );

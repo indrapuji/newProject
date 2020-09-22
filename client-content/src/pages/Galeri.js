@@ -1,8 +1,10 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 function Galery() {
   return (
-    <div className="galery">
+    <div>
+      <Sidebar/>
       <h1>Galery</h1>
     </div>
   );

@@ -1,8 +1,10 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 function Berita() {
   return (
-    <div className="berita">
+    <div>
+      <Sidebar />
       <h1>Berita</h1>
     </div>
   );
