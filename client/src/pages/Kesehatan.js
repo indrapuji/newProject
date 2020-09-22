@@ -58,8 +58,8 @@ export default () => {
           </p>
           <ol type="a">
             <li>Masa Iuran 1 bulan - 5 tahun masa perlindungan 4 tahun.</li>
-            <li>Masa Iuran > 5 - 10 tahun masa perlindungan 8 tahun.</li>
-            <li>Masa Iuran > 10 tahun masa perlindungan 15 tahun.</li>
+            <li>Masa Iuran {">"} 5 - 10 tahun masa perlindungan 8 tahun.</li>
+            <li>Masa Iuran {">"} 10 tahun masa perlindungan 15 tahun.</li>
           </ol>
         </div>
         <div data-aos="fade-up" style={{ marginTop: 20 }}>
@@ -67,7 +67,7 @@ export default () => {
           <p>Besaran penggantian bantuan kesehatan ditetapkan sesuai masa iuran yang bersangkutan :</p>
           <ol style={{ marginLeft: -10, marginTop: -10 }}>
             <li>Masa Iuran 1 bulan - 5 tahun sebesar 70% dari biaya yang disyahkan.</li>
-            <li>Masa Iuran > 5 tahun sebesar 100% dari biaya yang disyahkan.</li>
+            <li>Masa Iuran {">"} 5 tahun sebesar 100% dari biaya yang disyahkan.</li>
           </ol>
         </div>
         <div data-aos="zoom-in" style={{ marginTop: 20 }}>
@@ -94,6 +94,12 @@ export default () => {
               Ahli Waris atau keluarga Pensiunan mengajukan surat permohonan Santunan Kematian atau santunan cacat kepada kantor YKP3 Jati Sejahtera Pusat melalui satuan kerja Perum Perhutani
               terdekat.
             </li>
+          </ul>
+        </div>
+        <div data-aos="flip-left" style={{ marginTop: 20 }}>
+          <p>Mekanisme Pembayaran</p>
+          <ul style={{ marginLeft: -10, marginTop: -10 }}>
+            <li>Dengan sistem Restitusi Paling Lama 14 hari sejak pengajuan 3 bulan masa tunda kwitansi sejak permohonan.</li>
           </ul>
         </div>
       </Container>

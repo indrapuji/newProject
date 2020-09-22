@@ -30,16 +30,16 @@ export default () => {
           <div style={{ marginTop: 50 }}>
             <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>SEJARAH SINGKAT YAYASAN</p>
             <ol type="1">
-              <li>
-                <strong>Didirikan pada tahun 1987 dengan nama Yayasan Jati Sejahtera oleh Pimpinan Perum Perhutani pada saat itu yaitu :</strong>
-              </li>
+              <li>Didirikan pada tahun 1987 dengan nama Yayasan Jati Sejahtera oleh Pimpinan Perum Perhutani pada saat itu yaitu :</li>
+              <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
+                <Image src={require("../assets/image/Sejarah.png")} rounded style={{ height: 400, width: 600 }} />
+              </div>
+              <p style={{ textAlign: "center" }}>
+                Yayasan bertujuan menyelenggarakan usaha di bidang social dalam rangka peningkatan kesejahteraan dan pendidikan bagi putra-putri karyawan dan pensiunan.
+              </p>
+              <li>Tahun 2003 diberi tugas oleh Perum Perhutani untuk mengelola dana perumahan berdasarkan SK. No.406/kpts/Dir/2003, tgl. 25-07-2003.</li>
+              <li>Tahun 2010 berdasarkan SK. Direksi No.579/kpts/Dir/2009, tgl. 10 Desember 2009 diberi tugas mengelola Dana Kesehatan yang berasal dari Asuransi Bumiputera.</li>
             </ol>
-            <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-              <Image src={require("../assets/image/Sejarah.png")} rounded style={{ height: 400, width: 600 }} />
-            </div>
-            <p style={{ textAlign: "center" }}>
-              Yayasan bertujuan menyelenggarakan usaha di bidang social dalam rangka peningkatan kesejahteraan dan pendidikan bagi putra-putri karyawan dan pensiunan.
-            </p>
             {/* <li>Masa Iuran > 5 - 10 tahun masa perlindungan 8 tahun.</li>
               <li>Masa Iuran > 10 tahun masa perlindungan 15 tahun.</li> */}
             {/* <p>
@@ -63,7 +63,7 @@ export default () => {
           </div>
         </Container>
       </div>
-      <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
+      <div>
         <Footer />
       </div>
     </motion.div>

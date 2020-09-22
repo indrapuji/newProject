@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
@@ -106,8 +106,11 @@ export default () => {
       <Container>
         <div style={{ marginTop: 50 }}>
           <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Update Data</p>
+          <p style={{ textAlign: "center" }}>
+            <Link to="https://forms.gle/7XLsMVPZYMkQewbs7">Update</Link>
+          </p>
         </div>
-        <div style={{ marginBottom: 50 }}>
+        <div style={{ marginBottom: 50, marginTop: 50 }}>
           <h3 style={{ fontWeight: "bold", marginBottom: 20 }}>Data Diri</h3>
           <Form onSubmit={onFormSubmit}>
             <Form.Group as={Row}>
