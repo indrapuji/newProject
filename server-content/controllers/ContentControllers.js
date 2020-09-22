@@ -39,7 +39,7 @@ class ContentController {
 
   static create(req, res) {
     const { category, title, text, status } = req.body;
-    let option = { category, title, text, userId: req.user.id };
+    let option = { category, title, text,  status, userId: req.user.id };
     if (req.file) option.image_url = serverUrl + req.file.path;
     Content.create(option)
       .then((data) => {

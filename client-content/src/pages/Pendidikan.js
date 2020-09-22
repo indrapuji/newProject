@@ -20,7 +20,7 @@ function Pendidikan() {
 
   const handleFormInput = (e) => {
     e.preventDefault();
-    const { name, files } = e.target;
+    const { name, value, files } = e.target;
     if (files) {
       setData({
         ...data,
@@ -53,7 +53,7 @@ function Pendidikan() {
           showConfirmButton: false,
           timer: 1500,
         });
-        history.push("/pendidikan");
+        setShow(false);
       })
       .catch((error) => {
         if (error.response) {
