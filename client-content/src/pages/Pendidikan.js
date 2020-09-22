@@ -26,6 +26,11 @@ function Pendidikan() {
         ...data,
         [name]: files[0],
       });
+    } else {
+      setData({
+        ...data,
+        [name]: value
+      })
     }
   };
 
