@@ -8,7 +8,8 @@ import FormatDate from "../hooks/FormatDate";
 
 export default () => {
   // const host = "http://localhost:3001";
-  const host = "https://jatisejahtera-cms.herokuapp.com";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
+  const host = "http://128.199.238.147:3001";
 
   const history = useHistory();
   const onActive = "/claimperumahan";
