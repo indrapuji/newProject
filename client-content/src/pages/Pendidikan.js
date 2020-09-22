@@ -34,6 +34,7 @@ function Pendidikan() {
     }
   };
 
+  console.log(data);
   const handleFormSubmit = (e) => {
     e.preventDefault();
     var formData = new FormData();
@@ -138,7 +139,7 @@ function Pendidikan() {
             <div className="mb-3">
               <Form.File>
                 <Form.File.Label>Image</Form.File.Label>
-                <Form.File.Input name="image_url" />
+                <Form.File.Input name="image_url" onChange={handleFormInput} />
               </Form.File>
             </div>
             <Row>
