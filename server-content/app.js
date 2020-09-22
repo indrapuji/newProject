@@ -11,5 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/", Router);
+app.use((req, res) => {
+  res.status(404).send('Not Found');
+});
 
 app.listen(PORT, () => console.log(`Listening on Port: ${PORT}!`));
