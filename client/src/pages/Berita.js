@@ -4,7 +4,8 @@ import Footer from "../components/Footer";
 import { Col, Row, Container, Image } from "react-bootstrap";
 import Silaturahmi from "../assets/image/silaturahmi.png";
 import Sosialisasi from "../assets/image/sosialisasi.png";
-import Yatim from "../assets/image/yatim.png";
+import Perkenalan from "../assets/image/Perkenalan.png";
+import Kunjungan from "../assets/image/Kunjungan.png";
 import Covid from "../assets/image/covid.png";
 import { motion } from "framer-motion";
 
@@ -28,6 +29,28 @@ export default () => {
         <Container>
           <Row style={{ marginBottom: 10 }}>
             <Col md="4">
+              <Image src={Perkenalan} rounded style={{ height: 200, width: 300 }} />
+            </Col>
+            <Col>
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <p style={{ fontWeight: "bold" }}>Perkenalan Pengurus dan Pengawas Yayasan Kesejahteraan</p>
+                <p>Perkenalan Pengurus dan Pengawas Yayasan Kesejahteraan Pegawai Perum Perhutani Jati Sejahtera periode 2020 - 2024 dengan jajaran Pembina</p>
+              </motion.div>
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: 10 }}>
+            <Col md="4">
+              <Image src={Kunjungan} rounded style={{ height: 200, width: 300 }} />
+            </Col>
+            <Col>
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <p style={{ fontWeight: "bold" }}>Kunjungan Bpk. Drs. Djoko Setijono</p>
+                <p>Kunjungan Bpk. Drs. Djoko Setijono, pendiri yayasan Jati Sejahtera, ke kantor Yayasan di Wisma Perhutani Jakarta dalam rangka silahturahmi.</p>
+              </motion.div>
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: 10 }}>
+            <Col md="4">
               <Image src={Silaturahmi} rounded style={{ height: 200, width: 300 }} />
             </Col>
             <Col>
@@ -45,21 +68,6 @@ export default () => {
               <motion.div whileHover={{ scale: 1.1 }}>
                 <p style={{ fontWeight: "bold" }}>Yayasan Jatisejahtera melakukan sosialisasi kepada pensiunan Perhutani Jawa Tengah</p>
                 <p>Sosialisasi mengenai bantuan kesehatan, khususnya mengenai biaya bantuan rawat inap dan santunan kematian bagi pensiunan Perhutani.</p>
-              </motion.div>
-            </Col>
-          </Row>
-          <Row style={{ marginBottom: 10 }}>
-            <Col md="4">
-              <Image src={Yatim} rounded style={{ height: 200, width: 300 }} />
-            </Col>
-            <Col>
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <p style={{ fontWeight: "bold" }}>Yayasan Jati Sejahtera Terima Anak Yatim</p>
-                <p>
-                  Panti Asuhan Rimba Bakti di Ngepos II/7 Jrakah Tugurejo, Semarang yang didirikan tahun 1986 saat ini masih menerima anak yatim atau yatim piatu . Mereka diberi pendidikan minimal
-                  sampai lulus SMK. Khusus yang prestasinya bagus bisa melanjutkan sampai lulus perguruan tinggi. Kini sudah 4 anak asuh lulus perguruan tinggi dan 2 anak lagi masih kuliah. Karena
-                  sumber dana utama dari Perum Perhutani dan sumbangan sukarela para karyawannya, untuk sementara hanya mengasuh anak putra-putri, pensiunan karyawan dan mitra kerja Perhutani.
-                </p>
               </motion.div>
             </Col>
           </Row>

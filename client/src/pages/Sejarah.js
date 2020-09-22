@@ -29,7 +29,20 @@ export default () => {
         <Container>
           <div style={{ marginTop: 50 }}>
             <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>SEJARAH SINGKAT YAYASAN</p>
-            <p>
+            <ol type="1">
+              <li>
+                <strong>Didirikan pada tahun 1987 dengan nama Yayasan Jati Sejahtera oleh Pimpinan Perum Perhutani pada saat itu yaitu :</strong>
+              </li>
+            </ol>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
+              <Image src={require("../assets/image/Sejarah.png")} rounded style={{ height: 400, width: 600 }} />
+            </div>
+            <p style={{ textAlign: "center" }}>
+              Yayasan bertujuan menyelenggarakan usaha di bidang social dalam rangka peningkatan kesejahteraan dan pendidikan bagi putra-putri karyawan dan pensiunan.
+            </p>
+            {/* <li>Masa Iuran > 5 - 10 tahun masa perlindungan 8 tahun.</li>
+              <li>Masa Iuran > 10 tahun masa perlindungan 15 tahun.</li> */}
+            {/* <p>
               <span style={{ fontWeight: "bold" }}>“Yayasan Jati Sejahtera”</span> didirikan pada tanggal 24 April 1987 oleh Pendiri yayasan (seperti tersebut dibawah) dengan Akte Notaris Roenastiti
               Prayitno, SH, MA, No: 21 Tanggal: 24 April 1987 . Pada awal pendirian, Yayasan ini mempunyai maksud dan tujuan menyelenggarakan usaha bidang sosial dalam rangka melakukan upaya
               peningkatan kesejahteraan dan pendidikan bagi putra putri karyawan/pensiunan Perum Perhutani. Yayasan berkedudukan di Jakarta dan memiliki Kantor Perwakilan di wilayah Jawa Timur, Jawa
@@ -46,7 +59,7 @@ export default () => {
               Pendirian Yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3) “JATI SEJAHTERA” mempunyai maksud dan tujuan untuk membantu meningkatkan kesejahteraan seluruh pensiunan dan karyawan Perum
               Perhutani. Pengurus selalu memegang komitmen untuk terus meningkatkan kinerja dalam mengelola dan mengembangkan Yayasan dengan mengoptimalkan sumberdaya yang ada guna memberikan manfaat
               sebesar-besarnya bagi seluruh peserta.
-            </p>
+            </p> */}
           </div>
         </Container>
       </div>
