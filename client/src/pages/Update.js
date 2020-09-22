@@ -106,8 +106,11 @@ export default () => {
       <Container>
         <div style={{ marginTop: 50 }}>
           <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Update Data</p>
-          <p style={{ textAlign: "center" }}>
-            <Link to="https://forms.gle/7XLsMVPZYMkQewbs7">Update</Link>
+          <p style={{ textAlign: "center" }}>Silahkan Melakukan Pengkinian Data melalui Link ini</p>
+          <p style={{ textAlign: "center", marginTop: -15 }}>
+            <a href={"https://forms.gle/7XLsMVPZYMkQewbs7"} target="_blank" rel="noopener noreferrer">
+              https://forms.gle/7XLsMVPZYMkQewbs7
+            </a>
           </p>
         </div>
         <div style={{ marginBottom: 50, marginTop: 50 }}>
