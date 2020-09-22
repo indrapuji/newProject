@@ -1,43 +1,222 @@
-import React from "react";
-import { Card, Table } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import host from "../helpers/host";
+import { Card, Table, Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
 import Sidebar from "../components/Sidebar";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-function Home() {
+export default function Home() {
+  const [file, setFile] = useState([]);
+  const [pendidikans, setPendidikans] = useState([]);
+  const [kesehatans, setKesehatans] = useState([]);
+  const [perumahans, setPerumahans] = useState([]);
+  const [sosials, setSosials] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
+  const fetchApi = async () => {
+    const { data } = await axios({
+      method: "GET",
+      url: `${host}/content`,
+      headers: {
+        token: localStorage.token,
+      },
+    });
+    setFile(data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (file) {
+      const newPendidikans = file.filter((x) => x.category === "pendidikan");
+      setPendidikans(newPendidikans);
+      const newKesehatans = file.filter((x) => x.category === "kesehatan");
+      setKesehatans(newKesehatans);
+      const newPerumahans = file.filter((x) => x.category === "perumahan");
+      setPerumahans(newPerumahans);
+      const newSosials = file.filter((x) => x.category === "sosial");
+      setSosials(newSosials);
+    }
+  }, [file]);
+
   return (
     <>
       <Sidebar />
-      <Card bg="light" text="dark" border="primary" size="sm" style={{  marginLeft: 30, marginRight: 30, marginTop: 30 }}>
-        <Card.Header>Kesehatan</Card.Header>
+      <h1 style={{ textAlign: "center", marginTop: 20 }}>Dashboard</h1>
+      {/* {JSON.stringify(filtered)} */}
+
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around", marginTop: 25 }}>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="primary" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Pendidikan</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{pendidikans.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="success" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Kesehatan</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{kesehatans.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="warning" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Perumahan</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{perumahans.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="info" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Sosial</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{sosials.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="primary" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Sosial</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{sosials.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="success" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Sosial</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{sosials.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="warning" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Sosial</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{sosials.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <div style={{ marginRight: 10 }}>
+          <Card bg="info" text="dark" style={{ width: "18rem" }} className="mb-2">
+            <Card.Header style={{ textAlign: "center" }}>Sosial</Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center" }}> Total Post </Card.Title>
+              <Card.Text style={{ fontSize: 30, textAlign: "center" }}>{sosials.length}</Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
+
+      {/* <Card bg="light" text="dark" border="primary" size="sm" style={{ marginLeft: 30, marginRight: 30, marginTop: 30 }}>
+        <Card.Header>Pendidikan</Card.Header>
         <Card.Body>
-          <Table striped bordered hover responsive="sm">
+          <Table striped bordered hover responsive="sm" size="sm">
             <thead>
               <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                <th>Action</th>
+                <th>No</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Text</th>
+                <th>Status</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-            </tbody>
+            {loading ? (
+              <tbody>
+                <tr>
+                  <td colSpan="6" className="small" style={{ textAlign: "center" }}>
+                    <Spinner animation="border" variant="success" />
+                  </td>
+                </tr>
+              </tbody>
+            ) : pendidikans.length === 0 ? (
+              <tbody>
+                <tr>
+                  <td colSpan="8" className="small" style={{ textAlign: "center" }}>
+                    Tidak Ada Data
+                  </td>
+                </tr>
+              </tbody>
+            ) : (
+              <tbody>
+                {pendidikans.map((file, idx) => {
+                  return (
+                    <tr key={file.id} style={{ cursor: "pointer" }}>
+                      <td className="small">{idx + 1}</td>
+                      <td className="small">{file.title}</td>
+                      <td className="small">{file.image_url}</td>
+                      <td className="small">{file.text}</td>
+                      <td className="small">{file.status === true ? "Active" : "Not Active"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            )}
           </Table>
         </Card.Body>
       </Card>
+      <Card bg="light" text="dark" border="primary" size="sm" style={{ marginLeft: 30, marginRight: 30, marginTop: 30 }}>
+        <Card.Header>Kesehatan</Card.Header>
+        <Card.Body>
+          <Table striped bordered hover responsive="sm" size="sm">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Text</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            {loading ? (
+              <tbody>
+                <tr>
+                  <td colSpan="6" className="small" style={{ textAlign: "center" }}>
+                    <Spinner animation="border" variant="success" />
+                  </td>
+                </tr>
+              </tbody>
+            ) : kesehatans.length === 0 ? (
+              <tbody>
+                <tr>
+                  <td colSpan="8" className="small" style={{ textAlign: "center" }}>
+                    Tidak Ada Data
+                  </td>
+                </tr>
+              </tbody>
+            ) : (
+              <tbody>
+                {kesehatans.map((file, idx) => {
+                  return (
+                    <tr key={file.id} style={{ cursor: "pointer" }}>
+                      <td className="small">{idx + 1}</td>
+                      <td className="small">{file.title}</td>
+                      <td className="small">{file.image_url}</td>
+                      <td className="small">{file.text}</td>
+                      <td className="small">{file.status === true ? "Active" : "Not Active"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            )}
+          </Table>
+        </Card.Body>
+      </Card> */}
     </>
   );
 }
-
-export default Home;

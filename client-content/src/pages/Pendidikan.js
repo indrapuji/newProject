@@ -1,14 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import host from "../helpers/host";
-import { useHistory } from "react-router-dom";
-import { Card, Table, Button, Modal, Form, Row, Col } from "react-bootstrap";
+import { Card, Table, Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-function Pendidikan() {
+export default function Pendidikan() {
   const [show, setShow] = useState(false);
-  const history = useHistory();
+  const [file, setFile] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
+  const fetchApi = async () => {
+    const { data } = await axios({
+      method: "GET",
+      url: `${host}/content`,
+      headers: {
+        token: localStorage.token,
+      },
+    });
+    setFile(data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (file) {
+      const newFiles = file.filter((x) => x.category === "pendidikan");
+      setFiltered(newFiles);
+    }
+  }, [file]);
 
   const [data, setData] = useState({
     category: "pendidikan",
@@ -29,8 +53,8 @@ function Pendidikan() {
     } else {
       setData({
         ...data,
-        [name]: value
-      })
+        [name]: value,
+      });
     }
   };
 
@@ -79,6 +103,7 @@ function Pendidikan() {
   return (
     <>
       <Sidebar />
+      {/* {JSON.stringify(filtered)} */}
       <Card bg="light" text="dark" border="primary" size="sm" style={{ marginLeft: 30, marginRight: 30, marginTop: 30 }}>
         <Card.Header>Pendidikan</Card.Header>
         <Card.Body>
@@ -97,25 +122,42 @@ function Pendidikan() {
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-            </tbody>
+            {loading ? (
+              <tbody>
+                <tr>
+                  <td colSpan="6" className="small" style={{ textAlign: "center" }}>
+                    <Spinner animation="border" variant="success" />
+                  </td>
+                </tr>
+              </tbody>
+            ) : filtered.length === 0 ? (
+              <tbody>
+                <tr>
+                  <td colSpan="8" className="small" style={{ textAlign: "center" }}>
+                    Tidak Ada Data
+                  </td>
+                </tr>
+              </tbody>
+            ) : (
+              <tbody>
+                {filtered.map((file, idx) => {
+                  return (
+                    <tr key={file.id} style={{ cursor: "pointer" }}>
+                      <td className="small">{idx + 1}</td>
+                      <td className="small">{file.title}</td>
+                      <td className="small">{file.image_url}</td>
+                      <td className="small">{file.text}</td>
+                      <td className="small">{file.status === true ? "Active" : "Not Active"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            )}
           </Table>
         </Card.Body>
       </Card>
 
-      <Modal centered show={show} onHide={() => setShow(false)}>
+      <Modal centered show={show} size="xl" onHide={() => setShow(false)}>
         <Modal.Header>
           <Modal.Title>Pendidikan</Modal.Title>
         </Modal.Header>
@@ -127,7 +169,7 @@ function Pendidikan() {
             </Form.Group>
             <Form.Group>
               <Form.Label>Text</Form.Label>
-              <Form.Control type="text" name="text" placeholder="text" onChange={handleFormInput} />
+              <Form.Control as="textarea" rows={3} name="text" placeholder="text" onChange={handleFormInput} />
             </Form.Group>
             <Form.Group>
               <Form.Label>Status</Form.Label>
@@ -160,5 +202,3 @@ function Pendidikan() {
     </>
   );
 }
-
-export default Pendidikan;

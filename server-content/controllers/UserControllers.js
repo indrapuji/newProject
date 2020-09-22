@@ -20,7 +20,7 @@ class UserController {
         }
       })
       .then((newUser) => {
-        res.status(201).json({ newUser });
+        res.status(201).json(newUser);
       })
       .catch((err) => {
         console.log(err);
