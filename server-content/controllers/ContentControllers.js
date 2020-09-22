@@ -1,8 +1,8 @@
 const { Content } = require("../models");
 const fs = require("fs");
 
-const serverUrl = "http://localhost:3002/"; // jangan lupa ganti
-// const serverUrl = "http://128.199.238.147:3002/";
+// const serverUrl = "http://localhost:3002/"; // jangan lupa ganti
+const serverUrl = "http://128.199.238.147:3002/";
 
 class ContentController {
   static getAll(req, res) {
