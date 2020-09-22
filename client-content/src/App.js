@@ -1,22 +1,27 @@
 import React from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { FaGem } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
-import "react-pro-sidebar/dist/css/styles.css";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Home, Berita, Galeri, Kesehatan, Pendidikan, Perumahan, Pesan, Realisasi, Sosial } from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <ProSidebar breakPoint="xl" image="https://theimageconference.org/wp-content/uploads/2020/04/vancouver_image_conference_3-scaled.jpg">
-        <Menu iconShape="circle">
-          <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-          <MenuItem icon={<FaHeart />}>Dashboard</MenuItem>
-          <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-          <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-          <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-        </Menu>
-      </ProSidebar>
-    </div>
+    <>
+      <Router>
+        <Sidebar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/berita" component={Berita} />
+          <Route path="/galeri" component={Galeri} />
+          <Route path="/kesehatan" component={Kesehatan} />
+          <Route path="/pendidikan" component={Pendidikan} />
+          <Route path="/perumahan" component={Perumahan} />
+          <Route path="/pesan" component={Pesan} />
+          <Route path="/realisasi" component={Realisasi} />
+          <Route path="/sosial" component={Sosial} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
