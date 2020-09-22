@@ -37,8 +37,8 @@ export default () => {
           <div style={{ marginTop: 20 }}>
             <p style={{ fontWeight: "bold", marginBottom: 0 }}>Beberapa kegiatan dibidang pendidikan yang diselenggarakan oleh Yayasan di antaranya:</p>
             <ol style={{ marginLeft: -20 }}>
-              <li>Memberikan bantuan biaya pendidikan kepada putra/putri karyawan dan pensiunan peruma perhutani yang berprestasi.</li>
-              <li>mengelola Wisma Putra Rimba untuk membantu menyediakan tempat tinggal bagi putra/putri karyawan/pensiunan Perum Perhutani yang melanjutkan pendidikan di Surabaya.</li>
+              <li>Memberikan bantuan pendidikan kepada putra/putri karyawan dan pensiunan Perum Perhutani yang berprestasi.</li>
+              <li>Mengelola Wisma Putra Rimba untuk membantu menyediakan tempat tinggal bagi putra/putri karyawan/pensiunan Perum Perhutani yang melanjutkan pendidikan di Surabaya.</li>
               <li>Membantu pengembangan dan pembinaan lembaga Pendidikan dilingkup Perum Perhutani.</li>
               <li>Menyelenggarakan Pendidikan Non-formal (TK/TPA/PAUD)</li>
             </ol>
@@ -57,22 +57,33 @@ export default () => {
               <table>
                 <tr>
                   <td>Tingkat SD</td>
+                  <td>{" - "}</td>
                   <td>Rp. 50.000,- /bln.</td>
                 </tr>
                 <tr>
                   <td>Tingkat SLTP</td>
+                  <td>{" - "}</td>
                   <td>Rp . 60.000,-/bln.</td>
                 </tr>
                 <tr>
                   <td>Tingkat SLTA</td>
+                  <td>{" - "}</td>
                   <td>Rp. 75.000,-/bln.</td>
                 </tr>
                 <tr>
                   <td>Perguruan Tinggi</td>
+                  <td>{" - "}</td>
                   <td>Rp 100.000,/bln.</td>
                 </tr>
               </table>
             </ul>
+            <div style={{ marginTop: 20 }}>
+              <p style={{ fontWeight: "bold", marginBottom: 0 }}>Realisasi</p>
+              <ul style={{ marginLeft: -10, marginTop: 0 }}>
+                <li>Realisasi Penyaluran Dana Bantuan Pendidikan sd Juni 2020 sebesar Rp. 3,936 M</li>
+                <li>Jumlah Penerima Bantuan Pendidikan sd Juni 2020 Sebanyak 13.268 Siswa</li>
+              </ul>
+            </div>
           </div>
         </Container>
       </div>

@@ -36,7 +36,7 @@ export default () => {
           <Image src={Kesehatan} rounded style={{ height: 400, width: 600 }} />
         </div>
         <div style={{ marginTop: 20 }}>
-          <p>
+          <p style={{ textAlign: "justify" }}>
             Yayasan mengelola dana program kesehatan yang disalurkan kepada seluruh pensiunan Perum Perhutani dalam bentuk program kesehatan sesuai dengan ketentuan.yang berlaku.
             <br style={{ marginBottom: 10 }} />
             Ketentuan tersebut diantaranya memenuhi batasan kepesertaan dan jenis perawatan yang ditanggung. Batasan kepesertaan program kesehatan adalah bagi pensiunan direksi dan pegawai Perum
@@ -50,7 +50,7 @@ export default () => {
         </div>
         <div data-aos="fade-up" style={{ marginTop: 20 }}>
           <p style={{ fontWeight: "bold", marginBottom: 10 }}>MASA PERLINDUNGAN BANTUAN KESEHATAN</p>
-          <p>
+          <p style={{ textAlign: "justify" }}>
             Bagi Karyawan yang pensiun usia 56 tahun (normal) atau diatas usia 56 tahun diberikan masa perlindungan bantuan kesehatan selama 15 tahun.
             <br style={{ marginBottom: 10 }} />
             Bagi Karyawan yang pensiun dipercepat karena Meninggal Dunia / Mengundurkan Diri / Diberhentikan / Catat Total, diberikan masa perlindungan Bantuan Kesehatan sesuai masa iuran yang
@@ -97,9 +97,10 @@ export default () => {
           </ul>
         </div>
         <div data-aos="flip-left" style={{ marginTop: 20 }}>
-          <p>Mekanisme Pembayaran</p>
+          <p>MEKANISME PEMBAYARAN</p>
           <ul style={{ marginLeft: -10, marginTop: -10 }}>
-            <li>Dengan sistem Restitusi Paling Lama 14 hari sejak pengajuan 3 bulan masa tunda kwitansi sejak permohonan.</li>
+            <li>Dengan sistem Restitusi Paling Lama 14 hari sejak pengajuan.</li>
+            <li>3 bulan masa tunda kwitansi sejak permohonan.</li>
           </ul>
         </div>
       </Container>
