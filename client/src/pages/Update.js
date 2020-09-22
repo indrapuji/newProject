@@ -220,7 +220,7 @@ export default () => {
                 <Form.Control placeholder="Provinsi" name="provinsi" onChange={onFormChange} />
               </Col>
             </Form.Group>
-            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 1</h3>
+            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Istri / Suami</h3>
             <Form.Group as={Row}>
               <Form.Label column sm="2">
                 Nama Istri / Suami
@@ -272,7 +272,7 @@ export default () => {
                 <Form.Control placeholder="No Rekening" name="no_rekening_pasangan" onChange={onFormChange} />
               </Col>
             </Form.Group>
-            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 2</h3>
+            <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data anak yang masih dalam tanggungan</h3>
             <Form.Group as={Row}>
               <Form.Label column sm="2">
                 Nama Anak
