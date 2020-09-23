@@ -1,6 +1,7 @@
 import React from "react";
 import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pendidikan, Sosial, Perumahan, Kesehatan, Update, Realisasi, Profile, Claim, FormLogin } from "./pages";
 import { ClaimKematian, ClaimKesehatan, ClaimManfaat, ClaimPendidikan, ClaimPerumahan } from "./pages/claimPage";
+import { RealisasiKesehatan, RealisasiPendidikan, RealisasiPerumahan, RealisasiSosial } from "./pages";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "./pages/ScrollToTop";
@@ -42,8 +43,17 @@ function App() {
           <Route exact path="/data/update">
             <Update />
           </Route>
-          <Route exact path="/data/realisasi">
-            <Realisasi />
+          <Route exact path="/data/realisasipendidikan">
+            <RealisasiPendidikan />
+          </Route>
+          <Route exact path="/data/realisasiperumahan">
+            <RealisasiPerumahan />
+          </Route>
+          <Route exact path="/data/realisasikesehatan">
+            <RealisasiKesehatan />
+          </Route>
+          <Route exact path="/data/realisasisosial">
+            <RealisasiSosial />
           </Route>
           <Route exact path="/data/claim">
             <Claim />

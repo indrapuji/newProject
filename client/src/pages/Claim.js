@@ -28,12 +28,12 @@ export default () => {
   function handdleKesehatan() {
     history.push("/claim/kesehatan");
   }
-  function handdlePerumahan() {
-    history.push("/claim/perumahan");
-  }
-  function handdlePendidikan() {
-    history.push("/claim/pendidikan");
-  }
+  // function handdlePerumahan() {
+  //   history.push("/claim/perumahan");
+  // }
+  // function handdlePendidikan() {
+  //   history.push("/claim/pendidikan");
+  // }
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />

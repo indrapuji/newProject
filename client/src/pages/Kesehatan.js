@@ -7,6 +7,7 @@ import Kesehatan from "../assets/image/kesehatan2.jpg";
 import TabelKesehatan from "../assets/image/tabel_kesehatan2.png";
 import SantunanKematian from "../assets/image/santunan_kematian.jpg";
 import SantunanNilaiHidup from "../assets/image/santunan_nilaihidup.jpg";
+import ManfaatKesehatan from '../assets/image/Ragam_manfaat.jpg'
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -71,7 +72,7 @@ export default () => {
           </ol>
         </div>
         <div data-aos="zoom-in" style={{ marginTop: 20 }}>
-          <Image src={TabelKesehatan} rounded style={{ height: 700, width: 800 }} />
+          <Image src={ManfaatKesehatan} rounded style={{ height: 700, width: 800 }} />
         </div>
         <div data-aos="zoom-in" style={{ marginTop: 20 }}>
           <Image src={SantunanNilaiHidup} rounded style={{ height: 100 }} />

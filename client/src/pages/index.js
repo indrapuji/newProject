@@ -15,3 +15,7 @@ export { default as Realisasi } from "./Realisasi";
 export { default as Profile } from "./Profile";
 export { default as Claim } from "./Claim";
 export { default as FormLogin } from "./FormLogin";
+export { default as RealisasiKesehatan } from "./RealisasiKesehatan";
+export { default as RealisasiPendidikan } from "./RealisasiPendidikan";
+export { default as RealisasiPerumahan } from "./RealisasiPerumahan";
+export { default as RealisasiSosial } from "./RealisasiSosial";

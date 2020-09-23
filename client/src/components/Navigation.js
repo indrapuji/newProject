@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, NavDropdown } from "react-bootstrap";
+import { Navbar, NavDropdown, DropdownButton, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default () => {
@@ -49,20 +49,28 @@ export default () => {
             </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Data">
-            <NavDropdown.Item>
-              <Link to="/data/realisasi">Data Realisasi</Link>
-            </NavDropdown.Item>
+            {/* <Link to="/data/realisasi">Data Realisasi</Link> */}
+            <DropdownButton style={{ left: 10 }} drop="right" variant="link" title="Data Realisasi">
+              <Dropdown.Item>
+                <Link to="/data/realisasipendidikan">Pendidikan</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to="/data/realisasiperumahan">Perumahan</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to="/data/realisasikesehatan">Kesehatan</Link>
+              </Dropdown.Item>
+              {/* <Dropdown.Item>
+                <Link to="/data/realisasisosial">Sosial</Link>
+              </Dropdown.Item> */}
+            </DropdownButton>
+
             <NavDropdown.Item>
               <Link to="/data/update">Pengkinian Data</Link>
             </NavDropdown.Item>
             <NavDropdown.Item>
               <Link to="/data/claim">Pengajuan Claim</Link>
             </NavDropdown.Item>
-            {/* <NavDropdown.Item href="https://jatisejahtera-93bab.firebaseapp.com/" style={{ color: "blue" }}>
-              Pengajuan
-            </NavDropdown.Item> */}
-            {/* <NavDropdown.Item href="https://jaticms.firebaseapp.com/" style={{ color: "blue" }}> */}
-            {/* <NavDropdown.Item href="https://jatisejahtera-cms.web.app/" style={{ color: "blue" }}> */}
             <NavDropdown.Item href="https://jatisejahtera-cms.vercel.app/" style={{ color: "blue" }}>
               Admin
             </NavDropdown.Item>

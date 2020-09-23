@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { Container, Image } from "react-bootstrap";
+import { Container, Image, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 export default () => {
@@ -30,11 +30,58 @@ export default () => {
           <div style={{ marginTop: 50 }}>
             <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>SEJARAH SINGKAT YAYASAN</p>
             <ol type="1">
-              <li>Didirikan pada tahun 1987 dengan nama Yayasan Jati Sejahtera oleh Pimpinan Perum Perhutani pada saat itu yaitu :</li>
-              <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-                <Image src={require("../assets/image/Sejarah.png")} rounded style={{ height: 400, width: 600 }} />
+              <li>Didirikan pada tahun 1987 dengan nama Yayasan Jati sejahtera oleh Pimpinan Perum Perhutani pada saat itu yaitu :</li>
+              <div style={{ marginTop: 20, marginBottom: 20, color: "blue" }}>
+                <Row>
+                  <Col md={{ span: 4, offset: 1 }}>
+                    <h5>Ir. HARTONO WIRJODARMODJO. </h5>
+                  </Col>
+                  <Col md={{ span: 4, offset: 0 }}>
+                    <h5> (DIREKTUR UTAMA)</h5>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={{ span: 4, offset: 1 }}>
+                    <h5>Ir. SISWOJO SUMOTIRTO. </h5>
+                  </Col>
+                  <Col md={{ span: 4, offset: 0 }}>
+                    <h5> (DIREKTUR UMUM)</h5>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={{ span: 4, offset: 1 }}>
+                    <h5>Ir. SEDIONO DHARMAWAN. </h5>
+                  </Col>
+                  <Col md={{ span: 4, offset: 0 }}>
+                    <h5> (KADIV. PERSONALIA)</h5>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={{ span: 4, offset: 1 }}>
+                    <h5>Ir. SOENDAROE NOTOAMIDJOJO. </h5>
+                  </Col>
+                  <Col md={{ span: 4, offset: 0 }}>
+                    <h5> (KADIV. UMUM )</h5>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={{ span: 4, offset: 1 }}>
+                    <h5>Drs. DJOKO SETIJONO. </h5>
+                  </Col>
+                  <Col md={{ span: 4, offset: 0 }}>
+                    <h5> (KADIV. KEUANGAN)</h5>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={{ span: 4, offset: 1 }}>
+                    <h5>Drs. DAMAMI ABRORI. </h5>
+                  </Col>
+                  <Col md={{ span: 4, offset: 0 }}>
+                    <h5> (STAF KHUSUS PERSONALIA )</h5>
+                  </Col>
+                </Row>
               </div>
-              <p style={{ textAlign: "center" }}>
+              <p style={{ textAlign: "justify" }}>
                 Yayasan bertujuan menyelenggarakan usaha di bidang social dalam rangka peningkatan kesejahteraan dan pendidikan bagi putra-putri karyawan dan pensiunan.
               </p>
               <li>Tahun 2003 diberi tugas oleh Perum Perhutani untuk mengelola dana perumahan berdasarkan SK. No.406/kpts/Dir/2003, tgl. 25-07-2003.</li>
@@ -63,7 +110,7 @@ export default () => {
           </div>
         </Container>
       </div>
-      <div>
+      <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
         <Footer />
       </div>
     </motion.div>

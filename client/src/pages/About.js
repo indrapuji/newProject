@@ -25,10 +25,10 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation />
       <div style={{ position: "relative" }}>
-        <div data-aos="zoom-in" style={{ position: "absolute", left: "-30", zIndex: 0, top: 50 }}>
+        {/* <div data-aos="zoom-in" style={{ position: "absolute", left: 0, zIndex: 0, top: 50 }}>
           <Image src={require("../assets/landingpage/leaf_bottom.png")} style={{ width: 150 }} />
-        </div>
-        <div data-aos="fade-up" style={{ position: "absolute", left: 1200, zIndex: -1, top: 400 }}>
+        </div> */}
+        <div data-aos="fade-up" style={{ position: "absolute", right: 100, zIndex: 0, top: 400 }}>
           <Image src={require("../assets/landingpage/leaf_top_large.png")} style={{ width: 200 }} />
         </div>
 
