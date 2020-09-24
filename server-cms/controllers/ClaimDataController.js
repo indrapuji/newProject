@@ -3,6 +3,7 @@ const { Op, where } = require("sequelize");
 const changeStatusValidation = require("../helpers/changeStatusValidation");
 const createError = require("http-errors");
 const fs = require("fs");
+const { sendSMS } = require('../helpers/smsApi');
 
 const serverUrl = "https://jatisejahtera-cms.herokuapp.com/";
 // const serverUrl = "http://128.199.238.147:3001/";
@@ -840,6 +841,12 @@ class ClaimDataController {
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: "Kematian" } });
       if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: "Kematian" } });
       else await pesan_claim.create({ claim_id, claim_category: "Kematian", pesan });
+      const userAnggota = await user_anggota.findOne({ where: { id: claimData.user_id } });
+      sendSMS({
+        name: userAnggota.nama,
+        noTelp: userAnggota.no_telp,
+        noRek: userAnggota.no_rekening,
+      })
       res.status(200).json({ msg: "Success" });
     } catch (err) {
       if (req.file) fs.unlinkSync(req.file.path);

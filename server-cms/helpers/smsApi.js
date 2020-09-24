@@ -6,12 +6,12 @@ const nexmo = new Nexmo({
 });
 
 module.exports = {
-  sendSMS(name, noTLP, noRek) {
-    const newSMS = {
-      from: "Jati Sejahtera",
-      to: `${noTLP}`,
-      text: `Bapak / Ibu ${name} Pencairan Telah berhasil Berhasil dikirimkan ke ${noRek}`,
-    };
+  sendSMS({ name, noTLP, noRek }) {
+    // const newSMS = {
+    const from = "Jati Sejahtera";
+    const to = `${noTLP}`;
+    const text = `Bapak / Ibu ${name} Pencairan Telah berhasil Berhasil dikirimkan ke ${noRek}`;
+    // };
     nexmo.message.sendSms(from, to, text, (err, responseData) => {
       if (err) {
         console.log(err);
