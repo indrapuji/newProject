@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Row, Col, Image, Container, Form, Card, Button } from "react-bootstrap";
+import { Row, Col, Image, Container, Form, Card, Button, Modal } from "react-bootstrap";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { useHistory } from "react-router-dom";
