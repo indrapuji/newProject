@@ -64,7 +64,7 @@ function App() {
           <Route exact path="/upload/kesehatan/:nama/:dataId">
             <UploadBukti />
           </Route>
-          <Route exact path="/upload/manfaat/:nama/:dataId">
+          <Route exact path="/upload/nilai-hidup/:nama/:dataId">
             <UploadBukti />
           </Route>
           <Route exact path="/upload/pendidikan/:nama/:dataId">

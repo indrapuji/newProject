@@ -106,7 +106,7 @@ export default () => {
                     )}
                     {file.pesan_claim.claim_category === "Nilai Hidup" && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/manfaat/${file.user_anggotum.nama}/${file.id}`)}>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/nilai-hidup/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
