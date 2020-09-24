@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Swal from "sweetalert2";
+import host from "../hooks/host";
 
 export default () => {
   // const host = "http://localhost:3001";
-  const host = "https://jatisejahtera-cms.herokuapp.com";
+  // const host = "https://jatisejahtera-cms.herokuapp.com";
   // const host = "http://128.199.238.147:3001";
 
   const pageTransition = {
