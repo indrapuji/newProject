@@ -418,14 +418,26 @@ export default () => {
                   <Form.Control type="text" value={data.no_rekening_bank} disabled={true} />
                 </Col>
               </Form.Group>
+
               <Form.Group as={Row}>
+                <Form.Label column sm="2">
+                  Catatan
+                </Form.Label>
+                <Col sm="10">
+                  <Form.Control as="select" onChange={(e) => setPesan(e.target.value)}>
+                    <option>Berkas Kurang Lengkap</option>
+                    <option>Tidak Memenuhi Syarat</option>
+                  </Form.Control>
+                </Col>
+              </Form.Group>
+              {/* <Form.Group as={Row}>
                 <Form.Label column sm="2">
                   Catatan
                 </Form.Label>
                 <Col sm="10">
                   <Form.Control as="textarea" placeholder="Catatan" rows="3" onChange={(e) => setPesan(e.target.value)} />
                 </Col>
-              </Form.Group>
+              </Form.Group> */}
               <Row style={{ marginBottom: 20 }}>
                 <Col>
                   <Button variant="outline-success" block onClick={setuju}>
