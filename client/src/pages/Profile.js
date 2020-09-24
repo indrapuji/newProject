@@ -6,12 +6,16 @@ import Footer from "../components/Footer";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import host from '../hooks/host'
+import host from "../hooks/host";
 
 export default () => {
   // const host = "http://localhost:3001";
   // const host = "https://jatisejahtera-cms.herokuapp.com";
   // const host = "http://128.199.238.147:3001";
+
+  const [show, setShow] = useState(false);
+  const [view, setView] = useState(false);
+  const [look, setLook] = useState(false);
 
   const pageTransition = {
     init: {
@@ -180,7 +184,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_kematians.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 100 }} />
+                    <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 100 }} onClick={() => setShow(true)} />
                   </Card.Subtitle>
                 )}
               </Card.Body>
@@ -220,7 +224,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_kesehatans.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 100 }} />
+                    <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 100 }} onClick={() => setView(true)} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -261,7 +265,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_nilai_hidups.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 100 }} />
+                    <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 100 }} onClick={() => setLook(true)} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -302,7 +306,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_perumahans.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_perumahans.bukti_tf} style={{ width: 100 }} />
+                    <Image src={dataPengajuan.claim_perumahans.bukti_tf} style={{ width: 100 }} onClick={handleShow} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -343,7 +347,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_pendidikans.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_pendidikans.bukti_tf} style={{ width: 100 }} />
+                    <Image src={dataPengajuan.claim_pendidikans.bukti_tf} style={{ width: 100 }} onClick={handleShow} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -553,6 +557,33 @@ export default () => {
           </Col>
         </Row>
       </Container>
+
+      <Modal show={show} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bukti Transfer</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 500 }} />
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={view} onHide={() => setView(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bukti Transfer</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 500 }} />
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={look} onHide={() => setLook(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bukti Transfer</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 500 }} />
+        </Modal.Body>
+      </Modal>
       <Footer />
     </motion.div>
   );

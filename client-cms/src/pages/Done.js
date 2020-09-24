@@ -105,7 +105,7 @@ export default () => {
                         </Button>
                       </td>
                     )}
-                    {file.pesan_claim.claim_category === "Manfaat" && (
+                    {file.pesan_claim.claim_category === "Nilai Hidup" && (
                       <td>
                         <Button variant="primary" size="sm" onClick={() => history.push(`detail/manfaat/${file.id}`)}>
                           Check
