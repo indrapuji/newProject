@@ -184,7 +184,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_kematians.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 100 }} onClick={() => setShow(true)} />
+                    <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 100, cursor: "pointer" }} onClick={() => setShow(true)} />
                   </Card.Subtitle>
                 )}
               </Card.Body>
@@ -224,7 +224,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_kesehatans.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 100 }} onClick={() => setView(true)} />
+                    <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 100, cursor: "pointer" }}  onClick={() => setView(true)} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -265,7 +265,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_nilai_hidups.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 100 }} onClick={() => setLook(true)} />
+                    <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 100, cursor: "pointer" }}  onClick={() => setLook(true)} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -306,7 +306,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_perumahans.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_perumahans.bukti_tf} style={{ width: 100 }} onClick={handleShow} />
+                    <Image src={dataPengajuan.claim_perumahans.bukti_tf} style={{ width: 100 }} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -347,7 +347,7 @@ export default () => {
                 </Card.Subtitle>
                 {dataPengajuan.claim_pendidikans.bukti_tf && (
                   <Card.Subtitle className="mb-2 " style={{ textAlign: "center", fontWeight: "bold" }}>
-                    <Image src={dataPengajuan.claim_pendidikans.bukti_tf} style={{ width: 100 }} onClick={handleShow} />
+                    <Image src={dataPengajuan.claim_pendidikans.bukti_tf} style={{ width: 100 }} />
                   </Card.Subtitle>
                 )}
                 <Card.Text></Card.Text>
@@ -558,30 +558,30 @@ export default () => {
         </Row>
       </Container>
 
-      <Modal show={show} onHide={() => setShow(false)}>
+      <Modal centered show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Bukti Transfer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 500 }} />
+          <Image src={dataPengajuan.claim_kematians.bukti_tf} style={{ width: 450 }} />
         </Modal.Body>
       </Modal>
 
-      <Modal show={view} onHide={() => setView(false)}>
+      <Modal centered show={view} onHide={() => setView(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Bukti Transfer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 500 }} />
+          <Image src={dataPengajuan.claim_kesehatans.bukti_tf} style={{ width: 450 }} />
         </Modal.Body>
       </Modal>
 
-      <Modal show={look} onHide={() => setLook(false)}>
+      <Modal centered show={look} onHide={() => setLook(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Bukti Transfer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 500 }} />
+          <Image src={dataPengajuan.claim_nilai_hidups.bukti_tf} style={{ width: 450 }} />
         </Modal.Body>
       </Modal>
       <Footer />
