@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { Table, Spinner, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
 import axios from "axios";
 import FormatDate from "../hooks/FormatDate";
-import host from '../hooks/host'
+import host from "../hooks/host";
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -14,6 +14,8 @@ export default () => {
 
   const history = useHistory();
   const onActive = "/claimperumahan";
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     fetchApi();
@@ -89,11 +91,27 @@ export default () => {
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td className="small">{file.pesan_claim.claim_category}</td>
                     <td className="small">{FormatDate(file.pesan_claim.updatedAt)}</td>
-                    <td>
-                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/perumahan/${file.id}`)}>
-                        Check
-                      </Button>
-                    </td>
+                    {file.pesan_claim.claim_category === "Kesehatan" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/kesehatan/${file.id}`)}>
+                          Perumahan
+                        </Button>
+                      </td>
+                    )}
+                    {file.pesan_claim.claim_category === "Kematian" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/kematian/${file.id}`)}>
+                          Kematian
+                        </Button>
+                      </td>
+                    )}
+                    {file.pesan_claim.claim_category === "Manfaat" && (
+                      <td>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/manfaat/${file.id}`)}>
+                          Kematian
+                        </Button>
+                      </td>
+                    )}
                   </tr>
                 );
               })}

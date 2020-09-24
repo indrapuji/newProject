@@ -28,7 +28,7 @@ export default () => {
               <Link to="/profile/kepengurusan">Kepengurusan</Link>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <Link to="/profile/cabang">Alamat Kantor Cabang</Link>
+              <Link to="/profile/cabang">Alamat Kantor YKP3JS</Link>
             </NavDropdown.Item>
             <NavDropdown.Item>
               <Link to="/profile/sejarah">Sejarah Singkat Yayasan</Link>
