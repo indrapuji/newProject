@@ -9,8 +9,8 @@ const storage = require("../helpers/multer");
 
 const upload = multer({ storage: storage });
 
-router.post("/register", UserController.register);
-router.post("/login", UserController.login);
+router.post("/users/register", UserController.register);
+router.post("/users/login", UserController.login);
 
 router.get("/", ContentController.getAll);
 router.get("/:id", ContentController.getOne);
