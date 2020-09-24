@@ -12,7 +12,8 @@ export default () => {
   // const host = "http://128.199.238.147:3001";
   
   const { dataId } = useParams();
-  const [pesan, setPesan] = useState("");
+  const [pesan, setPesan] = useState("Berkas Kurang Lengkap");
+  console.log(pesan);
   const pageTransition = {
     init: {
       opacity: 0,
