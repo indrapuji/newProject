@@ -6,11 +6,11 @@ const nexmo = new Nexmo({
 });
 
 module.exports = {
-  sendSMS(noTLP) {
+  sendSMS(name, noTLP, noRek) {
     const newSMS = {
       from: "Jati Sejahtera",
       to: `${noTLP}`,
-      text: "Pencairan Berhasil",
+      text: `Bapak / Ibu ${name} Pencairan Telah berhasil Berhasil dikirimkan ke ${noRek}`,
     };
     nexmo.message.sendSms(from, to, text, (err, responseData) => {
       if (err) {
