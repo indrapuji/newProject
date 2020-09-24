@@ -94,21 +94,21 @@ export default () => {
                     {file.pesan_claim.claim_category === "Kesehatan" && (
                       <td>
                         <Button variant="primary" size="sm" onClick={() => history.push(`detail/kesehatan/${file.id}`)}>
-                          Perumahan
+                          Check
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === "Kematian" && (
                       <td>
                         <Button variant="primary" size="sm" onClick={() => history.push(`detail/kematian/${file.id}`)}>
-                          Kematian
+                          Check
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === "Manfaat" && (
                       <td>
                         <Button variant="primary" size="sm" onClick={() => history.push(`detail/manfaat/${file.id}`)}>
-                          Kematian
+                          Check
                         </Button>
                       </td>
                     )}
