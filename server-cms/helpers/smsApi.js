@@ -1,17 +1,28 @@
 const Nexmo = require("nexmo");
 
 const nexmo = new Nexmo({
-  apiKey: `a0ebe7c1`,
-  apiSecret: `4NE8DYlLKGhx2Itc`,
+  apiKey: "a0ebe7c1",
+  apiSecret: "4NE8DYlLKGhx2Itc",
 });
 
 module.exports = {
   sendSMS({ name, noTLP, noRek }) {
-    // const newSMS = {
+    function convertnumber(noTLP) {
+      var newNumber = "62";
+      if (noTLP[0] === "0") {
+        for (let i = 0; i < noTLP.length - 1; i++) {
+          newNumber += noTLP[i + 1];
+        }
+      } else {
+        newNumber = noTLP;
+      }
+      return newNumber;
+    }
+
     const from = "Jati Sejahtera";
-    const to = `${noTLP}`;
+    const to = `${convertnumber(noTLP)}`;
     const text = `Bapak / Ibu ${name} Pencairan Telah berhasil Berhasil dikirimkan ke ${noRek}`;
-    // };
+
     nexmo.message.sendSms(from, to, text, (err, responseData) => {
       if (err) {
         console.log(err);

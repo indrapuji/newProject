@@ -3,7 +3,7 @@ const { Op, where } = require("sequelize");
 const changeStatusValidation = require("../helpers/changeStatusValidation");
 const createError = require("http-errors");
 const fs = require("fs");
-const { sendSMS } = require('../helpers/smsApi');
+const { sendSMS } = require("../helpers/smsApi");
 
 const serverUrl = "https://jatisejahtera-cms.herokuapp.com/";
 // const serverUrl = "http://128.199.238.147:3001/";
@@ -844,9 +844,9 @@ class ClaimDataController {
       const userAnggota = await user_anggota.findOne({ where: { id: claimData.user_id } });
       sendSMS({
         name: userAnggota.nama,
-        noTelp: userAnggota.no_telp,
+        noTLP: userAnggota.no_telp,
         noRek: userAnggota.no_rekening,
-      })
+      });
       res.status(200).json({ msg: "Success" });
     } catch (err) {
       if (req.file) fs.unlinkSync(req.file.path);
@@ -865,6 +865,12 @@ class ClaimDataController {
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: "Kesehatan" } });
       if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: "Kesehatan" } });
       else await pesan_claim.create({ claim_id, claim_category: "Kesehatan", pesan });
+      const userAnggota = await user_anggota.findOne({ where: { id: claimData.user_id } });
+      sendSMS({
+        name: userAnggota.nama,
+        noTLP: userAnggota.no_telp,
+        noRek: userAnggota.no_rekening,
+      });
       res.status(200).json({ msg: "Success" });
     } catch (err) {
       if (req.file) fs.unlinkSync(req.file.path);
@@ -883,6 +889,12 @@ class ClaimDataController {
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: "Nilai Hidup" } });
       if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: "Nilai Hidup" } });
       else await pesan_claim.create({ claim_id, claim_category: "Nilai Hidup", pesan });
+      const userAnggota = await user_anggota.findOne({ where: { id: claimData.user_id } });
+      sendSMS({
+        name: userAnggota.nama,
+        noTLP: userAnggota.no_telp,
+        noRek: userAnggota.no_rekening,
+      });
       res.status(200).json({ msg: "Success" });
     } catch (err) {
       if (req.file) fs.unlinkSync(req.file.path);
@@ -901,6 +913,12 @@ class ClaimDataController {
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: "Pendidikan" } });
       if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: "Pendidikan" } });
       else await pesan_claim.create({ claim_id, claim_category: "Pendidikan", pesan });
+      const userAnggota = await user_anggota.findOne({ where: { id: claimData.user_id } });
+      sendSMS({
+        name: userAnggota.nama,
+        noTelp: userAnggota.no_telp,
+        noRek: userAnggota.no_rekening,
+      });
       res.status(200).json({ msg: "Success" });
     } catch (err) {
       if (req.file) fs.unlinkSync(req.file.path);
@@ -919,6 +937,12 @@ class ClaimDataController {
       const pesanClaimData = await pesan_claim.findOne({ where: { claim_id: id, claim_category: "Perumahan" } });
       if (pesanClaimData) await pesan_claim.update({ pesan }, { where: { claim_id: id, claim_category: "Perumahan" } });
       else await pesan_claim.create({ claim_id, claim_category: "Perumahan", pesan });
+      const userAnggota = await user_anggota.findOne({ where: { id: claimData.user_id } });
+      sendSMS({
+        name: userAnggota.nama,
+        noTelp: userAnggota.no_telp,
+        noRek: userAnggota.no_rekening,
+      });
       res.status(200).json({ msg: "Success" });
     } catch (err) {
       if (req.file) fs.unlinkSync(req.file.path);
