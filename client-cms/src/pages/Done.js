@@ -48,7 +48,7 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Perumahan</h1>
+      <h1 style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>Histori Data Pengajuan Claim</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         <Table striped bordered hover responsive>
           <thead>
