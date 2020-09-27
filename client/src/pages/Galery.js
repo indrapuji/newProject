@@ -192,9 +192,9 @@ export default () => {
           </Modal.Body>
         </Modal>
       </Container>
-      <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
-        <Footer />
-      </div>
+      {/* <div style={{ position: "fixed", bottom: 0, width: "100vw" }}> */}
+      <Footer />
+      {/* </div> */}
     </motion.div>
   );
 };
