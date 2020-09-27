@@ -32,7 +32,7 @@ export default () => {
             Yayasan mengelola dana program pemilikan rumah bagi karyawan Perum Perhutani yang masih aktif khususnya Karyawan Golongan I dan Golongan II. Penyaluran dana bantuan pemilikan rumah ini
             diberikan secara selektif di seluruh Wilayah kerja Perum Perhutani yaitu di Jawa Timur, Jawa Tengah, serta Jawa Barat dan Banten. Bantuan ini diberikan secara regular setiap dua tahun, dan
             diberikan dalam bentuk pinjaman tanpa bunga yang pengembaliannya akan diangsur oleh karyawan dalam waktu lima tahun. Pada saat Karyawan memasuki masa pensiun, atau meninggal sebelum waktu
-            pensiun, akan menerima pengembalian Iuran Perumahan yang nilai nya sebesar seluruh akumulasi iuran pemilikan rumah yang telah disetorkan kepada yayasan (Uang nya di ganti iuran.
+            pensiun, akan menerima pengembalian iuran Perumahan yang nilai nya sebesar seluruh akumulasi iuran pemilikan rumah yang telah disetorkan kepada yayasan.
           </p>
 
           <ol style={{ marginLeft: -20, marginTop: 0 }}>
