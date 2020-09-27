@@ -5,6 +5,13 @@ import Penanaman from "../assets/image/penanamanjagung.jpeg";
 import BangunKemandirian from "../assets/image/bangunkemandirian.jpeg";
 import BriDukung from "../assets/image/bridukungjati.jpeg";
 import Santunan from "../assets/image/santunan.jpeg";
+
+import Silaturahmi from "../assets/image/silaturahmi.png";
+import Sosialisasi from "../assets/image/sosialisasi.png";
+import Perkenalan from "../assets/image/Perkenalan.png";
+import Kunjungan from "../assets/image/Kunjungan.png";
+import Covid from "../assets/image/covid.png";
+
 import Covid2 from "../assets/image/covid2.png";
 import Covid3 from "../assets/image/covid3.png";
 import Covid4 from "../assets/image/covid4.png";
@@ -113,6 +120,62 @@ export default () => {
               <div className="col-md-3 col-sm-6" onClick={() => handleShow(Covid4)}>
                 <div className="box15">
                   <img src={Covid4} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Kegiatan Bhakti Sosial YKP3JS
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Silaturahmi)}>
+                <div className="box15">
+                  <img src={Silaturahmi} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Yayasan Jati Sejahtera (YKP3JS) Silaturahmi
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style={{ padding: 10 }}>
+          <div className="container mt-40">
+            <div className="row mt-30">
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Sosialisasi)}>
+                <div className="box15">
+                  <img src={Sosialisasi} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Yayasan Jatisejahtera melakukan sosialisasi
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Perkenalan)}>
+                <div className="box15">
+                  <img src={Perkenalan} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Perkenalan Pengurus dan Pengawas
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Kunjungan)}>
+                <div className="box15">
+                  <img src={Kunjungan} style={{ height: "10rem" }} alt="" />
+                  <div className="box-content">
+                    <h3 className="title" style={{ textAlign: "center" }}>
+                      Kunjungan Bpk. Drs. Djoko Setijono
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-6" onClick={() => handleShow(Covid)}>
+                <div className="box15">
+                  <img src={Covid} style={{ height: "10rem" }} alt="" />
                   <div className="box-content">
                     <h3 className="title" style={{ textAlign: "center" }}>
                       Kegiatan Bhakti Sosial YKP3JS
