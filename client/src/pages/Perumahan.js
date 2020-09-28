@@ -34,11 +34,6 @@ export default () => {
             diberikan dalam bentuk pinjaman tanpa bunga yang pengembaliannya akan diangsur oleh karyawan dalam waktu lima tahun. Pada saat Karyawan memasuki masa pensiun, atau meninggal sebelum waktu
             pensiun, akan menerima pengembalian iuran Perumahan yang nilai nya sebesar seluruh akumulasi iuran pemilikan rumah yang telah disetorkan kepada yayasan.
           </p>
-
-          <ol style={{ marginLeft: -20, marginTop: 0 }}>
-            <li>Realisasi Penyaluran Dana Bantuan Pendidikan sd Juni 2020 sebesar Rp. 3,936 M</li>
-            <li>Jumlah Penerima Bantuan Pendidikan sd Juni 2020 Sebanyak 13.268 Siswa</li>
-          </ol>
         </div>
       </Container>
       <Footer />
