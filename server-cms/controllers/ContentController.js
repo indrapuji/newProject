@@ -1,10 +1,6 @@
 const { Content } = require("../models");
 const fs = require("fs");
-
-// const serverUrl = "http://localhost:3002/"; // jangan lupa ganti
-// const serverUrl = "http://128.199.238.147:3002/";
-// const serverUrl = "https://jatisejahtera-content.herokuapp.com/";
-const serverUrl = "https://dev.jatisejahtera.xyz/";
+const serverUrl = require("../helpers/serverUrl");
 
 class ContentController {
   static getAll(req, res) {

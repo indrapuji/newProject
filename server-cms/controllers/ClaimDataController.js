@@ -4,11 +4,8 @@ const changeStatusValidation = require("../helpers/changeStatusValidation");
 const createError = require("http-errors");
 const fs = require("fs");
 const { sendSMS } = require("../helpers/smsApi");
+const serverUrl = require("../helpers/serverUrl");
 
-// const serverUrl = "https://jatisejahtera-cms.herokuapp.com/";
-// const serverUrl = "http://128.199.238.147:3001/";
-// const serverUrl = 'http://localhost:3001/uploads/'
-const serverUrl = "https://dev.jatisejahtera.xyz/";
 
 class ClaimDataController {
   static showClaimKematian = async (req, res, next) => {
