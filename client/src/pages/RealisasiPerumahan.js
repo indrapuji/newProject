@@ -8,8 +8,8 @@ import Peserta from "../assets/data/peserta.png";
 // import Pendanaan from "../assets/data/pendanaan.png";
 import Kesehatan from "../assets/data/pembayaran program kesehatan.png";
 import Perumahan from "../assets/data/pengembalian iuran perumahan.png";
-import Pinjaman from "../assets/data/pinjaman perumahan.png";
-import RealisasiPerumahan from '../assets/realisasi/RealisasiPerumahan.png'
+import Pinjaman from "../assets/data/pinjaman perumahan2.png";
+import RealisasiPerumahan from '../assets/realisasi/RealisasiPerumahan2.png'
 import PenerimaBantuan2019 from "../assets/image/PenerimabantuanPendidikan-2019.png";
 import PenerimaBantuan2020 from "../assets/image/PenerimabantuanPendidikan-2020.png";
 import Aos from "aos";

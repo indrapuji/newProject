@@ -3,7 +3,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { Container, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
-import Kesehatan from "../assets/data/pembayaran program kesehatan.png";
+import Kesehatan from "../assets/data/pembayaran program kesehatan 2.png";
 // import Peserta from "../assets/data/peserta.png";
 // import Perumahan from "../assets/data/pengembalian iuran perumahan.png";
 // import Pinjaman from "../assets/data/pinjaman perumahan.png";
@@ -46,7 +46,7 @@ export default () => {
         </div> */}
         <div data-aos="fade-up">
           <div style={{ display: "flex", justifyContent: "center", marginTop: 40, marginBottom: 20 }}>
-            <Image src={Kesehatan} rounded style={{ height: 400, width: 600 }} />
+            <Image src={Kesehatan} rounded style={{ height: 400, width: 700 }} />
           </div>
           <p style={{ textAlign: "center", marginTop: -10 }}>Pembayaran Program Kesehatan</p>
         </div>
