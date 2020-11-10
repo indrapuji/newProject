@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, CardDeck, Image } from "react-bootstrap";
+import { Card, CardDeck, Image, Button } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import Pendidikan from "../assets/image/pendidikan.jpeg";
@@ -10,7 +10,7 @@ import Penanaman from "../assets/image/penanamanjagung.jpeg";
 import BangunKemandirian from "../assets/image/bangunkemandirian.jpeg";
 import BriDukung from "../assets/image/bridukungjati.jpeg";
 import Santunan from "../assets/image/santunan.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import Visimisi from "../components/Visimisi";
 import Profile from "../components/Profile";
@@ -20,6 +20,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 export default () => {
+  const history = useHistory();
   useEffect(() => {
     Aos.init({ duration: 2500 });
   }, []);
@@ -36,6 +37,16 @@ export default () => {
     },
   };
 
+  function handdleKematian() {
+    history.push("/claim/kematian");
+  }
+  function handdleManfaat() {
+    history.push("/claim/manfaat");
+  }
+  function handdleKesehatan() {
+    history.push("/claim/kesehatan");
+  }
+
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <div className="bannerHome">
@@ -43,6 +54,52 @@ export default () => {
         <div className="program">
           <div data-aos="fade-up">
             <p className="programTitle">Program kami</p>
+          </div>
+          <div data-aos="zoom-in" style={{ marginLeft: 10, marginRight: 10, marginTop: 50, marginBottom: 50 }}>
+            <CardDeck>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Santunan Kematian</Card.Title>
+                  <Card.Text>
+                    Santunan kematian dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap
+                    dan benar oleh Yayasan.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button variant="success" block onClick={handdleKematian}>
+                    Pengajuan
+                  </Button>
+                </Card.Footer>
+              </Card>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Nilai Hidup</Card.Title>
+                  <Card.Text>
+                    Nilai Hidup dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap dan
+                    benar oleh Yayasan.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button variant="success" block onClick={handdleManfaat}>
+                    Pengajuan
+                  </Button>
+                </Card.Footer>
+              </Card>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Bantuan Rawat Inap</Card.Title>
+                  <Card.Text>
+                    Penggantian Biaya Rawat Inap dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima
+                    dengan lengkap dan benar oleh Yayasan.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button variant="success" block onClick={handdleKesehatan}>
+                    Pengajuan
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </CardDeck>
           </div>
           <div className="cardProgram">
             <CardDeck>
@@ -57,10 +114,10 @@ export default () => {
                   <Card.Img variant="top" src={Pendidikan} style={{ height: "10rem" }} />
                   <Card.Body>
                     <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Pendidikan</Card.Title>
-                    <Card.Text>
+                    {/* <Card.Text>
                       Education Is The Most Powerful Weapon Which You Can Use To Change The World <br />
                       <span style={{ fontWeight: "bold" }}>- Nelson Mandel</span>
-                    </Card.Text>
+                    </Card.Text> */}
                     <Link to="/program/pendidikan">Selengkapnya</Link>
                   </Card.Body>
                 </Card>
@@ -70,11 +127,11 @@ export default () => {
                   <Card.Img variant="top" src={Sosial} style={{ height: "10rem" }} />
                   <Card.Body>
                     <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Sosial</Card.Title>
-                    <Card.Text>
+                    {/* <Card.Text>
                       People don't care how much you know until they know how much you care
                       <br />
                       <span style={{ fontWeight: "bold" }}>- John C mAxwell</span>
-                    </Card.Text>
+                    </Card.Text> */}
                     <Link to="/program/sosial">Selengkapnya</Link>
                   </Card.Body>
                 </Card>
@@ -84,12 +141,12 @@ export default () => {
                   <Card.Img variant="top" src={Perumahan} style={{ height: "10rem" }} />
                   <Card.Body>
                     <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Perumahan</Card.Title>
-                    <Card.Text>
+                    {/* <Card.Text>
                       A House Is a Machine For Living in
                       <br />
                       <br />
                       <span style={{ fontWeight: "bold" }}>- LE CORBUSIER</span>
-                    </Card.Text>
+                    </Card.Text> */}
                     <Link to="/program/perumahan">Selengkapnya</Link>
                   </Card.Body>
                 </Card>
@@ -102,11 +159,11 @@ export default () => {
                   <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
                   <Card.Body>
                     <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Kesehatan</Card.Title>
-                    <Card.Text>
+                    {/* <Card.Text>
                       He who has health , has hope ; and he who has hope, has everything
                       <br />
                       <span style={{ fontWeight: "bold" }}>- Arabian Proverb</span>
-                    </Card.Text>
+                    </Card.Text> */}
                     <Link to="/program/kesehatan">Selengkapnya</Link>
                   </Card.Body>
                 </Card>

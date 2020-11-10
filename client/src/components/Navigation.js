@@ -68,9 +68,9 @@ export default () => {
             <NavDropdown.Item>
               <Link to="/data/update">Pengkinian Data</Link>
             </NavDropdown.Item>
-            <NavDropdown.Item>
+            {/* <NavDropdown.Item>
               <Link to="/data/claim">Pengajuan Claim</Link>
-            </NavDropdown.Item>
+            </NavDropdown.Item> */}
             <NavDropdown.Item href="https://jatisejahtera-cms.vercel.app/" style={{ color: "blue" }}>
               Admin
             </NavDropdown.Item>

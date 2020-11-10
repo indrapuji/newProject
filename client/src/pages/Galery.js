@@ -48,7 +48,7 @@ export default () => {
         <div style={{ marginTop: 50 }}>
           <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }}>GALERY</p>
         </div>
-        <div style={{ padding: 10 }}>
+        {/* <div style={{ padding: 10 }}>
           <div className="container mt-40">
             <div className="row mt-30">
               <div className="col-md-3 col-sm-6" onClick={() => handleShow(Penanaman)}>
@@ -93,7 +93,7 @@ export default () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div style={{ padding: 10 }}>
           <div className="container mt-40">
             <div className="row mt-30">
@@ -192,9 +192,9 @@ export default () => {
           </Modal.Body>
         </Modal>
       </Container>
-      {/* <div style={{ position: "fixed", bottom: 0, width: "100vw" }}> */}
+      <div style={{ position: "fixed", bottom: 0, width: "100vw" }}>
       <Footer />
-      {/* </div> */}
+      </div>
     </motion.div>
   );
 };
