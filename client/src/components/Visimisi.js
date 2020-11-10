@@ -48,7 +48,7 @@ export default () => {
                 <motion.div data-aos="fade-right" className="time-image" whileHover={{ color: "#45fc03", scale: 1.2 }} transition={{ duration: 0.3 }}>
                   <img className="img-circle img-responsive" src={"https://bpu.unsri.ac.id/assets/frontend/images/4.svg"} style={{ height: 185, width: 185, borderRadius: "100%" }} alt="" />
                 </motion.div>
-                <div data-aos="fade-right" className="time-panel">
+                <div className="time-panel">
                   <div className="time-heading" variants={item}>
                     <h4>Visi</h4>
                   </div>
@@ -65,7 +65,7 @@ export default () => {
                 <motion.div data-aos="fade-left" className="time-image" whileHover={{ color: "#45fc03", scale: 1.2 }} transition={{ duration: 0.3 }}>
                   <img className="img-circle img-responsive" src={"https://bpu.unsri.ac.id/assets/frontend/images/2.svg"} style={{ height: 185, width: 185, borderRadius: "100%" }} alt="" />
                 </motion.div>
-                <div data-aos="fade-left" className="time-panel">
+                <div  className="time-panel">
                   <div className="time-heading">
                     <h4>Misi</h4>
                   </div>
@@ -85,7 +85,7 @@ export default () => {
                 <motion.div data-aos="fade-right" className="time-image" whileHover={{ color: "#45fc03", scale: 1.2 }} transition={{ duration: 0.3 }}>
                   <img className="img-circle img-responsive" src={"https://bpu.unsri.ac.id/assets/frontend/images/1.svg"} style={{ height: 185, width: 185, borderRadius: "100%" }} alt="" />
                 </motion.div>
-                <div data-aos="fade-right" className="time-panel">
+                <div  className="time-panel">
                   <div className="time-heading" variants={item}>
                     <h4>Bidang Kegiatan</h4>
                   </div>
