@@ -31,11 +31,11 @@ export default () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      history.push("/data/claim");
+      history.push("/");
     }
   }, [history]);
   function handdleBack() {
-    history.push("/data/claim");
+    history.push("/");
   }
   const [formData, setFormData] = useState({
     surat_permohonan_bantuan_biaya: "",

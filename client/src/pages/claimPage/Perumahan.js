@@ -4,7 +4,7 @@ import { Button, Form, Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import host from '../../hooks/host'
+import host from "../../hooks/host";
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -31,11 +31,11 @@ export default () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      history.push("/data/claim");
+      history.push("/");
     }
   }, [history]);
   function handdleBack() {
-    history.push("/data/claim");
+    history.push("/");
   }
   const [formData, setFormData] = useState({
     blanko_permohonan: "",
