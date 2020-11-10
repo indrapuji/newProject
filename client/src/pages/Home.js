@@ -55,52 +55,6 @@ export default () => {
           <div data-aos="fade-up">
             <p className="programTitle">Program kami</p>
           </div>
-          <div data-aos="zoom-in" style={{ marginLeft: 10, marginRight: 10, marginTop: 50, marginBottom: 50 }}>
-            <CardDeck>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Santunan Kematian</Card.Title>
-                  <Card.Text>
-                    Santunan kematian dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap
-                    dan benar oleh Yayasan.
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <Button variant="success" block onClick={handdleKematian}>
-                    Pengajuan
-                  </Button>
-                </Card.Footer>
-              </Card>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Nilai Hidup</Card.Title>
-                  <Card.Text>
-                    Nilai Hidup dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap dan
-                    benar oleh Yayasan.
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <Button variant="success" block onClick={handdleManfaat}>
-                    Pengajuan
-                  </Button>
-                </Card.Footer>
-              </Card>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Bantuan Rawat Inap</Card.Title>
-                  <Card.Text>
-                    Penggantian Biaya Rawat Inap dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima
-                    dengan lengkap dan benar oleh Yayasan.
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <Button variant="success" block onClick={handdleKesehatan}>
-                    Pengajuan
-                  </Button>
-                </Card.Footer>
-              </Card>
-            </CardDeck>
-          </div>
           <div className="cardProgram">
             <CardDeck>
               <div data-aos="zoom-in">
@@ -170,6 +124,56 @@ export default () => {
               </div>
             </CardDeck>
           </div>
+          <div data-aos="fade-up">
+            <p className="claimTitle">Pengajuan Claim</p>
+          </div>
+          <div data-aos="zoom-in" style={{ marginLeft: 10, marginRight: 10, marginTop: 30, marginBottom: 50 }}>
+            <CardDeck>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Santunan Kematian</Card.Title>
+                  <Card.Text>
+                    Santunan kematian dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap
+                    dan benar oleh Yayasan.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button variant="success" block onClick={handdleKematian}>
+                    Pengajuan
+                  </Button>
+                </Card.Footer>
+              </Card>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Nilai Hidup</Card.Title>
+                  <Card.Text>
+                    Nilai Hidup dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap dan
+                    benar oleh Yayasan.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button variant="success" block onClick={handdleManfaat}>
+                    Pengajuan
+                  </Button>
+                </Card.Footer>
+              </Card>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Bantuan Rawat Inap</Card.Title>
+                  <Card.Text>
+                    Penggantian Biaya Rawat Inap dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima
+                    dengan lengkap dan benar oleh Yayasan.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button variant="success" block onClick={handdleKesehatan}>
+                    Pengajuan
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </CardDeck>
+          </div>
+
           <Profile />
           <Berita />
           <Visimisi />

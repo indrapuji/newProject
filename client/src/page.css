@@ -37,6 +37,16 @@
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px #6d862e, 0 0 5px #91a16e;
 }
+.claimTitle {
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 50px;
+    font-size: 40px;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px #6d862e, 0 0 5px #91a16e;
+}
+
+
 
 .cardProgram {
     display: flex;
