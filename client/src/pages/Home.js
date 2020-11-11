@@ -7,6 +7,9 @@ import Sosial from "../assets/image/sosial2.jpg";
 import Perumahan from "../assets/image/perumahan3.jpg";
 import Kesehatan from "../assets/image/kesehatan3.jpg";
 import Penanaman from "../assets/image/penanamanjagung.jpeg";
+import Rawat from "../assets/image/bantuanRawat.jpg";
+import NilaiHidup from "../assets/image/nilaiHidup.jpg";
+import SantunanKematian from "../assets/image/santunanKematian.jpg";
 import BangunKemandirian from "../assets/image/bangunkemandirian.jpeg";
 import BriDukung from "../assets/image/bridukungjati.jpeg";
 import Santunan from "../assets/image/santunan.jpeg";
@@ -119,7 +122,7 @@ export default () => {
             <CardDeck>
               <Card style={{ borderRadius: 20 }}>
                 <Card.Body>
-                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem", borderRadius: 40 }} />
+                  <Card.Img variant="top" src={SantunanKematian} style={{ height: "10rem", borderRadius: 40 }} />
                   <Card.Title>Santunan Kematian</Card.Title>
                   <Card.Text>
                     Santunan kematian dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap
@@ -134,7 +137,7 @@ export default () => {
               </Card>
               <Card style={{ borderRadius: 20 }}>
                 <Card.Body>
-                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
+                  <Card.Img variant="top" src={NilaiHidup} style={{ height: "10rem" }} />
                   <Card.Title>Nilai Hidup</Card.Title>
                   <Card.Text>
                     Nilai Hidup dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap dan
@@ -149,7 +152,7 @@ export default () => {
               </Card>
               <Card style={{ borderRadius: 20 }}>
                 <Card.Body>
-                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
+                  <Card.Img variant="top" src={Rawat} style={{ height: "10rem" }} />
                   <Card.Title>Bantuan Rawat Inap</Card.Title>
                   <Card.Text>
                     Penggantian Biaya Rawat Inap dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima
