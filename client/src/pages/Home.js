@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Card, CardDeck, Image, Button } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
-import Pendidikan from "../assets/image/pendidikan.jpeg";
-import Sosial from "../assets/image/sosial.jpeg";
-import Perumahan from "../assets/image/perumahan.jpeg";
-import Kesehatan from "../assets/image/kesehatan.jpeg";
+import Pendidikan from "../assets/image/pendidikan2.jpg";
+import Sosial from "../assets/image/sosial2.jpg";
+import Perumahan from "../assets/image/perumahan3.jpg";
+import Kesehatan from "../assets/image/kesehatan3.jpg";
 import Penanaman from "../assets/image/penanamanjagung.jpeg";
 import BangunKemandirian from "../assets/image/bangunkemandirian.jpeg";
 import BriDukung from "../assets/image/bridukungjati.jpeg";
@@ -64,29 +64,35 @@ export default () => {
                 <div data-aos="zoom-in" style={{ position: "absolute", left: -100, top: 1150 }}>
                   <Image src={require("../assets/landingpage/leaf_bottom.png")} style={{ width: 200 }} />
                 </div>
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={Pendidikan} style={{ height: "10rem" }} />
+                <Card style={{ width: "18rem", borderRadius: 20 }}>
+                  <Card.Img variant="top" src={Pendidikan} style={{ height: "10rem", borderRadius: 40 }} />
                   <Card.Body>
-                    <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Pendidikan</Card.Title>
-                    <Link to="/program/pendidikan">Selengkapnya</Link>
+                    {/* <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Pendidikan</Card.Title> */}
+                    <Link to="/program/pendidikan">
+                      <h3 style={{ textAlign: "center", fontWeight: "bold", color: "black" }}>Pendidikan</h3>
+                    </Link>
                   </Card.Body>
                 </Card>
               </div>
               <div data-aos="zoom-in">
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={Sosial} style={{ height: "10rem" }} />
+                <Card style={{ width: "18rem", borderRadius: 20 }}>
+                  <Card.Img variant="top" src={Sosial} style={{ height: "10rem", borderRadius: 40 }} />
                   <Card.Body>
-                    <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Sosial</Card.Title>
-                    <Link to="/program/sosial">Selengkapnya</Link>
+                    {/* <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Sosial</Card.Title> */}
+                    <Link to="/program/sosial">
+                      <h3 style={{ textAlign: "center", fontWeight: "bold", color: "black" }}>Sosial</h3>
+                    </Link>
                   </Card.Body>
                 </Card>
               </div>
               <div data-aos="zoom-in">
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={Perumahan} style={{ height: "10rem" }} />
+                <Card style={{ width: "18rem", borderRadius: 20 }}>
+                  <Card.Img variant="top" src={Perumahan} style={{ height: "10rem", borderRadius: 40 }} />
                   <Card.Body>
-                    <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Perumahan</Card.Title>
-                    <Link to="/program/perumahan">Selengkapnya</Link>
+                    {/* <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Perumahan</Card.Title> */}
+                    <Link to="/program/perumahan">
+                      <h3 style={{ textAlign: "center", fontWeight: "bold", color: "black" }}>Perumahan</h3>
+                    </Link>
                   </Card.Body>
                 </Card>
               </div>
@@ -94,11 +100,13 @@ export default () => {
                 <div data-aos="fade-left" style={{ position: "absolute", zIndex: 1, left: 150, top: 200 }}>
                   <Image src={require("../assets/landingpage/leaf_top.png")} style={{ width: 150 }} />
                 </div>
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
+                <Card style={{ width: "18rem", borderRadius: 20 }}>
+                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem", borderRadius: 40 }} />
                   <Card.Body>
-                    <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Kesehatan</Card.Title>
-                    <Link to="/program/kesehatan">Selengkapnya</Link>
+                    {/* <Card.Title style={{ fontSize: 30, fontWeight: "bold" }}>Kesehatan</Card.Title> */}
+                    <Link to="/program/kesehatan">
+                      <h3 style={{ textAlign: "center", fontWeight: "bold", color: "black" }}>Kesehatan</h3>
+                    </Link>
                   </Card.Body>
                 </Card>
               </div>
@@ -109,8 +117,9 @@ export default () => {
           </div>
           <div data-aos="zoom-in" style={{ marginLeft: 10, marginRight: 10, marginTop: 30, marginBottom: 50 }}>
             <CardDeck>
-              <Card>
+              <Card style={{ borderRadius: 20 }}>
                 <Card.Body>
+                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem", borderRadius: 40 }} />
                   <Card.Title>Santunan Kematian</Card.Title>
                   <Card.Text>
                     Santunan kematian dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap
@@ -123,8 +132,9 @@ export default () => {
                   </Button>
                 </Card.Footer>
               </Card>
-              <Card>
+              <Card style={{ borderRadius: 20 }}>
                 <Card.Body>
+                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
                   <Card.Title>Nilai Hidup</Card.Title>
                   <Card.Text>
                     Nilai Hidup dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima dengan lengkap dan
@@ -137,8 +147,9 @@ export default () => {
                   </Button>
                 </Card.Footer>
               </Card>
-              <Card>
+              <Card style={{ borderRadius: 20 }}>
                 <Card.Body>
+                  <Card.Img variant="top" src={Kesehatan} style={{ height: "10rem" }} />
                   <Card.Title>Bantuan Rawat Inap</Card.Title>
                   <Card.Text>
                     Penggantian Biaya Rawat Inap dibayarkan kepada ahli waris,selambat-lambatnya 14 hari kerja setelah berkas pengajuan diterima
