@@ -20,6 +20,7 @@ export default () => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-around">
           <Link to="/">Home</Link>
+          <Link to="/pembaharuan">Pembaharuan</Link>
           <NavDropdown title="Profile">
             <NavDropdown.Item>
               <Link to="/profile/about">Tentang Kami</Link>

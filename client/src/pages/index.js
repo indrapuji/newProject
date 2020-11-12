@@ -19,3 +19,4 @@ export { default as RealisasiKesehatan } from "./RealisasiKesehatan";
 export { default as RealisasiPendidikan } from "./RealisasiPendidikan";
 export { default as RealisasiPerumahan } from "./RealisasiPerumahan";
 export { default as RealisasiSosial } from "./RealisasiSosial";
+export { default as New } from "./New";

@@ -1,5 +1,24 @@
 import React from "react";
-import { Berita, Contact, Galery, Home, About, Kepengurusan, Cabang, Sejarah, Pendidikan, Sosial, Perumahan, Kesehatan, Update, Realisasi, Profile, Claim, FormLogin } from "./pages";
+import {
+  Berita,
+  Contact,
+  Galery,
+  Home,
+  About,
+  Kepengurusan,
+  Cabang,
+  Sejarah,
+  Pendidikan,
+  Sosial,
+  Perumahan,
+  Kesehatan,
+  Update,
+  Realisasi,
+  Profile,
+  Claim,
+  FormLogin,
+  New,
+} from "./pages";
 import { ClaimKematian, ClaimKesehatan, ClaimManfaat, ClaimPendidikan, ClaimPerumahan } from "./pages/claimPage";
 import { RealisasiKesehatan, RealisasiPendidikan, RealisasiPerumahan, RealisasiSosial } from "./pages";
 import { Switch, Route, useLocation } from "react-router-dom";
@@ -42,6 +61,9 @@ function App() {
           </Route>
           <Route exact path="/data/update">
             <Update />
+          </Route>
+          <Route exact path="/pembaharuan">
+            <New />
           </Route>
           <Route exact path="/data/realisasipendidikan">
             <RealisasiPendidikan />
