@@ -47,6 +47,9 @@ router.post('/uploads/kematian', authentication, addClaimAuth,
   }, {
     name: 'fotokopi_sk_pensiun',
     maxCount: 1
+  }, {
+    name: 'lampiran',
+    maxCount: 1
   }]),
   ClaimDataController.addClaimKematian);
 
@@ -66,6 +69,9 @@ router.post('/uploads/kesehatan', authentication, addClaimAuth,
   }, {
     name: 'fotokopi_kp',
     maxCount: 1
+  }, {
+    name: 'lampiran',
+    maxCount: 1
   }]),
   ClaimDataController.addClaimKesehatan);
 
@@ -82,6 +88,9 @@ router.post('/uploads/nilai-hidup', authentication, addClaimAuth,
   }, {
     name: 'fotokopi_sk_pensiun',
     maxCount: 1
+  }, {
+    name: 'lampiran',
+    maxCount: 1
   }]),
   ClaimDataController.addClaimNilaiHidup);
 
@@ -97,6 +106,9 @@ router.post('/uploads/perumahan', authentication, addClaimAuth,
     maxCount: 1
   }, {
     name: 'akumulasi_saldo',
+    maxCount: 1
+  }, {
+    name: 'lampiran',
     maxCount: 1
   }]),
   ClaimDataController.addClaimPerumahan);
@@ -116,6 +128,9 @@ router.post('/uploads/pendidikan', authentication, addClaimAuth,
     maxCount: 1
   }, {
     name: 'data5',
+    maxCount: 1
+  }, {
+    name: 'lampiran',
     maxCount: 1
   }]),
   ClaimDataController.addClaimPendidikan);

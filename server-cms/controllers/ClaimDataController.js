@@ -393,6 +393,7 @@ class ClaimDataController {
         if (req.files["fotokopi_kk"]) queryData.fotokopi_kk = serverUrl + req.files["fotokopi_kk"][0].path;
         if (req.files["fotokopi_sk_pengangkatan"]) queryData.fotokopi_sk_pengangkatan = serverUrl + req.files["fotokopi_sk_pengangkatan"][0].path;
         if (req.files["fotokopi_sk_pensiun"]) queryData.fotokopi_sk_pensiun = serverUrl + req.files["fotokopi_sk_pensiun"][0].path;
+        if (req.files["lampiran"]) queryData.lampiran = serverUrl + req.files["lampiran"][0].path;
       }
       const result = await claim_kematian.create(queryData);
       const pesanClaim = await pesan_claim.create({
@@ -411,6 +412,7 @@ class ClaimDataController {
       if (req.files["fotokopi_kk"]) fs.unlinkSync(req.files["fotokopi_kk"][0].path);
       if (req.files["fotokopi_sk_pengangkatan"]) fs.unlinkSync(req.files["fotokopi_sk_pengangkatan"][0].path);
       if (req.files["fotokopi_sk_pensiun"]) fs.unlinkSync(req.files["fotokopi_sk_pensiun"][0].path);
+      if (req.files["lampiran"]) fs.unlinkSync(req.files["lampiran"][0].path);
       next(err);
     }
   };
@@ -431,6 +433,7 @@ class ClaimDataController {
         if (req.files["surat_keterangan_rs"]) queryData.surat_keterangan_rs = serverUrl + req.files["surat_keterangan_rs"][0].path;
         if (req.files["fotokopi_sk_pensiun"]) queryData.fotokopi_sk_pensiun = serverUrl + req.files["fotokopi_sk_pensiun"][0].path;
         if (req.files["fotokopi_kp"]) queryData.fotokopi_kp = serverUrl + req.files["fotokopi_kp"][0].path;
+        if (req.files["lampiran"]) queryData.lampiran = serverUrl + req.files["lampiran"][0].path;
       }
       const result = await claim_kesehatan.create(queryData);
       const pesanClaim = await pesan_claim.create({
@@ -446,6 +449,7 @@ class ClaimDataController {
       if (req.files["surat_keterangan_rs"]) fs.unlinkSync(req.files["surat_keterangan_rs"][0].path);
       if (req.files["fotokopi_sk_pensiun"]) fs.unlinkSync(req.files["fotokopi_sk_pensiun"][0].path);
       if (req.files["fotokopi_kp"]) fs.unlinkSync(req.files["fotokopi_kp"][0].path);
+      if (req.files["lampiran"]) fs.unlinkSync(req.files["lampiran"][0].path);
       next(err);
     }
   };
@@ -465,6 +469,7 @@ class ClaimDataController {
         if (req.files["pernyataan_dari_pensiunan"]) queryData.pernyataan_dari_pensiunan = serverUrl + req.files["pernyataan_dari_pensiunan"][0].path;
         if (req.files["fotokopi_kp"]) queryData.fotokopi_kp = serverUrl + req.files["fotokopi_kp"][0].path;
         if (req.files["fotokopi_sk_pensiun"]) queryData.fotokopi_sk_pensiun = serverUrl + req.files["fotokopi_sk_pensiun"][0].path;
+        if (req.files["lampiran"]) queryData.lampiran = serverUrl + req.files["lampiran"][0].path;
       }
       const result = await claim_nilai_hidup.create(queryData);
       const pesanClaim = await pesan_claim.create({
@@ -479,6 +484,7 @@ class ClaimDataController {
       if (req.files["pernyataan_dari_pensiunan"]) fs.unlinkSync(req.files["pernyataan_dari_pensiunan"][0].path);
       if (req.files["fotokopi_kp"]) fs.unlinkSync(req.files["fotokopi_kp"][0].path);
       if (req.files["fotokopi_sk_pensiun"]) fs.unlinkSync(req.files["fotokopi_sk_pensiun"][0].path);
+      if (req.files["lampiran"]) fs.unlinkSync(req.files["lampiran"][0].path);
       next(err);
     }
   };
@@ -498,6 +504,7 @@ class ClaimDataController {
         if (req.files["surat_keputusan_phk"]) queryData.surat_keputusan_phk = serverUrl + req.files["surat_keputusan_phk"][0].path;
         if (req.files["data_keluarga"]) queryData.data_keluarga = serverUrl + req.files["data_keluarga"][0].path;
         if (req.files["akumulasi_saldo"]) queryData.akumulasi_saldo = serverUrl + req.files["akumulasi_saldo"][0].path;
+        if (req.files["lampiran"]) queryData.lampiran = serverUrl + req.files["lampiran"][0].path;
       }
       const result = await claim_perumahan.create(queryData);
       const pesanClaim = await pesan_claim.create({
@@ -512,6 +519,7 @@ class ClaimDataController {
       if (req.files["surat_keputusan_phk"]) fs.unlinkSync(req.files["surat_keputusan_phk"][0].path);
       if (req.files["data_keluarga"]) fs.unlinkSync(req.files["data_keluarga"][0].path);
       if (req.files["akumulasi_saldo"]) fs.unlinkSync(req.files["akumulasi_saldo"][0].path);
+      if (req.files["lampiran"]) fs.unlinkSync(req.files["lampiran"][0].path);
       next(err);
     }
   };
@@ -532,6 +540,7 @@ class ClaimDataController {
         if (req.files["data3"]) queryData.data3 = serverUrl + req.files["data3"][0].path;
         if (req.files["data4"]) queryData.data4 = serverUrl + req.files["data4"][0].path;
         if (req.files["data5"]) queryData.data5 = serverUrl + req.files["data5"][0].path;
+        if (req.files["lampiran"]) queryData.lampiran = serverUrl + req.files["lampiran"][0].path;
       }
       const result = await claim_pendidikan.create(queryData);
       const pesanClaim = await pesan_claim.create({
@@ -547,6 +556,7 @@ class ClaimDataController {
       if (req.files["data3"]) fs.unlinkSync(req.files["data3"][0].path);
       if (req.files["data4"]) fs.unlinkSync(req.files["data4"][0].path);
       if (req.files["data5"]) fs.unlinkSync(req.files["data5"][0].path);
+      if (req.files["lampiran"]) fs.unlinkSync(req.files["lampiran"][0].path);
       next(err);
     }
   };
