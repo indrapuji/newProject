@@ -3,6 +3,7 @@ const user = require('./user');
 const claim_data = require('./claim_data');
 const content = require('./content');
 const createError = require("http-errors");
+const fs = require("fs");
 
 router.use('/users', user);
 router.use('/data', claim_data);
