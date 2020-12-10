@@ -1,6 +1,7 @@
 const {
   user_anggota,
 } = require("../models");
+const { hashPassword } = require("../helpers/bcrypt");
 const seedingData = require("./seeding.json");
 async function seed() {
   const query = seedingData.map((data, idx) => {
@@ -8,9 +9,9 @@ async function seed() {
     var no_induk = data["NIP/NPP/NIK"].toString().replace(/[^\w\s]/gi, '')
     console.log(idx +  "=========");
     return {
-      nama: data["Nama Pensiunan"] ? nama : "-",
-      password: data["NIP/NPP/NIK"] ? no_induk : "-",
-      no_induk: data["NIP/NPP/NIK"] ? no_induk : "-",
+      nama,
+      password: hashPassword(no_induk),
+      no_induk,
       email: data["Alamat E-Mail"] ? data["Alamat E-Mail"] : "-",
       tgl_lahir: data["Tanggal Lahir Pensiunan"] ? data["Tanggal Lahir Pensiunan"] : "-",
       no_ktp: data["No KTP Pensiunan"] ? data["No KTP Pensiunan"] : "-",
