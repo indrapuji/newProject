@@ -12,13 +12,11 @@ let result = excelToJson({
 });
 
 result = result["Compilation - Process & Formula"].filter((data) => {
-  if (data["Alamat E-Mail"]) {
-    if (data["Alamat E-Mail"].indexOf('.') !== -1) {
-      return data;
-    }
+  if (data["Nama Pensiunan"] && data["NIP/NPP/NIK"]) {
+    return data;
   }
 });
 // result = result["Compilation - Process & Formula"];
-// result.shift();
+result.shift();
 result = JSON.stringify(result, null, 4);
 fs.writeFileSync("seeding.json", result, "utf8");

@@ -15,9 +15,9 @@ const { generateToken } = require("../helpers/jwt");
 class UserController {
   static loginAnggota = async(req, res, next) => {
     try {
-      const { email, password } = req.body;
-      if (!email || !password) throw createError(400, "Wrong Username / Password");
-      const userAnggota = await user_anggota.findOne({ where: { email } });
+      const { nama, password } = req.body;
+      if (!nama || !password) throw createError(400, "Wrong Username / Password");
+      const userAnggota = await user_anggota.findOne({ where: { nama } });
       if (!userAnggota) throw createError(400, "Wrong Username / Password");
       if (!comparePassword(password, userAnggota.password)) throw createError(400, "Wrong Username / Password");
       let result = {
@@ -154,7 +154,7 @@ class UserController {
       } = req.body;
       const query = {
         nama,
-        password: "123456",
+        password: no_induk,
         no_induk,
         email,
         tgl_lahir,

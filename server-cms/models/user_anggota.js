@@ -51,14 +51,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-          isEmail: {
-            args: true,
-            msg: "Email harus Diisi / Format Email Salah",
-          },
-        },
       },
       tgl_lahir: {
         type: DataTypes.STRING,
@@ -82,33 +74,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       no_bpjs: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "No BPJS Harus Diisi",
-          },
-        },
       },
       nama_bank: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "Nama Bank Harus Diisi",
-          },
-        },
       },
       no_rekening: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "No Rekening Harus Diisi",
-          },
-        },
       },
       satuan_kerja: {
         type: DataTypes.STRING,
@@ -150,80 +121,67 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      kelurahan: DataTypes.STRING,
-      kecamatan: DataTypes.STRING,
-      kota: DataTypes.STRING,
-      kodepos: DataTypes.STRING,
-      provinsi: DataTypes.STRING,
-      nama_pasangan: {
+      kelurahan: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notEmpty: {
             args: true,
-            msg: "Nama Suami / Istri Harus Diisi",
+            msg: "Alamat Harus Diisi",
           },
         },
+      },
+      kecamatan: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Alamat Harus Diisi",
+          },
+        },
+      },
+      kota: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Alamat Harus Diisi",
+          },
+        },
+      },
+      kodepos: DataTypes.STRING,
+      provinsi: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Alamat Harus Diisi",
+          },
+        },
+      },
+      nama_pasangan: {
+        type: DataTypes.STRING,
       },
       tgl_lahir_pasangan: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "Tanggal Lahir Suami / Istri Harus Diisi",
-          },
-        },
       },
       no_telp_pasangan: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "No Telp Suami / Istri Harus Diisi",
-          },
-        },
       },
       no_ktp_pasangan: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "No KTP Suami / Istri Harus Diisi",
-          },
-        },
       },
       no_bpjs_pasangan: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "No BPJS Suami / Istri Harus Diisi",
-          },
-        },
       },
       nama_bank_pasangan: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "Nama Bank Suami / Istri Harus Diisi",
-          },
-        },
       },
       no_rekening_pasangan: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: "No Rekening Suami / Istri Harus Diisi",
-          },
-        },
       },
       nama_anak: DataTypes.STRING,
       tgl_lahir_anak: DataTypes.STRING,

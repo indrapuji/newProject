@@ -19,7 +19,6 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
-        unique: true,
       },
       tgl_lahir: {
         type: Sequelize.STRING
