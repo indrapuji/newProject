@@ -5,8 +5,8 @@ const { hashPassword } = require("../helpers/bcrypt");
 const seedingData = require("./seeding.json");
 async function seed() {
   const query = seedingData.map((data, idx) => {
-    var nama = data["Nama Pensiunan"].replace(/[^\w\s]/gi, '')
-    var no_induk = data["NIP/NPP/NIK"].toString().replace(/[^\w\s]/gi, '')
+    var nama = data["Nama Pensiunan"];
+    var no_induk = data["NIP/NPP/NIK"];
     console.log(idx +  "=========");
     return {
       nama,
