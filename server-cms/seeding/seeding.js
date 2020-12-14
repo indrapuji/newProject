@@ -6,7 +6,7 @@ const seedingData = require("./seeding.json");
 async function seed() {
   const query = seedingData.map((data, idx) => {
     var nama = data["Nama Pensiunan"];
-    var no_induk = data["NIP/NPP/NIK"];
+    var no_induk = data["NIP/NPP/NIK"].toString();
     console.log(idx +  "=========");
     return {
       nama,
