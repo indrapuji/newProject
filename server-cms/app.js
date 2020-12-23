@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 const routers = require('./routers');
 const errorHandler = require('./middlewares/errorHandler');
+const fs = require("fs");
 
 const app = express();
 
