@@ -12,6 +12,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/files/all', (req, res) => {
+	let html = '<ul>';
+	fs.readdirSync('./uploads').forEach(file => {
+		html += `<li><a href="/uploads/${file}">${file}</a></li>`;
+	});
+	html += '</ul>';
+
+	res.send(html);
+});
+
 app.use(routers);
 app.use((req, res) => {
   res.status(404).send('Not Found');
