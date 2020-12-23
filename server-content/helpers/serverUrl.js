@@ -1,1 +1,1 @@
-module.exports = `https://dev.trendcom.xyz/`;
+module.exports = `https://dev.jatisejahtera.or.id/`;
