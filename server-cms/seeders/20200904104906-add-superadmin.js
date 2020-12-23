@@ -34,8 +34,8 @@ module.exports = {
       updatedAt: new Date()
     },{
       nama: 'Super Admin',
-      email: 'superadmin@superadmin.com',
-      password: hashPassword('superadmin'),
+      email: 'adminykp3js@jatisejahtera.or.id',
+      password: hashPassword('adminykp3jssuper'),
       status: '007',
       createdAt: new Date(),
       updatedAt: new Date()
