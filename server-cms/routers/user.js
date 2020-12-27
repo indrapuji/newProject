@@ -11,5 +11,6 @@ router.post("/super/pengkinian-data", UserController.addAnggota);
 router.get("/profile", authentication, UserController.userProfile);
 router.get("/daftar-anggota", authentication, adminAuth, UserController.getAnggota);
 router.get("/daftar-anggota/:id", authentication, adminAuth, UserController.getAnggotaId);
+router.put("/edit-anggota", authentication, UserController.editUser);
 
 module.exports = router;

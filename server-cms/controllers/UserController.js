@@ -215,6 +215,78 @@ class UserController {
       next(err);
     }
   };
+  static editUser = async(req, res, next) => {
+    try {
+      const { id } = req.UserData;
+      const {
+        nama,
+        email,
+        tgl_lahir,
+        no_ktp,
+        no_bpjs,
+        nama_bank,
+        no_rekening,
+        satuan_kerja,
+        golongan_pangkat,
+        no_telp,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        nama_pasangan,
+        tgl_lahir_pasangan,
+        no_telp_pasangan,
+        no_ktp_pasangan,
+        no_bpjs_pasangan,
+        nama_bank_pasangan,
+        no_rekening_pasangan,
+        nama_anak,
+        tgl_lahir_anak,
+        no_tlp_anak,
+        no_ktp_anak,
+        no_bpjs_anak,
+        nama_bank_anak,
+        no_rekening_anak,
+      } = req.body;
+      await user_anggota.update({
+        nama,
+        email,
+        tgl_lahir,
+        no_ktp,
+        no_bpjs,
+        nama_bank,
+        no_rekening,
+        satuan_kerja,
+        golongan_pangkat,
+        no_telp,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        nama_pasangan,
+        tgl_lahir_pasangan,
+        no_telp_pasangan,
+        no_ktp_pasangan,
+        no_bpjs_pasangan,
+        nama_bank_pasangan,
+        no_rekening_pasangan,
+        nama_anak,
+        tgl_lahir_anak,
+        no_tlp_anak,
+        no_ktp_anak,
+        no_bpjs_anak,
+        nama_bank_anak,
+        no_rekening_anak,
+      }, { where: { id } });
+      res.status(200).json({ msg: "Success" });
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = UserController;
