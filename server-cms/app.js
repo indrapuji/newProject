@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/files/all', (req, res) => {
 	let html = '<ul>';
 	fs.readdirSync('./uploads').forEach(file => {
-		html += `<li><a href="/uploads/${file}">${file}</a> <br /> LINK: ${serverUrl + "uploads/" + file} </li>`;
+		if (file !== ".gitkeep") html += `<li><a href="/uploads/${file}">${file}</a> <br /> LINK: ${serverUrl + "uploads/" + file} </li>`;
 	});
 	html += '</ul>';
 
