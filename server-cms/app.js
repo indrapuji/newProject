@@ -9,10 +9,11 @@ const serverUrl = require("./helpers/serverUrl");
 
 const app = express();
 
-app.use('/uploads', express.static('uploads'));
-app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+app.use('/uploads', express.static('uploads'));
+app.use(cors());
 
 app.get('/files/all', (req, res) => {
 	let html = '<ul>';
