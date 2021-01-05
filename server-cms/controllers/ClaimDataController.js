@@ -14,17 +14,16 @@ class ClaimDataController {
       const userData = await user_admin.findOne({ where: { id } });
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
-      const result = await claim_kematian.findAll({
-        where: {
-          status: userData.status,
-        },
+      let query = {
         include: [
           {
             model: user_anggota,
             required: false,
           },
         ],
-      });
+      }
+      if (userData.status !== "007") query.where = { status: userData.status };
+      const result = await claim_kematian.findAll(query);
       res.status(200).json(result);
     } catch (err) {
       next(err);
@@ -36,17 +35,16 @@ class ClaimDataController {
       const userData = await user_admin.findOne({ where: { id } });
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
-      const result = await claim_kesehatan.findAll({
-        where: {
-          status: userData.status,
-        },
+      let query = {
         include: [
           {
             model: user_anggota,
             required: false,
           },
         ],
-      });
+      }
+      if (userData.status !== "007") query.where = { status: userData.status };
+      const result = await claim_kesehatan.findAll(query);
       res.status(200).json(result);
     } catch (err) {
       next(err);
@@ -58,17 +56,16 @@ class ClaimDataController {
       const userData = await user_admin.findOne({ where: { id } });
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
-      const result = await claim_nilai_hidup.findAll({
-        where: {
-          status: userData.status,
-        },
+      let query = {
         include: [
           {
             model: user_anggota,
             required: false,
           },
         ],
-      });
+      }
+      if (userData.status !== "007") query.where = { status: userData.status };
+      const result = await claim_nilai_hidup.findAll(query);
       res.status(200).json(result);
     } catch (err) {
       next(err);
@@ -80,17 +77,16 @@ class ClaimDataController {
       const userData = await user_admin.findOne({ where: { id } });
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
-      const result = await claim_perumahan.findAll({
-        where: {
-          status: userData.status,
-        },
+      let query = {
         include: [
           {
             model: user_anggota,
             required: false,
           },
         ],
-      });
+      }
+      if (userData.status !== "007") query.where = { status: userData.status };
+      const result = await claim_perumahan.findAll(query);
       res.status(200).json(result);
     } catch (err) {
       next(err);
@@ -102,17 +98,16 @@ class ClaimDataController {
       const userData = await user_admin.findOne({ where: { id } });
       // let statusValidation = '0';
       // if (userData.status !== '007') statusValidation = userData.status;
-      const result = await claim_pendidikan.findAll({
-        where: {
-          status: userData.status,
-        },
+      let query = {
         include: [
           {
             model: user_anggota,
             required: false,
           },
         ],
-      });
+      }
+      if (userData.status !== "007") query.where = { status: userData.status };
+      const result = await claim_pendidikan.findAll(query);
       res.status(200).json(result);
     } catch (err) {
       next(err);
