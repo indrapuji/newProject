@@ -71,7 +71,7 @@ export default () => {
               }
               filename="Pengajuan Claim Kematian"
             >
-              <ExcelSheet data={data} name="Data Peserta">
+              <ExcelSheet data={data} name="Claim Kematian">
                 <ExcelColumn label="Surat Permohonan Ahli Waris" value="permohonan_ahli_waris" />
                 <ExcelColumn label="Surat Keterangan Meninggal dari Lurah" value="keterangan_menginggal_dunia_lurah" />
                 <ExcelColumn label="Surat Keterangan Meninggal dari Rumah Sakit" value="keterangan_meninggal_dunia_rumah_sakit" />
