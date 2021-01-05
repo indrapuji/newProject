@@ -1,32 +1,32 @@
-import React from "react";
-import { Navbar, Nav, FormControl, Form, Button } from "react-bootstrap";
-import { IoIosLogOut } from "react-icons/io";
-import { useHistory, Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import { IoIosLogOut } from 'react-icons/io';
+import { useHistory, Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default (props) => {
   const history = useHistory();
 
   function handdleLogout() {
     Swal.fire({
-      title: "Logout?",
-      text: "Yakin ingin logout!",
-      icon: "warning",
+      title: 'Logout?',
+      text: 'Yakin ingin logout!',
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Iya",
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Iya',
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem("token");
-        history.push("/login");
+        localStorage.removeItem('token');
+        history.push('/login');
       }
     });
   }
 
   return (
     <Navbar bg="light" expand="lg" sticky="top">
-      <Navbar.Brand href="/" style={{ fontWeight: "bolder" }}>
+      <Navbar.Brand href="/" style={{ fontWeight: 'bolder' }}>
         Jati Sejahtera CMS
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -59,7 +59,7 @@ export default (props) => {
           <Button variant="outline-success">Search</Button>
         </Form> */}
         <Nav style={{ marginLeft: 20 }}>
-          <div onClick={handdleLogout} style={{ cursor: "pointer" }}>
+          <div onClick={handdleLogout} style={{ cursor: 'pointer' }}>
             <IoIosLogOut color="green" size="30" />
           </div>
         </Nav>

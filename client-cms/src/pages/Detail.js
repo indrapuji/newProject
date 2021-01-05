@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { Container, Form, Row, Col, Button, Spinner } from "react-bootstrap";
-import { motion } from "framer-motion";
-import axios from "axios";
-import host from '../hooks/host'
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { Container, Form, Row, Col, Button, Spinner } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import axios from 'axios';
+import host from '../hooks/host';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -26,12 +26,12 @@ export default () => {
 
   useEffect(() => {
     fetchApi();
-  }, []);
+  });
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const fetchApi = async () => {
     const { data } = await axios({
-      method: "GET",
+      method: 'GET',
       url: `${host}/users/daftar-anggota/${dataId}`,
       headers: {
         token: localStorage.token,
@@ -42,23 +42,23 @@ export default () => {
   };
 
   function handdleCancel() {
-    history.push("/");
+    history.push('/');
   }
 
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       {/* {JSON.stringify(data)} */}
       {loading ? (
-        <div style={{ display: "flex", justifyContent: "center", marginTop: 100 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 100 }}>
           <Spinner animation="border" variant="success" />
         </div>
       ) : (
         <Container>
           <div style={{ marginTop: 50 }}>
-            <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Detail</p>
+            <p style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 30 }}>Detail</p>
           </div>
           <div style={{ marginBottom: 50 }}>
-            <h3 style={{ fontWeight: "bold", marginBottom: 20 }}>Data Diri</h3>
+            <h3 style={{ fontWeight: 'bold', marginBottom: 20 }}>Data Diri</h3>
             <Form>
               <Form.Group as={Row}>
                 <Form.Label column sm="2">
@@ -167,7 +167,7 @@ export default () => {
                   <Form.Control placeholder="Provinsi" name="provinsi" value={data.provinsi} disabled={true} />
                 </Col>
               </Form.Group>
-              <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 1</h3>
+              <h3 style={{ fontWeight: 'bold', marginBottom: 20, marginTop: 40 }}>Data Pendukung 1</h3>
               <Form.Group as={Row}>
                 <Form.Label column sm="2">
                   Nama Istri / Suami
@@ -219,7 +219,7 @@ export default () => {
                   <Form.Control placeholder="No Rekening" name="no_rekening_pasangan" value={data.no_rekening_pasangan} disabled={true} />
                 </Col>
               </Form.Group>
-              <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 2</h3>
+              <h3 style={{ fontWeight: 'bold', marginBottom: 20, marginTop: 40 }}>Data Pendukung 2</h3>
               <Form.Group as={Row}>
                 <Form.Label column sm="2">
                   Nama Anak
