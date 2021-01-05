@@ -72,37 +72,37 @@ export default () => {
               filename="Pengajuan Claim Kematian"
             >
               <ExcelSheet data={data} name="Data Peserta">
-                <ExcelColumn label="Nama" value="file.user_anggotum.nama" />
-                <ExcelColumn label="No Induk" value="file.user_anggotum.no_induk" />
-                <ExcelColumn label="Alamat Email" value="file.user_anggotum.email" />
-                <ExcelColumn label="Tanggal Lahir" value="file.user_anggotum.tgl_lahir" />
-                <ExcelColumn label="No KTP" value="file.user_anggotum.no_ktp" />
-                <ExcelColumn label="No BPJS" value="file.user_anggotum.no_bpjs" />
-                <ExcelColumn label="Nama Bank" value="file.user_anggotum.nama_bank" />
-                <ExcelColumn label="No Rekening" value="file.user_anggotum.no_rekening" />
-                <ExcelColumn label="Satuan Kerja" value="file.user_anggotum.satuan_kerja" />
-                <ExcelColumn label="Golongan" value="file.user_anggotum.golongan_pangkat" />
-                <ExcelColumn label="No Telp" value="file.user_anggotum.no_telp" />
-                <ExcelColumn label="Alamat" value="file.user_anggotum.alamat" />
-                <ExcelColumn label="Kelurahan" value="file.user_anggotum.kelurahan" />
-                <ExcelColumn label="Kecamatan" value="file.user_anggotum.kecamatan" />
-                <ExcelColumn label="Kota" value="file.user_anggotum.kota" />
-                <ExcelColumn label="Kodepos" value="file.user_anggotum.kodepos" />
-                <ExcelColumn label="Provinsi" value="file.user_anggotum.provinsi" />
-                <ExcelColumn label="Nama Istri / Suami" value="file.user_anggotum.nama_pasangan" />
-                <ExcelColumn label="Tanggal Lahir Istri / Suami" value="file.user_anggotum.tgl_lahir_pasangan" />
-                <ExcelColumn label="No Telp Istri / Suami" value="file.user_anggotum.no_telp_pasangan" />
-                <ExcelColumn label="No KTP Istri / Suami" value="file.user_anggotum.no_ktp_pasangan" />
-                <ExcelColumn label="No BPJS Istri / Suami" value="file.user_anggotum.no_bpjs_pasangan" />
-                <ExcelColumn label="Nama Bank Istri / Suami" value="file.user_anggotum.nama_bank_pasangan" />
-                <ExcelColumn label="No Rekening Istri / Suami" value="file.user_anggotum.no_rekening_pasangan" />
-                <ExcelColumn label="Nama Anak" value="file.user_anggotum.nama_anak" />
-                <ExcelColumn label="Tanggal Lahir Anak" value="file.user_anggotum.tgl_lahir_anak" />
-                <ExcelColumn label="No Telp Anak" value="file.user_anggotum.no_tlp_anak" />
-                <ExcelColumn label="No KTP Anak" value="file.user_anggotum.no_ktp_anak" />
-                <ExcelColumn label="No BPJS Anak" value="file.user_anggotum.no_bpjs_anak" />
-                <ExcelColumn label="Nama Bank Anak" value="file.user_anggotum.nama_bank_anak" />
-                <ExcelColumn label="No Rekening Anak" value="file.user_anggotum.no_rekening_anak" />
+                <ExcelColumn label="Nama" value="data.user_anggotum.nama" />
+                <ExcelColumn label="No Induk" value="data.user_anggotum.no_induk" />
+                <ExcelColumn label="Alamat Email" value="data.user_anggotum.email" />
+                <ExcelColumn label="Tanggal Lahir" value="data.user_anggotum.tgl_lahir" />
+                <ExcelColumn label="No KTP" value="data.user_anggotum.no_ktp" />
+                <ExcelColumn label="No BPJS" value="data.user_anggotum.no_bpjs" />
+                <ExcelColumn label="Nama Bank" value="data.user_anggotum.nama_bank" />
+                <ExcelColumn label="No Rekening" value="data.user_anggotum.no_rekening" />
+                <ExcelColumn label="Satuan Kerja" value="data.user_anggotum.satuan_kerja" />
+                <ExcelColumn label="Golongan" value="data.user_anggotum.golongan_pangkat" />
+                <ExcelColumn label="No Telp" value="data.user_anggotum.no_telp" />
+                <ExcelColumn label="Alamat" value="data.user_anggotum.alamat" />
+                <ExcelColumn label="Kelurahan" value="data.user_anggotum.kelurahan" />
+                <ExcelColumn label="Kecamatan" value="data.user_anggotum.kecamatan" />
+                <ExcelColumn label="Kota" value="data.user_anggotum.kota" />
+                <ExcelColumn label="Kodepos" value="data.user_anggotum.kodepos" />
+                <ExcelColumn label="Provinsi" value="data.user_anggotum.provinsi" />
+                <ExcelColumn label="Nama Istri / Suami" value="data.user_anggotum.nama_pasangan" />
+                <ExcelColumn label="Tanggal Lahir Istri / Suami" value="data.user_anggotum.tgl_lahir_pasangan" />
+                <ExcelColumn label="No Telp Istri / Suami" value="data.user_anggotum.no_telp_pasangan" />
+                <ExcelColumn label="No KTP Istri / Suami" value="data.user_anggotum.no_ktp_pasangan" />
+                <ExcelColumn label="No BPJS Istri / Suami" value="data.user_anggotum.no_bpjs_pasangan" />
+                <ExcelColumn label="Nama Bank Istri / Suami" value="data.user_anggotum.nama_bank_pasangan" />
+                <ExcelColumn label="No Rekening Istri / Suami" value="data.user_anggotum.no_rekening_pasangan" />
+                <ExcelColumn label="Nama Anak" value="data.user_anggotum.nama_anak" />
+                <ExcelColumn label="Tanggal Lahir Anak" value="data.user_anggotum.tgl_lahir_anak" />
+                <ExcelColumn label="No Telp Anak" value="data.user_anggotum.no_tlp_anak" />
+                <ExcelColumn label="No KTP Anak" value="data.user_anggotum.no_ktp_anak" />
+                <ExcelColumn label="No BPJS Anak" value="data.user_anggotum.no_bpjs_anak" />
+                <ExcelColumn label="Nama Bank Anak" value="data.user_anggotum.nama_bank_anak" />
+                <ExcelColumn label="No Rekening Anak" value="data.user_anggotum.no_rekening_anak" />
               </ExcelSheet>
             </ExcelFile>
           </div>
