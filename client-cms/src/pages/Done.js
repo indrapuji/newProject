@@ -113,12 +113,12 @@ export default () => {
           <thead>
             <tr>
               <th className="small">No</th>
-              <th className="small">Tanggal Approve</th>
               <th className="small">Nama</th>
               <th className="small">No Induk</th>
               <th className="small">Satuan Kerja</th>
               <th className="small">Golongan</th>
               <th className="small">Kategori Claim</th>
+              <th className="small">Tanggal Pengajuan</th>
               <th className="small">Action</th>
             </tr>
           </thead>
