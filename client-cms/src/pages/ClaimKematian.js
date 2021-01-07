@@ -71,38 +71,15 @@ export default () => {
               }
               filename="Pengajuan Claim Kematian"
             >
-              <ExcelSheet data={data} name="Data Peserta">
-                <ExcelColumn label="Nama" value="nama" />
-                <ExcelColumn label="No Induk" value="no_induk" />
-                <ExcelColumn label="Alamat Email" value="email" />
-                <ExcelColumn label="Tanggal Lahir" value="tgl_lahir" />
-                <ExcelColumn label="No KTP" value="no_ktp" />
-                <ExcelColumn label="No BPJS" value="no_bpjs" />
-                <ExcelColumn label="Nama Bank" value="nama_bank" />
-                <ExcelColumn label="No Rekening" value="no_rekening" />
-                <ExcelColumn label="Satuan Kerja" value="satuan_kerja" />
-                <ExcelColumn label="Golongan" value="golongan_pangkat" />
-                <ExcelColumn label="No Telp" value="no_telp" />
-                <ExcelColumn label="Alamat" value="alamat" />
-                <ExcelColumn label="Kelurahan" value="kelurahan" />
-                <ExcelColumn label="Kecamatan" value="kecamatan" />
-                <ExcelColumn label="Kota" value="kota" />
-                <ExcelColumn label="Kodepos" value="kodepos" />
-                <ExcelColumn label="Provinsi" value="provinsi" />
-                <ExcelColumn label="Nama Istri / Suami" value="nama_pasangan" />
-                <ExcelColumn label="Tanggal Lahir Istri / Suami" value="tgl_lahir_pasangan" />
-                <ExcelColumn label="No Telp Istri / Suami" value="no_telp_pasangan" />
-                <ExcelColumn label="No KTP Istri / Suami" value="no_ktp_pasangan" />
-                <ExcelColumn label="No BPJS Istri / Suami" value="no_bpjs_pasangan" />
-                <ExcelColumn label="Nama Bank Istri / Suami" value="nama_bank_pasangan" />
-                <ExcelColumn label="No Rekening Istri / Suami" value="no_rekening_pasangan" />
-                <ExcelColumn label="Nama Anak" value="nama_anak" />
-                <ExcelColumn label="Tanggal Lahir Anak" value="tgl_lahir_anak" />
-                <ExcelColumn label="No Telp Anak" value="no_tlp_anak" />
-                <ExcelColumn label="No KTP Anak" value="no_ktp_anak" />
-                <ExcelColumn label="No BPJS Anak" value="no_bpjs_anak" />
-                <ExcelColumn label="Nama Bank Anak" value="nama_bank_anak" />
-                <ExcelColumn label="No Rekening Anak" value="no_rekening_anak" />
+              <ExcelSheet data={data} name="Claim Kematian">
+                <ExcelColumn label="Surat Permohonan Ahli Waris" value="permohonan_ahli_waris" />
+                <ExcelColumn label="Surat Keterangan Meninggal dari Lurah" value="keterangan_menginggal_dunia_lurah" />
+                <ExcelColumn label="Surat Keterangan Meninggal dari Rumah Sakit" value="keterangan_meninggal_dunia_rumah_sakit" />
+                <ExcelColumn label="Surat Keterangan dari Kepolisian" value="keterangan_kepolisian" />
+                <ExcelColumn label="Fotokopi KTP" value="fotokopi_kp" />
+                <ExcelColumn label="Fotokopi KK" value="fotokopi_kk" />
+                <ExcelColumn label="Fotocopi SK Pengangkatan" value="fotokopi_sk_pengangkatan" />
+                <ExcelColumn label="Fotokopi SK Pensiun" value="fotokopi_sk_pensiun" />
               </ExcelSheet>
             </ExcelFile>
           </div>
