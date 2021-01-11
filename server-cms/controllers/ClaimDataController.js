@@ -6,7 +6,6 @@ const fs = require("fs");
 const { sendSMS } = require("../helpers/smsApi");
 const serverUrl = require("../helpers/serverUrl");
 
-
 class ClaimDataController {
   static showClaimKematian = async (req, res, next) => {
     try {
@@ -21,7 +20,7 @@ class ClaimDataController {
             required: false,
           },
         ],
-      }
+      };
       if (userData.status !== "007") query.where = { status: userData.status };
       const result = await claim_kematian.findAll(query);
       res.status(200).json(result);
@@ -42,7 +41,7 @@ class ClaimDataController {
             required: false,
           },
         ],
-      }
+      };
       if (userData.status !== "007") query.where = { status: userData.status };
       const result = await claim_kesehatan.findAll(query);
       res.status(200).json(result);
@@ -63,7 +62,7 @@ class ClaimDataController {
             required: false,
           },
         ],
-      }
+      };
       if (userData.status !== "007") query.where = { status: userData.status };
       const result = await claim_nilai_hidup.findAll(query);
       res.status(200).json(result);
@@ -84,7 +83,7 @@ class ClaimDataController {
             required: false,
           },
         ],
-      }
+      };
       if (userData.status !== "007") query.where = { status: userData.status };
       const result = await claim_perumahan.findAll(query);
       res.status(200).json(result);
@@ -105,7 +104,7 @@ class ClaimDataController {
             required: false,
           },
         ],
-      }
+      };
       if (userData.status !== "007") query.where = { status: userData.status };
       const result = await claim_pendidikan.findAll(query);
       res.status(200).json(result);
@@ -371,6 +370,7 @@ class ClaimDataController {
   static addClaimKematian = async (req, res, next) => {
     try {
       const { idAnggota } = req.UserData;
+      const { nama, tgl_lahir, no_induk, satuan_kerja, golongan_pangkat, alamat, kelurahan, kecamatan, kota, kodepos, provinsi, no_telp, kota_pensiun, nama_alm, tgl_meninggal } = req.body;
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_kematian.findOne({ where: { user_id: userAnggota.id } });
       if (validation) throw createError(400, "Anda sudah pernah membuat claim");
@@ -378,6 +378,21 @@ class ClaimDataController {
         no_rekening_bank: userAnggota.no_rekening,
         status: "1",
         user_id: userAnggota.id,
+        nama,
+        tgl_lahir,
+        no_induk,
+        satuan_kerja,
+        golongan_pangkat,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        no_telp,
+        kota_pensiun,
+        nama_alm,
+        tgl_meninggal,
       };
       if (req.files) {
         if (req.files["permohonan_ahli_waris"]) queryData.permohonan_ahli_waris = serverUrl + req.files["permohonan_ahli_waris"][0].path;
@@ -416,11 +431,51 @@ class ClaimDataController {
       const { idAnggota } = req.UserData;
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_kesehatan.findOne({ where: { user_id: userAnggota.id } });
+      const {
+        nama,
+        tgl_lahir,
+        no_induk,
+        satuan_kerja,
+        golongan_pangkat,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        no_telp,
+        kota_pensiun,
+        pasien,
+        status_rawat,
+        rumah_sakit,
+        sakit,
+        nama_dokter,
+        tgl_masuk,
+      } = req.body;
       if (validation) throw createError(400, "Anda sudah pernah membuat claim");
       let queryData = {
         no_rekening_bank: userAnggota.no_rekening,
         status: "1",
         user_id: userAnggota.id,
+        nama,
+        tgl_lahir,
+        no_induk,
+        satuan_kerja,
+        golongan_pangkat,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        no_telp,
+        kota_pensiun,
+        pasien,
+        status_rawat,
+        rumah_sakit,
+        sakit,
+        nama_dokter,
+        tgl_masuk,
       };
       if (req.files) {
         if (req.files["surat_permohonan_bantuan_biaya"]) queryData.surat_permohonan_bantuan_biaya = serverUrl + req.files["surat_permohonan_bantuan_biaya"][0].path;
@@ -454,10 +509,38 @@ class ClaimDataController {
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_nilai_hidup.findOne({ where: { user_id: userAnggota.id } });
       if (validation) throw createError(400, "Anda sudah pernah membuat claim");
+      const {
+        nama,
+        tgl_lahir,
+        no_induk,
+        satuan_kerja,
+        golongan_pangkat,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        no_telp,
+        kota_pensiun,
+      } = req.body;
       let queryData = {
         no_rekening_bank: userAnggota.no_rekening,
         status: "1",
         user_id: userAnggota.id,
+        nama,
+        tgl_lahir,
+        no_induk,
+        satuan_kerja,
+        golongan_pangkat,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        no_telp,
+        kota_pensiun,
       };
       if (req.files) {
         if (req.files["permohonan_pensiunan"]) queryData.permohonan_pensiunan = serverUrl + req.files["permohonan_pensiunan"][0].path;

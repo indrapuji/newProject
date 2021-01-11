@@ -89,6 +89,51 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     bukti_tf: DataTypes.STRING,
+    nama: {
+      type: DataTypes.STRING
+    },
+    tgl_lahir: {
+      type: DataTypes.STRING
+    },
+    no_induk: {
+      type: DataTypes.STRING
+    },
+    satuan_kerja: {
+      type: DataTypes.STRING
+    },
+    golongan_pangkat: {
+      type: DataTypes.STRING
+    },
+    alamat: {
+      type: DataTypes.STRING
+    },
+    kelurahan: {
+      type: DataTypes.STRING
+    },
+    kecamatan: {
+      type: DataTypes.STRING
+    },
+    kota: {
+      type: DataTypes.STRING
+    },
+    kodepos: {
+      type: DataTypes.STRING
+    },
+    provinsi: {
+      type: DataTypes.STRING
+    },
+    no_telp: {
+      type: DataTypes.STRING
+    },
+    kota_pensiun: {
+      type: DataTypes.STRING
+    },
+    nama_alm: {
+      type: DataTypes.STRING
+    },
+    tgl_meninggal: {
+      type: DataTypes.STRING
+    },
   }, {
     sequelize,
     modelName: 'claim_kematian',
