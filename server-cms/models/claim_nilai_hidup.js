@@ -70,6 +70,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     bukti_tf: DataTypes.STRING,
+    lampiran: DataTypes.STRING,
     nama: DataTypes.STRING,
     tgl_lahir: DataTypes.STRING,
     no_induk: DataTypes.STRING,

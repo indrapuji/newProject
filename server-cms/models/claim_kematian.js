@@ -89,6 +89,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     bukti_tf: DataTypes.STRING,
+    lampiran: DataTypes.STRING,
     nama: {
       type: DataTypes.STRING
     },

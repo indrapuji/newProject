@@ -70,6 +70,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     bukti_tf: DataTypes.STRING,
+    lampiran: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'claim_perumahan',

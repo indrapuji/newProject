@@ -607,10 +607,38 @@ class ClaimDataController {
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_pendidikan.findOne({ where: { user_id: userAnggota.id } });
       if (validation) throw createError(400, "Anda sudah pernah membuat claim");
+      const {
+        nama,
+        tgl_lahir,
+        no_induk,
+        satuan_kerja,
+        golongan_pangkat,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        no_telp,
+        kota_pensiun,
+      } = req.body;
       let queryData = {
         no_rekening_bank: userAnggota.no_rekening,
         status: "1",
         user_id: userAnggota.id,
+        nama,
+        tgl_lahir,
+        no_induk,
+        satuan_kerja,
+        golongan_pangkat,
+        alamat,
+        kelurahan,
+        kecamatan,
+        kota,
+        kodepos,
+        provinsi,
+        no_telp,
+        kota_pensiun,
       };
       if (req.files) {
         if (req.files["data1"]) queryData.data1 = serverUrl + req.files["data1"][0].path;
