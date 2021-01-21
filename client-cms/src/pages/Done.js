@@ -61,7 +61,9 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>Histori Data Pengajuan Claim</h1>
+      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
+        Histori Data Pengajuan Claim
+      </h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         {!loading ? (
           <div style={{ marginBottom: 10 }}>
@@ -152,21 +154,44 @@ export default () => {
                     <td className="small">{FormatDate(file.pesan_claim.updatedAt)}</td>
                     {file.pesan_claim.claim_category === 'Kesehatan' && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/kesehatan/${file.id}`)}>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          onClick={() => history.push(`detail/kesehatan/${file.id}`)}
+                        >
                           Check
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Kematian' && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/kematian/${file.id}`)}>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          onClick={() => history.push(`detail/kematian/${file.id}`)}
+                        >
                           Check
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Nilai Hidup' && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/manfaat/${file.id}`)}>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          onClick={() => history.push(`detail/manfaat/${file.id}`)}
+                        >
+                          Check
+                        </Button>
+                      </td>
+                    )}
+                    {file.pesan_claim.claim_category === 'Pendidikan' && (
+                      <td>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          onClick={() => history.push(`detail/kacamata/${file.id}`)}
+                        >
                           Check
                         </Button>
                       </td>

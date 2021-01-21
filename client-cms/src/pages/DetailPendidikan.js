@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { Container, Form, Row, Col, Button, Spinner } from "react-bootstrap";
-import { motion } from "framer-motion";
-import axios from "axios";
-import Swal from "sweetalert2";
-import host from "../hooks/host";
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { Container, Form, Row, Col, Button, Spinner } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import host from '../hooks/host';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -12,7 +12,7 @@ export default () => {
   // const host = "http://128.199.238.147:3001";
 
   const { dataId } = useParams();
-  const [pesan, setPesan] = useState("Berkas Kurang Lengkap");
+  const [pesan, setPesan] = useState('Berkas Kurang Lengkap');
   const pageTransition = {
     init: {
       opacity: 0,
@@ -33,7 +33,7 @@ export default () => {
   const [loading, setLoading] = useState(true);
   const fetchApi = async () => {
     const { data } = await axios({
-      method: "GET",
+      method: 'GET',
       url: `${host}/data/claim-pendidikan/${dataId}`,
       headers: {
         token: localStorage.token,
@@ -46,20 +46,20 @@ export default () => {
     try {
       if (data) {
         await axios({
-          method: "POST",
+          method: 'POST',
           url: `${host}/data/pindah-status/pendidikan/${dataId}/${Number(data.status) + 1}`,
           headers: {
             token: localStorage.token,
           },
           data: { pesan },
         });
-        history.push("/claimpendidikan");
+        history.push('/claimpendidikan');
       }
     } catch (err) {
-      let msg = "";
+      let msg = '';
       if (err.response) {
         if (Array.isArray(err.response.data.msg)) {
-          msg = err.response.data.msg.join("<br>");
+          msg = err.response.data.msg.join('<br>');
         } else {
           msg = err.response.data.msg;
         }
@@ -69,8 +69,8 @@ export default () => {
         msg = err.message;
       }
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
+        icon: 'error',
+        title: 'Oops...',
         html: `${msg}`,
       });
     }
@@ -79,20 +79,20 @@ export default () => {
     try {
       if (data) {
         await axios({
-          method: "POST",
+          method: 'POST',
           url: `${host}/data/pindah-status/pendidikan/${dataId}/${Number(data.status) - 1}`,
           headers: {
             token: localStorage.token,
           },
           data: { pesan },
         });
-        history.push("/claimpendidikan");
+        history.push('/claimpendidikan');
       }
     } catch (err) {
-      let msg = "";
+      let msg = '';
       if (err.response) {
         if (Array.isArray(err.response.data.msg)) {
-          msg = err.response.data.msg.join("<br>");
+          msg = err.response.data.msg.join('<br>');
         } else {
           msg = err.response.data.msg;
         }
@@ -102,39 +102,47 @@ export default () => {
         msg = err.message;
       }
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
+        icon: 'error',
+        title: 'Oops...',
         html: `${msg}`,
       });
     }
   };
   function handdleCancel() {
-    history.push("/claimpendidikan");
+    history.push('/claimpendidikan');
   }
 
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       {/* {JSON.stringify(data)} */}
       {loading ? (
-        <div style={{ display: "flex", justifyContent: "center", marginTop: 100 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 100 }}>
           <Spinner animation="border" variant="success" />
         </div>
       ) : (
         <Container>
           <div style={{ marginTop: 50 }}>
-            <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Detail</p>
-            <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 30 }}>Pengajuan Claim Pendidikan</p>
+            <p style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 30 }}>Detail</p>
+            <p style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 30 }}>
+              Pengajuan Bantuan Kacamata{' '}
+            </p>
           </div>
           <div style={{ marginBottom: 50 }}>
             <div style={{ marginBottom: 50 }}>
-              <h3 style={{ fontWeight: "bold", marginBottom: 20 }}>Data Diri</h3>
+              <h3 style={{ fontWeight: 'bold', marginBottom: 20 }}>Data Diri</h3>
               <Form>
                 <Form.Group as={Row}>
                   <Form.Label column sm="2">
                     Nama
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Nama" name="nama" value={data.user_anggotum.nama} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="Nama"
+                      name="nama"
+                      value={data.user_anggotum.nama}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -142,7 +150,13 @@ export default () => {
                     Nomor Induk
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="NIP / NPP / NIK" name="no_induk" value={data.user_anggotum.no_induk} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="NIP / NPP / NIK"
+                      name="no_induk"
+                      value={data.user_anggotum.no_induk}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -150,7 +164,13 @@ export default () => {
                     Alamat Email
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="email" placeholder="Alamat Email" name="email" value={data.user_anggotum.email} disabled={true} />
+                    <Form.Control
+                      type="email"
+                      placeholder="Alamat Email"
+                      name="email"
+                      value={data.user_anggotum.email}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -158,7 +178,12 @@ export default () => {
                     Tanggal Lahir
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="date" name="tgl_lahir" value={data.user_anggotum.tgl_lahir} disabled={true} />
+                    <Form.Control
+                      type="date"
+                      name="tgl_lahir"
+                      value={data.user_anggotum.tgl_lahir}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -166,7 +191,13 @@ export default () => {
                     No KTP
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No KTP" name="no_ktp" value={data.user_anggotum.no_ktp} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No KTP"
+                      name="no_ktp"
+                      value={data.user_anggotum.no_ktp}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -174,7 +205,13 @@ export default () => {
                     No BPJS
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No BPJS" name="no_bpjs" value={data.user_anggotum.no_bpjs} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No BPJS"
+                      name="no_bpjs"
+                      value={data.user_anggotum.no_bpjs}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -182,13 +219,23 @@ export default () => {
                     Nama Bank
                   </Form.Label>
                   <Col xs={4}>
-                    <Form.Control placeholder="Nama Bank" name="nama_bank" value={data.user_anggotum.nama_bank} disabled={true} />
+                    <Form.Control
+                      placeholder="Nama Bank"
+                      name="nama_bank"
+                      value={data.user_anggotum.nama_bank}
+                      disabled={true}
+                    />
                   </Col>
                   <Form.Label column sm="1.5">
                     No Rekening
                   </Form.Label>
                   <Col xs={4}>
-                    <Form.Control placeholder="No Rekening" name="no_rekening" value={data.user_anggotum.no_rekening} disabled={true} />
+                    <Form.Control
+                      placeholder="No Rekening"
+                      name="no_rekening"
+                      value={data.user_anggotum.no_rekening}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -196,10 +243,20 @@ export default () => {
                     Satuan Kerja
                   </Form.Label>
                   <Col xs={5}>
-                    <Form.Control placeholder="Satuan Kerja Saat Pensiun" name="satuan_kerja" value={data.user_anggotum.satuan_kerja} disabled={true} />
+                    <Form.Control
+                      placeholder="Satuan Kerja Saat Pensiun"
+                      name="satuan_kerja"
+                      value={data.user_anggotum.satuan_kerja}
+                      disabled={true}
+                    />
                   </Col>
                   <Col>
-                    <Form.Control placeholder="Golongan Pangkat Saat Pensiun" name="golongan_pangkat" value={data.user_anggotum.golongan_pangkat} disabled={true} />
+                    <Form.Control
+                      placeholder="Golongan Pangkat Saat Pensiun"
+                      name="golongan_pangkat"
+                      value={data.user_anggotum.golongan_pangkat}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -207,7 +264,13 @@ export default () => {
                     No Telp Rumah
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No Telp Rumah" name="no_telp" value={data.user_anggotum.no_telp} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No Telp Rumah"
+                      name="no_telp"
+                      value={data.user_anggotum.no_telp}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -215,37 +278,76 @@ export default () => {
                     Alamat
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Alamat" name="alamat" value={data.user_anggotum.alamat} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="Alamat"
+                      name="alamat"
+                      value={data.user_anggotum.alamat}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
                   <Form.Label column sm="2"></Form.Label>
                   <Col xs={5}>
-                    <Form.Control placeholder="Kelurahan / Desa" name="kelurahan" value={data.user_anggotum.kelurahan} disabled={true} />
+                    <Form.Control
+                      placeholder="Kelurahan / Desa"
+                      name="kelurahan"
+                      value={data.user_anggotum.kelurahan}
+                      disabled={true}
+                    />
                   </Col>
                   <Col>
-                    <Form.Control placeholder="Kecamatan" name="kecamatan" value={data.user_anggotum.kecamatan} disabled={true} />
+                    <Form.Control
+                      placeholder="Kecamatan"
+                      name="kecamatan"
+                      value={data.user_anggotum.kecamatan}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
                   <Form.Label column sm="2"></Form.Label>
                   <Col xs={4}>
-                    <Form.Control placeholder="Kota / Kabupaten" name="kota" value={data.user_anggotum.kota} disabled={true} />
+                    <Form.Control
+                      placeholder="Kota / Kabupaten"
+                      name="kota"
+                      value={data.user_anggotum.kota}
+                      disabled={true}
+                    />
                   </Col>
                   <Col>
-                    <Form.Control placeholder="Kodepos" name="kodepos" value={data.user_anggotum.kodepos} disabled={true} />
+                    <Form.Control
+                      placeholder="Kodepos"
+                      name="kodepos"
+                      value={data.user_anggotum.kodepos}
+                      disabled={true}
+                    />
                   </Col>
                   <Col>
-                    <Form.Control placeholder="Provinsi" name="provinsi" value={data.user_anggotum.provinsi} disabled={true} />
+                    <Form.Control
+                      placeholder="Provinsi"
+                      name="provinsi"
+                      value={data.user_anggotum.provinsi}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
-                <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 1</h3>
+                <h3 style={{ fontWeight: 'bold', marginBottom: 20, marginTop: 40 }}>
+                  Data Pendukung 1
+                </h3>
                 <Form.Group as={Row}>
                   <Form.Label column sm="2">
                     Nama Pasangan
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Nama" name="nama_pasangan" value={data.user_anggotum.nama_pasangan} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="Nama"
+                      name="nama_pasangan"
+                      value={data.user_anggotum.nama_pasangan}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -253,7 +355,12 @@ export default () => {
                     Tgl Lahir Pasangan
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="date" name="tgl_lahir_pasangan" value={data.user_anggotum.tgl_lahir_pasangan} disabled={true} />
+                    <Form.Control
+                      type="date"
+                      name="tgl_lahir_pasangan"
+                      value={data.user_anggotum.tgl_lahir_pasangan}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -261,7 +368,13 @@ export default () => {
                     No Telp Pasangan
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No Telp Rumah" name="no_telp_pasangan" value={data.user_anggotum.no_telp_pasangan} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No Telp Rumah"
+                      name="no_telp_pasangan"
+                      value={data.user_anggotum.no_telp_pasangan}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -269,7 +382,13 @@ export default () => {
                     No KTP Pasangan
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No KTP" name="no_ktp_pasangan" value={data.user_anggotum.no_ktp_pasangan} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No KTP"
+                      name="no_ktp_pasangan"
+                      value={data.user_anggotum.no_ktp_pasangan}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -277,7 +396,13 @@ export default () => {
                     No BPJS Pasangan
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No BPJS" name="no_bpjs_pasangan" value={data.user_anggotum.no_bpjs_pasangan} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No BPJS"
+                      name="no_bpjs_pasangan"
+                      value={data.user_anggotum.no_bpjs_pasangan}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -285,19 +410,37 @@ export default () => {
                     Data Bank Pasangan
                   </Form.Label>
                   <Col xs={3}>
-                    <Form.Control placeholder="Nama Bank" name="nama_bank_pasangan" value={data.user_anggotum.nama_bank_pasangan} disabled={true} />
+                    <Form.Control
+                      placeholder="Nama Bank"
+                      name="nama_bank_pasangan"
+                      value={data.user_anggotum.nama_bank_pasangan}
+                      disabled={true}
+                    />
                   </Col>
                   <Col>
-                    <Form.Control placeholder="No Rekening" name="no_rekening_pasangan" value={data.user_anggotum.no_rekening_pasangan} disabled={true} />
+                    <Form.Control
+                      placeholder="No Rekening"
+                      name="no_rekening_pasangan"
+                      value={data.user_anggotum.no_rekening_pasangan}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
-                <h3 style={{ fontWeight: "bold", marginBottom: 20, marginTop: 40 }}>Data Pendukung 2</h3>
+                <h3 style={{ fontWeight: 'bold', marginBottom: 20, marginTop: 40 }}>
+                  Data Pendukung 2
+                </h3>
                 <Form.Group as={Row}>
                   <Form.Label column sm="2">
                     Nama Anak
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="Nama" name="nama_anak" value={data.user_anggotum.nama_anak} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="Nama"
+                      name="nama_anak"
+                      value={data.user_anggotum.nama_anak}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -305,7 +448,12 @@ export default () => {
                     Tanggal Lahir Anak
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="date" name="tgl_lahir_anak" value={data.user_anggotum.tgl_lahir_anak} disabled={true} />
+                    <Form.Control
+                      type="date"
+                      name="tgl_lahir_anak"
+                      value={data.user_anggotum.tgl_lahir_anak}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -313,7 +461,13 @@ export default () => {
                     No Telp Anak
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No Telp Rumah" name="no_tlp_anak" value={data.user_anggotum.no_tlp_anak} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No Telp Rumah"
+                      name="no_tlp_anak"
+                      value={data.user_anggotum.no_tlp_anak}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -321,7 +475,13 @@ export default () => {
                     No KTP Anak
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No KTP" name="no_ktp_anak" value={data.user_anggotum.no_ktp_anak} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No KTP"
+                      name="no_ktp_anak"
+                      value={data.user_anggotum.no_ktp_anak}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -329,7 +489,13 @@ export default () => {
                     No BPJS Anak
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Control type="text" placeholder="No BPJS" name="no_bpjs_anak" value={data.user_anggotum.no_bpjs_anak} disabled={true} />
+                    <Form.Control
+                      type="text"
+                      placeholder="No BPJS"
+                      name="no_bpjs_anak"
+                      value={data.user_anggotum.no_bpjs_anak}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -337,10 +503,20 @@ export default () => {
                     Data Bank Anak
                   </Form.Label>
                   <Col xs={3}>
-                    <Form.Control placeholder="Nama Bank" name="nama_bank_anak" value={data.user_anggotum.nama_bank_anak} disabled={true} />
+                    <Form.Control
+                      placeholder="Nama Bank"
+                      name="nama_bank_anak"
+                      value={data.user_anggotum.nama_bank_anak}
+                      disabled={true}
+                    />
                   </Col>
                   <Col>
-                    <Form.Control placeholder="No Rekening" name="no_rekening_anak" value={data.user_anggotum.no_rekening_anak} disabled={true} />
+                    <Form.Control
+                      placeholder="No Rekening"
+                      name="no_rekening_anak"
+                      value={data.user_anggotum.no_rekening_anak}
+                      disabled={true}
+                    />
                   </Col>
                 </Form.Group>
               </Form>
@@ -412,7 +588,12 @@ export default () => {
                   Catatan
                 </Form.Label>
                 <Col sm="10">
-                <Form.Control as="textarea" placeholder="Catatan" rows="3" onChange={(e) => setPesan(e.target.value)} />
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Catatan"
+                    rows="3"
+                    onChange={(e) => setPesan(e.target.value)}
+                  />
                 </Col>
               </Form.Group>
               <Row style={{ marginBottom: 20 }}>
