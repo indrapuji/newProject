@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 // import { IoIosLogOut } from "react-icons/io";
-import { Button } from "react-bootstrap";
-import axios from "axios";
-import Swal from "sweetalert2";
-import { useHistory } from "react-router-dom";
-import host from '../hooks/host'
+import { Button } from 'react-bootstrap';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
+import host from '../hooks/host';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -25,8 +25,8 @@ export default () => {
     },
   };
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const onFormChange = (e) => {
     e.preventDefault();
@@ -40,18 +40,19 @@ export default () => {
     try {
       e.preventDefault();
       const { data } = await axios({
-        method: "POST",
+        method: 'POST',
         url: `${host}/users/login/admin`,
         data: formData,
       });
       console.log(data);
-      localStorage.setItem("token", data.access_token);
-      history.push("/");
+      localStorage.setItem('token', data.access_token);
+      console.log(data.access_token);
+      history.push('/');
     } catch (err) {
-      let msg = "";
+      let msg = '';
       if (err.response) {
         if (Array.isArray(err.response.data.msg)) {
-          msg = err.response.data.msg.join("<br>");
+          msg = err.response.data.msg.join('<br>');
         } else {
           msg = err.response.data.msg;
         }
@@ -61,8 +62,8 @@ export default () => {
         msg = err.message;
       }
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
+        icon: 'error',
+        title: 'Oops...',
         html: `${msg}`,
       });
     }
@@ -77,7 +78,7 @@ export default () => {
           <form onSubmit={onFormSubmit}>
             <input type="text" id="login" className="fadeIn second textInput" name="email" placeholder="email" onChange={onFormChange} />
             <input type="password" id="password" className="fadeIn third textInput" name="password" placeholder="password" onChange={onFormChange} />
-            <div style={{ marginTop: "3%", marginBottom: "3%", marginLeft: "7%", marginRight: "7%" }}>
+            <div style={{ marginTop: '3%', marginBottom: '3%', marginLeft: '7%', marginRight: '7%' }}>
               <Button className="fadeIn fourth" block type="submit">
                 Login
               </Button>

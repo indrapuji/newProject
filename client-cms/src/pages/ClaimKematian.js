@@ -7,6 +7,7 @@ import axios from 'axios';
 import ReactExport from 'react-export-excel';
 import Swal from 'sweetalert2';
 import host from '../hooks/host';
+import convertData from '../hooks/convertData';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -23,6 +24,7 @@ export default () => {
     fetchApi();
   }, []);
   const [data, setData] = useState([]);
+  const [downloadData, setDownloadData] = useState([]);
   const [loading, setLoading] = useState(true);
   const fetchApi = async () => {
     const { data } = await axios({
@@ -33,6 +35,7 @@ export default () => {
       },
     });
     setData(data);
+    setDownloadData(convertData(data, 'kematian'));
     setLoading(false);
   };
   const pageTransition = {
@@ -71,7 +74,9 @@ export default () => {
               }
               filename="Pengajuan Claim Kematian"
             >
-              <ExcelSheet data={data} name="Claim Kematian">
+              <ExcelSheet data={downloadData} name="Claim Kematian">
+                <ExcelColumn label="Nama" value="nama" />
+                <ExcelColumn label="No Induk" value="no_induk" />
                 <ExcelColumn label="Surat Permohonan Ahli Waris" value="permohonan_ahli_waris" />
                 <ExcelColumn label="Surat Keterangan Meninggal dari Lurah" value="keterangan_menginggal_dunia_lurah" />
                 <ExcelColumn label="Surat Keterangan Meninggal dari Rumah Sakit" value="keterangan_meninggal_dunia_rumah_sakit" />

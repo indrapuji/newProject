@@ -1,15 +1,33 @@
-import React, { useEffect } from "react";
-import { Switch, Route, useLocation, useHistory } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { Home, Detail, FormLogin, ClaimKematian, ClaimKesehatan, ClaimPerumahan, ClaimPendidikan, ClaimManfaat, Approve, Done, UploadBukti } from "./pages";
-import { DetailKematian, DetailKesehatan, DetailManfaat, DetailPendidikan, DetailPerumahan } from "./pages";
-import "./App.css";
+import React, { useEffect } from 'react';
+import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import {
+  Home,
+  Detail,
+  FormLogin,
+  ClaimKematian,
+  ClaimKesehatan,
+  ClaimPerumahan,
+  ClaimPendidikan,
+  ClaimManfaat,
+  Approve,
+  Done,
+  UploadBukti,
+} from './pages';
+import {
+  DetailKematian,
+  DetailKesehatan,
+  DetailManfaat,
+  DetailPendidikan,
+  DetailPerumahan,
+} from './pages';
+import './App.css';
 
 function App() {
   const location = useLocation();
   const history = useHistory();
   useEffect(() => {
-    if (!localStorage.token) history.push("/login");
+    if (!localStorage.token) history.push('/login');
     // eslint-disable-next-line
   }, []);
   return (
@@ -28,7 +46,7 @@ function App() {
           <Route exact path="/claimperumahan">
             <ClaimPerumahan />
           </Route>
-          <Route exact path="/claimpendidikan">
+          <Route exact path="/claimkacamata">
             <ClaimPendidikan />
           </Route>
           <Route exact path="/claimmanfaat">
@@ -52,7 +70,7 @@ function App() {
           <Route exact path="/detail/manfaat/:dataId">
             <DetailManfaat />
           </Route>
-          <Route exact path="/detail/pendidikan/:dataId">
+          <Route exact path="/detail/kacamata/:dataId">
             <DetailPendidikan />
           </Route>
           <Route exact path="/detail/perumahan/:dataId">
@@ -67,7 +85,7 @@ function App() {
           <Route exact path="/upload/nilai-hidup/:nama/:dataId">
             <UploadBukti />
           </Route>
-          <Route exact path="/upload/pendidikan/:nama/:dataId">
+          <Route exact path="/upload/kacamata/:nama/:dataId">
             <UploadBukti />
           </Route>
           <Route exact path="/upload/perumahan/:nama/:dataId">

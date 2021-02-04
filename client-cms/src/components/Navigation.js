@@ -43,10 +43,10 @@ export default (props) => {
           </Nav.Link>
           {/* <Nav.Link>
             <Link to="/claimperumahan">Perumahan</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="/claimpendidikan">Pendidikan</Link>
           </Nav.Link> */}
+          <Nav.Link>
+            <Link to="/claimkacamata">Kacamata</Link>
+          </Nav.Link>
         </Nav>
         <Nav.Link>
           <Link to="/approve">Approve</Link>
