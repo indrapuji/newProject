@@ -373,7 +373,19 @@ class ClaimDataController {
       const { nama, tgl_lahir, no_induk, satuan_kerja, golongan_pangkat, alamat, kelurahan, kecamatan, kota, kodepos, provinsi, no_telp, kota_pensiun, nama_alm, tgl_meninggal } = req.body;
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_kematian.findOne({ where: { user_id: userAnggota.id } });
-      if (validation) throw createError(400, "Anda sudah pernah membuat claim");
+      if (validation) {
+        await claim_kematian.destroy({
+          where: {
+            id: validation.id
+          }
+        });
+        await pesan_claim.destroy({
+          where: {
+            claim_id: validation.id,
+            claim_category: "Kematian",
+          }
+        });
+      }
       let queryData = {
         no_rekening_bank: userAnggota.no_rekening,
         status: "1",
@@ -452,7 +464,19 @@ class ClaimDataController {
         nama_dokter,
         tgl_masuk,
       } = req.body;
-      if (validation) throw createError(400, "Anda sudah pernah membuat claim");
+      if (validation) {
+        await claim_kesehatan.destroy({
+          where: {
+            id: validation.id
+          }
+        });
+        await pesan_claim.destroy({
+          where: {
+            claim_id: validation.id,
+            claim_category: "Kesehatan",
+          }
+        });
+      }
       let queryData = {
         no_rekening_bank: userAnggota.no_rekening,
         status: "1",
@@ -508,7 +532,19 @@ class ClaimDataController {
       const { idAnggota } = req.UserData;
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_nilai_hidup.findOne({ where: { user_id: userAnggota.id } });
-      if (validation) throw createError(400, "Anda sudah pernah membuat claim");
+      if (validation) {
+        await claim_nilai_hidup.destroy({
+          where: {
+            id: validation.id
+          }
+        });
+        await pesan_claim.destroy({
+          where: {
+            claim_id: validation.id,
+            claim_category: "Nilai Hidup",
+          }
+        });
+      }
       const {
         nama,
         tgl_lahir,
@@ -571,7 +607,19 @@ class ClaimDataController {
       const { idAnggota } = req.UserData;
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_perumahan.findOne({ where: { user_id: userAnggota.id } });
-      if (validation) throw createError(400, "Anda sudah pernah membuat claim");
+      if (validation) {
+        await claim_perumahan.destroy({
+          where: {
+            id: validation.id
+          }
+        });
+        await pesan_claim.destroy({
+          where: {
+            claim_id: validation.id,
+            claim_category: "Perumahan",
+          }
+        });
+      }
       let queryData = {
         no_rekening_bank: userAnggota.no_rekening,
         status: "1",
@@ -606,7 +654,19 @@ class ClaimDataController {
       const { idAnggota } = req.UserData;
       const userAnggota = await user_anggota.findOne({ where: { id: idAnggota } });
       const validation = await claim_pendidikan.findOne({ where: { user_id: userAnggota.id } });
-      if (validation) throw createError(400, "Anda sudah pernah membuat claim");
+      if (validation) {
+        await claim_pendidikan.destroy({
+          where: {
+            id: validation.id
+          }
+        });
+        await pesan_claim.destroy({
+          where: {
+            claim_id: validation.id,
+            claim_category: "Pendidikan",
+          }
+        });
+      }
       const {
         nama,
         tgl_lahir,
