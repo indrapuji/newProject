@@ -79,7 +79,7 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       {/* {JSON.stringify(data)} */}
       <Container>
-        <h1 style={{ textAlign: 'center', marginTop: 20, marginBottom: 20 }}>Pengajuan Claim {path}</h1>
+        <h1 style={{ textAlign: 'center', marginTop: 20, marginBottom: 20 }}>Pengajuan Claim {path === 'pendidikan' ? 'kacamata' : path}</h1>
 
         <Form onSubmit={onFormSubmit}>
           <Form.Group>
