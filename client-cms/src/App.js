@@ -14,13 +14,7 @@ import {
   Done,
   UploadBukti,
 } from './pages';
-import {
-  DetailKematian,
-  DetailKesehatan,
-  DetailManfaat,
-  DetailPendidikan,
-  DetailPerumahan,
-} from './pages';
+import { DetailKematian, DetailKesehatan, DetailManfaat, DetailPendidikan, DetailPerumahan } from './pages';
 import './App.css';
 
 function App() {
@@ -85,7 +79,7 @@ function App() {
           <Route exact path="/upload/nilai-hidup/:nama/:dataId">
             <UploadBukti />
           </Route>
-          <Route exact path="/upload/kacamata/:nama/:dataId">
+          <Route exact path="/upload/pendidikan/:nama/:dataId">
             <UploadBukti />
           </Route>
           <Route exact path="/upload/perumahan/:nama/:dataId">

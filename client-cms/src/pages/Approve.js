@@ -171,7 +171,7 @@ export default () => {
                     )}
                     {file.pesan_claim.claim_category === 'Pendidikan' && (
                       <td>
-                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kacamata/${file.user_anggotum.nama}/${file.id}`)}>
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/pendidikan/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
