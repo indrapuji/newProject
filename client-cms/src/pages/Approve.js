@@ -6,8 +6,8 @@ import Navigation from '../components/Navigation';
 import axios from 'axios';
 import FormatDate from '../hooks/FormatDate';
 import host from '../hooks/host';
-import Swal from 'sweetalert2';
-import ReactExport from 'react-export-excel';
+// import Swal from 'sweetalert2';
+// import ReactExport from 'react-export-excel';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -16,9 +16,9 @@ export default () => {
 
   const history = useHistory();
   const onActive = '/approve';
-  const ExcelFile = ReactExport.ExcelFile;
-  const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
-  const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
+  // const ExcelFile = ReactExport.ExcelFile;
+  // const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+  // const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
   useEffect(() => {
     fetchApi();
@@ -47,23 +47,21 @@ export default () => {
       opacity: 0,
     },
   };
-  function handdleApprove() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Approve data downloaded',
-      showConfirmButton: false,
-      timer: 1500,
-    });
-  }
+  // function handdleApprove() {
+  //   Swal.fire({
+  //     icon: 'success',
+  //     title: 'Approve data downloaded',
+  //     showConfirmButton: false,
+  //     timer: 1500,
+  //   });
+  // }
   return (
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
-        Data Pengajuan Claim Yang Telah Disetujui
-      </h1>
+      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>Data Pengajuan Claim Yang Telah Disetujui</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
-        {!loading ? (
+        {/* {!loading ? (
           <div style={{ marginBottom: 10 }}>
             <ExcelFile
               element={
@@ -108,7 +106,7 @@ export default () => {
               </ExcelSheet>
             </ExcelFile>
           </div>
-        ) : null}
+        ) : null} */}
         <Table striped bordered hover responsive>
           <thead>
             <tr>
@@ -148,75 +146,39 @@ export default () => {
                     <td className="small">{file.user_anggotum.no_induk}</td>
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
-                    <td className="small">
-                      {file.pesan_claim.claim_category === 'Pendidikan'
-                        ? 'Kacamata'
-                        : file.pesan_claim.claim_category}
-                    </td>
+                    <td className="small">{file.pesan_claim.claim_category === 'Pendidikan' ? 'Kacamata' : file.pesan_claim.claim_category}</td>
                     <td className="small">{FormatDate(file.pesan_claim.updatedAt)}</td>
                     {file.pesan_claim.claim_category === 'Kematian' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() =>
-                            history.push(`/upload/kematian/${file.user_anggotum.nama}/${file.id}`)
-                          }
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kematian/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Kesehatan' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() =>
-                            history.push(`/upload/kesehatan/${file.user_anggotum.nama}/${file.id}`)
-                          }
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kesehatan/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Nilai Hidup' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() =>
-                            history.push(
-                              `/upload/nilai-hidup/${file.user_anggotum.nama}/${file.id}`
-                            )
-                          }
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/nilai-hidup/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Pendidikan' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() =>
-                            history.push(`/upload/kacamata/${file.user_anggotum.nama}/${file.id}`)
-                          }
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/kacamata/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Perumahan' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() =>
-                            history.push(`/upload/perumahan/${file.user_anggotum.nama}/${file.id}`)
-                          }
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`/upload/perumahan/${file.user_anggotum.nama}/${file.id}`)}>
                           Upload Bukti
                         </Button>
                       </td>

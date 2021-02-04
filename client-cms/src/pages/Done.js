@@ -8,6 +8,7 @@ import FormatDate from '../hooks/FormatDate';
 import host from '../hooks/host';
 import Swal from 'sweetalert2';
 import ReactExport from 'react-export-excel';
+import convertData from '../hooks/convertData';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -26,6 +27,7 @@ export default () => {
     fetchApi();
   }, []);
   const [data, setData] = useState([]);
+  const [downloadData, setDownloadData] = useState([]);
   const [loading, setLoading] = useState(true);
   const fetchApi = async () => {
     const { data } = await axios({
@@ -36,6 +38,7 @@ export default () => {
       },
     });
     setData(data);
+    setDownloadData(convertData(data, 'done'));
     setLoading(false);
   };
   const pageTransition = {
@@ -61,9 +64,7 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
-        Histori Data Pengajuan Claim
-      </h1>
+      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>Histori Data Pengajuan Claim</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         {!loading ? (
           <div style={{ marginBottom: 10 }}>
@@ -75,9 +76,10 @@ export default () => {
               }
               filename="History Pengajuan Claim"
             >
-              <ExcelSheet data={data} name="Data Peserta">
+              <ExcelSheet data={downloadData} name="Data Peserta">
                 <ExcelColumn label="Nama" value="nama" />
                 <ExcelColumn label="No Induk" value="no_induk" />
+                <ExcelColumn label="Kategori Claim" value="claim_category" />
                 <ExcelColumn label="Alamat Email" value="email" />
                 <ExcelColumn label="Tanggal Lahir" value="tgl_lahir" />
                 <ExcelColumn label="No KTP" value="no_ktp" />
@@ -107,6 +109,23 @@ export default () => {
                 <ExcelColumn label="No BPJS Anak" value="no_bpjs_anak" />
                 <ExcelColumn label="Nama Bank Anak" value="nama_bank_anak" />
                 <ExcelColumn label="No Rekening Anak" value="no_rekening_anak" />
+                <ExcelColumn label="Fotocopy KTP" value="data1" />
+                <ExcelColumn label="Fotocopy Kartu Peserta" value="data2" />
+                <ExcelColumn label="Fotocopy SK Pensiun" value="data3" />
+                <ExcelColumn label="Foto selfie dangan memegang KTP" value="data4" />
+                <ExcelColumn label="Permohonan Pensiunan" value="permohonan_pensiunan" />
+                <ExcelColumn label="Pernyataan Dari Pensiunan" value="pernyataan_dari_pensiunan" />
+                <ExcelColumn label="Fotocopi KP" value="fotokopi_kp" />
+                <ExcelColumn label="Fotocopi SK Pensiun" value="fotokopi_sk_pensiun" />
+                <ExcelColumn label="Surat Permohonan Bantuan Biaya" value="surat_permohonan_bantuan_biaya" />
+                <ExcelColumn label="Kuitansi RS" value="kuitansi_asli_rs" />
+                <ExcelColumn label="Surat Keterangan RS" value="surat_keterangan_rs" />
+                <ExcelColumn label="Surat Permohonan Ahli Waris" value="permohonan_ahli_waris" />
+                <ExcelColumn label="Surat Keterangan Meninggal dari Lurah" value="keterangan_menginggal_dunia_lurah" />
+                <ExcelColumn label="Surat Keterangan Meninggal dari Rumah Sakit" value="keterangan_meninggal_dunia_rumah_sakit" />
+                <ExcelColumn label="Surat Keterangan dari Kepolisian" value="keterangan_kepolisian" />
+                <ExcelColumn label="Fotokopi KK" value="fotokopi_kk" />
+                <ExcelColumn label="Fotocopi SK Pengangkatan" value="fotokopi_sk_pengangkatan" />
               </ExcelSheet>
             </ExcelFile>
           </div>
@@ -154,44 +173,28 @@ export default () => {
                     <td className="small">{FormatDate(file.pesan_claim.updatedAt)}</td>
                     {file.pesan_claim.claim_category === 'Kesehatan' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() => history.push(`detail/kesehatan/${file.id}`)}
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/kesehatan/${file.id}`)}>
                           Check
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Kematian' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() => history.push(`detail/kematian/${file.id}`)}
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/kematian/${file.id}`)}>
                           Check
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Nilai Hidup' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() => history.push(`detail/manfaat/${file.id}`)}
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/manfaat/${file.id}`)}>
                           Check
                         </Button>
                       </td>
                     )}
                     {file.pesan_claim.claim_category === 'Pendidikan' && (
                       <td>
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          onClick={() => history.push(`detail/kacamata/${file.id}`)}
-                        >
+                        <Button variant="primary" size="sm" onClick={() => history.push(`detail/kacamata/${file.id}`)}>
                           Check
                         </Button>
                       </td>

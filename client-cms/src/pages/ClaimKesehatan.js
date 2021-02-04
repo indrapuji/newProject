@@ -7,6 +7,7 @@ import axios from 'axios';
 import host from '../hooks/host';
 import ReactExport from 'react-export-excel';
 import Swal from 'sweetalert2';
+import convertData from '../hooks/convertData';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -23,6 +24,7 @@ export default () => {
     fetchApi();
   }, []);
   const [data, setData] = useState([]);
+  const [downloadData, setDownloadData] = useState([]);
   const [loading, setLoading] = useState(true);
   const fetchApi = async () => {
     const { data } = await axios({
@@ -33,6 +35,7 @@ export default () => {
       },
     });
     setData(data);
+    setDownloadData(convertData(data, 'kesehatan'));
     setLoading(false);
   };
   const pageTransition = {
@@ -71,7 +74,9 @@ export default () => {
               }
               filename="Pengajuan Claim Kesehatan"
             >
-              <ExcelSheet data={data} name="Claim Kesehatan">
+              <ExcelSheet data={downloadData} name="Claim Kesehatan">
+                <ExcelColumn label="Nama" value="nama" />
+                <ExcelColumn label="No Induk" value="no_induk" />
                 <ExcelColumn label="Surat Permohonan Bantuan Biaya" value="surat_permohonan_bantuan_biaya" />
                 <ExcelColumn label="Kuitansi RS" value="kuitansi_asli_rs" />
                 <ExcelColumn label="Surat Keterangan RS" value="surat_keterangan_rs" />

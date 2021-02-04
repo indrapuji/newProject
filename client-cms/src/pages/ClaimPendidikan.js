@@ -7,6 +7,7 @@ import axios from 'axios';
 import host from '../hooks/host';
 import ReactExport from 'react-export-excel';
 import Swal from 'sweetalert2';
+import convertData from '../hooks/convertData';
 
 export default () => {
   // const host = "http://localhost:3001";
@@ -23,6 +24,7 @@ export default () => {
     fetchApi();
   }, []);
   const [data, setData] = useState([]);
+  const [downloadData, setDownloadData] = useState([]);
   const [loading, setLoading] = useState(true);
   const fetchApi = async () => {
     const { data } = await axios({
@@ -33,6 +35,7 @@ export default () => {
       },
     });
     setData(data);
+    setDownloadData(convertData(data, 'kacamata'));
     setLoading(false);
   };
   const pageTransition = {
@@ -59,9 +62,7 @@ export default () => {
     <motion.div initial="init" animate="in" exit="out" variants={pageTransition}>
       <Navigation activePath={onActive} />
       {/* {JSON.stringify(data)} */}
-      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
-        Data Pengajuan Bantuan Kacamata
-      </h1>
+      <h1 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>Data Pengajuan Bantuan Kacamata</h1>
       <div style={{ marginLeft: 10, marginRight: 10 }}>
         {!loading ? (
           <div style={{ marginBottom: 10 }}>
@@ -73,7 +74,9 @@ export default () => {
               }
               filename="Pengajuan Bantuan Kacamata"
             >
-              <ExcelSheet data={data} name="Claim Kacamata">
+              <ExcelSheet data={downloadData} name="Claim Kacamata">
+                <ExcelColumn label="Nama" value="nama" />
+                <ExcelColumn label="No Induk" value="no_induk" />
                 <ExcelColumn label="Fotocopy KTP" value="data1" />
                 <ExcelColumn label="Fotocopy Kartu Peserta" value="data2" />
                 <ExcelColumn label="Fotocopy SK Pensiun" value="data3" />
@@ -120,11 +123,7 @@ export default () => {
                     <td className="small">{file.user_anggotum.satuan_kerja}</td>
                     <td className="small">{file.user_anggotum.golongan_pangkat}</td>
                     <td>
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        onClick={() => history.push(`detail/kacamata/${file.id}`)}
-                      >
+                      <Button variant="primary" size="sm" onClick={() => history.push(`detail/kacamata/${file.id}`)}>
                         Check
                       </Button>
                     </td>

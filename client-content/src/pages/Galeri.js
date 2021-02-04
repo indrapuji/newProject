@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import host from "../helpers/host";
-import { Card, Table, Button, Modal, Form, Row, Col, Spinner } from "react-bootstrap";
-import Sidebar from "../components/Sidebar";
-import axios from "axios";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from 'react';
+import host from '../helpers/host';
+import { Card, Table, Button, Modal, Form, Row, Col, Spinner } from 'react-bootstrap';
+import Sidebar from '../components/Sidebar';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default function Galeri() {
   const [show, setShow] = useState(false);
@@ -17,7 +17,7 @@ export default function Galeri() {
 
   const fetchApi = async () => {
     const { data } = await axios({
-      method: "GET",
+      method: 'GET',
       url: `${host}/content`,
       headers: {
         token: localStorage.token,
@@ -29,16 +29,16 @@ export default function Galeri() {
 
   useEffect(() => {
     if (file) {
-      const newFiles = file.filter((x) => x.category === "galeri");
+      const newFiles = file.filter((x) => x.category === 'galeri');
       setFiltered(newFiles);
     }
   }, [file]);
 
   const [data, setData] = useState({
-    category: "galeri",
-    title: "",
-    image_url: "",
-    text: "",
+    category: 'galeri',
+    title: '',
+    image_url: '',
+    text: '',
     status: 1,
   });
 
@@ -66,36 +66,37 @@ export default function Galeri() {
       formData.append(`${key}`, data[key]);
     }
     axios({
-      method: "POST",
+      method: 'POST',
       url: `${host}/content/create`,
       data: formData,
       headers: {
-        token: localStorage.getItem("token"),
-        "content-type": "multipart/form-data",
+        token: localStorage.getItem('token'),
+        'content-type': 'multipart/form-data',
       },
     })
       .then(({ data }) => {
         console.log(data);
         Swal.fire({
-          icon: "success",
-          title: "Success",
+          icon: 'success',
+          title: 'Success',
           text: `Data Recorded`,
           showConfirmButton: false,
           timer: 1500,
         });
         setShow(false);
+        fetchApi();
       })
       .catch((error) => {
         if (error.response) {
           Swal.fire({
-            icon: "error",
-            title: "Error",
+            icon: 'error',
+            title: 'Error',
             text: `${error.response.data.message}`,
           });
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
       });
   };
@@ -124,7 +125,7 @@ export default function Galeri() {
             {loading ? (
               <tbody>
                 <tr>
-                  <td colSpan="6" className="small" style={{ textAlign: "center" }}>
+                  <td colSpan="6" className="small" style={{ textAlign: 'center' }}>
                     <Spinner animation="border" variant="success" />
                   </td>
                 </tr>
@@ -132,7 +133,7 @@ export default function Galeri() {
             ) : filtered.length === 0 ? (
               <tbody>
                 <tr>
-                  <td colSpan="8" className="small" style={{ textAlign: "center" }}>
+                  <td colSpan="8" className="small" style={{ textAlign: 'center' }}>
                     Tidak Ada Data
                   </td>
                 </tr>
@@ -141,11 +142,11 @@ export default function Galeri() {
               <tbody>
                 {filtered.map((file, idx) => {
                   return (
-                    <tr key={file.id} style={{ cursor: "pointer" }}>
+                    <tr key={file.id} style={{ cursor: 'pointer' }}>
                       <td className="small">{idx + 1}</td>
                       <td className="small">{file.title}</td>
                       <td className="small">{file.image_url}</td>
-                      <td className="small">{file.status === true ? "Active" : "Not Active"}</td>
+                      <td className="small">{file.status === true ? 'Active' : 'Not Active'}</td>
                     </tr>
                   );
                 })}
