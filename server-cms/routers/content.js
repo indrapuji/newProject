@@ -14,8 +14,13 @@ router.post("/users/login", UserController.login);
 
 router.get("/", ContentController.getAll);
 router.get("/:id", ContentController.getOne);
-router.post("/create", upload.single("image_url"), ContentController.create);
-router.put("/:id", authorization, upload.single("image_url"), ContentController.update);
-router.delete("/:id", authorization, ContentController.delete);
+router.post("/create",
+    upload.fields([{
+        name: 'image_url',
+        maxCount: 1
+    }]),
+    ContentController.create);
+router.put("/:id", upload.single("image_url"), ContentController.update);
+router.delete("/:id", ContentController.delete);
 
 module.exports = router;
