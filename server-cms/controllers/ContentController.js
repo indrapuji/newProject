@@ -4,7 +4,10 @@ const serverUrl = require("../helpers/serverUrl");
 
 class ContentController {
   static getAll(req, res) {
-    Content.findAll()
+    const { category } = req.query;
+    let query = {};
+    if (category) query.where = { category };
+    Content.findAll(query)
       .then((data) => {
         res.status(200).json(data);
       })
@@ -37,8 +40,7 @@ class ContentController {
 
   static create(req, res) {
     const { category, title, text, status } = req.body;
-    console.log(req.file);
-    let option = { category, title, text, status, userId: req.user.id };
+    let option = { category, title, text, status };
     if (req.file) option.image_url = serverUrl + req.file.path;
     Content.create(option)
       .then((data) => {
